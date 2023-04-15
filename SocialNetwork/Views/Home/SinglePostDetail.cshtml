@@ -1,0 +1,12 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "_LayoutHome";
+}
+
+@using SocialNetwork.ViewModels
+@model PostDetailViewModel
+<div class="container m-auto">
+    @await Html.PartialAsync("_PartialPostDetail", Model);
+</div>

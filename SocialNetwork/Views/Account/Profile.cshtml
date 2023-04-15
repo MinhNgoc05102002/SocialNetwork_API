@@ -1,0 +1,352 @@
+﻿@using SocialNetwork.ViewModels
+@using SocialNetwork.Models
+@model SocialNetwork.Models.Account
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Profile Page";
+    Layout = "_LayoutHome";
+}
+
+@{
+    List<PostDetailViewModel> ListPostDetail = ViewBag.ListPostDetail;
+    int currentAccountId = CurrentAccount.account.AccountId;
+    int targetAccountId = Model.AccountId;
+}
+
+<div class="container pro-container m-auto">
+
+    @if (currentAccountId == targetAccountId)
+    {
+        <!-- profile-cover-->
+        <div id="upload-profile-picture" class="modal" style="display: none;">
+            <div class="heading">
+                <h3>Thay đổi ảnh đại diện</h3>
+            </div>
+            <div class="list-item">
+                <form id="upload-form" method="post" enctype="multipart/form-data" asp-action="UploadAvatar">
+                    <button class="item" onclick="selectImage()" style="color: rgb(185 28 28);">
+                        Tải ảnh lên
+                    </button>
+                    <input name="image" id="input-file" accept="image/jpeg,image/png" class="item" type="file">
+                </form>
+                <form method="post" asp-action="RemoveAvatar">
+                    <button class="item" onclick="location.href=window.location.href;">Gỡ ảnh hiện tại</button>
+                </form>
+                <button class="item" onclick="$.modal.close();">Hủy</button>
+            </div>
+        </div>
+    }
+    
+    <div class="flex lg:flex-row flex-col items-center lg:py-8 lg:space-x-8">
+
+        <div>
+            <div class="bg-gradient-to-tr from-yellow-600 to-pink-600 p-1 rounded-full m-0.5 mr-2  w-56 h-56 relative overflow-hidden uk-transition-toggle">
+                <img src="@Model.Avatar"
+                     class="bg-gray-200 border-4 border-white rounded-full w-full h-full dark:border-gray-900"
+                     onclick="$('#upload-profile-picture').modal({fadeDuration: 50, fadeDelay: 0.5, showClose: false});">
+            </div>
+        </div>
+        <form asp-action="profile">
+            <div class="lg:w/8/12 flex-1 flex flex-col lg:items-start items-center">
+
+                <h2 class="font-semibold lg:text-2xl text-lg mb-2">@Model.FullName</h2>
+                <p class="lg:text-left mb-2 text-center  dark:text-orange-100">
+                    @Model.AboutMe
+                </p>
+
+                <div class="flex font-semibold mb-3 space-x-2  dark:text-gray-10">
+                    @Model.Location
+                </div>
+
+                <div class="capitalize flex font-semibold space-x-3 text-center text-sm my-2">
+                    @if (targetAccountId == currentAccountId)
+                    {
+                        <a href="/account/setting" class="bg-gray-300 shadow-sm p-2 px-6 rounded-md dark:bg-gray-700">Edit profile</a>
+                        <a href="/account/FollowRequest" class="bg-gray-300 shadow-sm p-2 px-6 rounded-md dark:bg-gray-700">Follow Request</a>
+                        <a href="/account/BlockedList" class="bg-gray-300 shadow-sm p-2 px-6 rounded-md dark:bg-gray-700">Blocked List</a>
+                    }
+                    else
+                    {
+                        if (ViewBag.Following)
+                        {
+                            <!-- hộp thoại xác nhận bỏ follow-->
+                            <div id="confirm-unfollow" class="modal" style="display: none;">
+                                <div class="heading">
+                                    <h3>Xác nhận bỏ theo dõi người này ?</h3>
+                                </div>
+                                <div class="list-item">
+                                    <button class="item" onclick="unfollow(@currentAccountId, @targetAccountId); $.modal.close();">
+                                        Bỏ theo dõi
+                                    </button>
+                                    <button class="item" onclick="$.modal.close();">Hủy</button>
+                                </div>
+                            </div>
+                            <a class="bg-gray-300 shadow-sm p-2 px-6 rounded-md dark:bg-gray-700"
+                       onclick="$('#confirm-unfollow').modal({fadeDuration: 50, fadeDelay: 0.5, showClose: false});">
+                                Following
+                            </a>
+                        }
+                        else
+                        {
+                            if (Model.AccountType == "Public")
+                            {
+                                <a class="bg-gray-300 shadow-sm p-2 px-6 rounded-md dark:bg-gray-700"
+                       onclick="follow(@currentAccountId, @targetAccountId);">
+                                    Follow
+                                </a>
+                            }
+                            else
+                            {
+                                if (ViewBag.Requested)
+                                {
+                                    <a class="bg-gray-300 shadow-sm p-2 px-6 rounded-md dark:bg-gray-700"
+                       onclick="cancelRequestFollow(@currentAccountId, @targetAccountId);">
+                                        Cancel Request
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a class="bg-gray-300 shadow-sm p-2 px-6 rounded-md dark:bg-gray-700"
+                       onclick="requestFollow(@currentAccountId, @targetAccountId);">
+                                        Send Request
+                                    </a>
+                                }
+                            }
+                        }
+                        <a href="/messages/account/@Model.AccountId"
+                       class="bg-pink-500 shadow-sm p-2 pink-500 px-6 rounded-md text-white hover:text-white hover:bg-pink-600">
+                            Send message
+                        </a>
+                        <div>
+
+                            @*Expand*@
+
+                            <a href="#"
+                           class="bg-gray-300 flex h-12 h-full items-center justify-center rounded-full text-xl w-9 dark:bg-gray-700">
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </a>
+
+                            <div class="bg-white w-56 shadow-md mx-auto p-2 mt-12 rounded-md text-gray-500 hidden text-base dark:bg-gray-900"
+                             uk-drop="mode: click">
+
+                                <ul class="space-y-1">
+                                    <li>
+                                        <a href="#"
+                                       class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md dark:hover:bg-gray-700">
+                                            <i style="padding-right: 5px;" class="fa-solid fa-share-nodes"></i>
+                                            Share This Profile
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <hr class="-mx-2 my-2  dark:border-gray-700">
+                                    </li>
+                                    <li>
+                                        <a class="flex items-center px-3 py-2 text-red-500 hover:bg-red-100 hover:text-red-500 rounded-md dark:hover:bg-red-600"
+                                       onclick="block(@currentAccountId, @targetAccountId);">
+                                            <i style="padding-right: 5px;" class="fa-solid fa-ban"></i> Block
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            </div>
+
+                        </div>
+                    }
+
+
+
+                </div>
+
+                <div class="divide-gray-300 divide-transparent divide-x grid grid-cols-3 lg:text-left lg:text-lg mt-3 text-center w-full dark:text-gray-100">
+                    @{
+                        string followingText = Model.Following.ToString();
+                        string followerText = Model.Follower.ToString();
+                        string PostCount = ViewBag.PostCount.ToString();
+                        if (Model.Following >= 1000)
+                        {
+                            int? followingK = Model.Following / 1000;
+                            followingText = followingK.ToString() + "K";
+                        }
+                        if (Model.Follower >= 1000)
+                        {
+                            int? followerK = Model.Follower / 1000;
+                            followerText = followerK.ToString() + "K";
+                        }
+                        if (ViewBag.PostCount >= 1000)
+                        {
+                            int? PostK = ViewBag.PostCount / 1000;
+                            PostCount = PostK.ToString() + "K";
+                        }
+                    }
+                    <div class="flex lg:flex-row flex-col p-3">
+                        @PostCount <strong class="lg:pl-2">Posts</strong>
+                    </div>
+                    <div class="lg:pl-4 flex lg:flex-row flex-col p-3">
+                        @followerText <strong class="lg:pl-2">Followers</strong>
+                    </div>
+                    <div class="lg:pl-4 flex lg:flex-row flex-col p-3">
+                        @followingText <strong class="lg:pl-2">Following</strong>
+                    </div>
+                </div>
+
+            </div>
+
+        </form>
+
+        <div class="w-20"></div>
+
+    </div>
+
+    <div class="flex items-center justify-between mt-8 space-x-3">
+        <h1 class="flex-1 font-extrabold leading-none lg:text-2xl text-lg text-gray-900 tracking-tight uk-heading-line">
+            <span>Posts</span>
+        </h1>
+        <div class="bg-white border border-2 border-gray-300 divide-gray-300 divide-x flex rounded-md shadow-sm dark:bg-gray-100">
+            <a href="#" class="bg-gray300 flex h-10 items-center justify-center  w-10"
+               data-tippy-placement="top" title="Grid view"> <i class="uil-apps"></i></a>
+            <a href="#" class="flex h-10 items-center justify-center w-10" data-tippy-placement="top"
+               title="List view"> <i class="uil-list-ul"></i></a>
+        </div>
+    </div>
+
+    <div class="my-6 grid lg:grid-cols-4 grid-cols-2 gap-1.5 hover:text-yellow-700 uk-link-reset">
+        @if (currentAccountId != targetAccountId && Model.AccountType == "Private" && !ViewBag.Following)
+        {
+            <p>Đây là tài khoản riêng tư, vui lòng theo dõi để xem bài viết của họ</p>
+        }
+        else
+        {
+            @foreach (var item in ListPostDetail)
+            {
+                @await Html.PartialAsync("_PartialStoryModal", item)
+                <div>
+                    <a href="#story-modal-@item.Post.PostId" uk-toggle>
+                        <div class="bg-red-500 max-w-full lg:h-64 h-40 rounded-md relative overflow-hidden uk-transition-toggle"
+                     tabindex="0">
+                            @{
+                                bool containVideo = item.checkContainVideo();
+                                string linkImg = "";
+                                if (item.GetListMedia().Count == 0)
+                                {
+                                    linkImg = "https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg";
+                                }
+                                else
+                                {
+                                    if (containVideo)
+                                    {
+                                        linkImg = "https://img.freepik.com/premium-vector/video-icon_609277-390.jpg";
+                                    }
+                                    else
+                                    {
+                                        linkImg = item.GetListMedia()[0].MediaLink;
+                                    }
+                                }
+                            }
+                            <img src="@linkImg"
+                         class="w-full h-full absolute object-cover inset-0">
+
+                            <div class="absolute bg-black bg-opacity-40 bottom-0 flex h-full items-center justify-center space-x-5 text-lg text-white uk-transition-scale-up w-full">
+                                <span class="flex items-center">
+                                    <ion-icon name="heart"
+                                      class="mr-1"></ion-icon> @item.GetListAccountLiked().Count
+                                </span>
+                                <span class="flex items-center">
+                                    <ion-icon name="chatbubble-ellipses" class="mr-1"></ion-icon> @item.GetListComment().Count
+                                </span>
+
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+            }
+        }
+    </div>
+
+</div>
+
+@section ScriptProfile
+    {
+    <script>
+        function unfollow(sourceId, targetId) {
+            $.ajax({
+                url: `https://localhost:7150/api/actionapi/unfollow?source=${sourceId}&target=${targetId}`,
+                type: 'DELETE',
+                success: function (data) {
+                    location.reload();
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    alert("Error");
+
+                }
+            });
+        }
+
+        function follow(sourceId, targetId) {
+            $.ajax({
+                url: `https://localhost:7150/api/actionapi/follow?source=${sourceId}&target=${targetId}`,
+                type: 'POST',
+                contentType: 'application/json',
+                success: function (data) {
+                    location.reload();
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    alert("Error");
+                }
+            });
+        }
+
+        function block(sourceId, targetId) {
+            $.ajax({
+                url: `https://localhost:7150/api/actionapi/block?source=${sourceId}&target=${targetId}`,
+                type: 'PUT',
+                contentType: 'application/json',
+                success: function (data) {
+                    location.reload();
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    alert("Error");
+                }
+            });
+        }
+
+        function requestFollow(sourceId, targetId) {
+            $.ajax({
+                url: `https://localhost:7150/api/actionapi/request_follow?source=${sourceId}&target=${targetId}`,
+                type: 'POST',
+                contentType: 'application/json',
+                success: function (data) {
+                    location.reload();
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    alert("Error");
+                }
+            });
+        }
+
+        function cancelRequestFollow(sourceId, targetId) {
+            $.ajax({
+                url: `https://localhost:7150/api/actionapi/cancel_request_follow?source=${sourceId}&target=${targetId}`,
+                type: 'DELETE',
+                contentType: 'application/json',
+                success: function (data) {
+                    location.reload();
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    alert("Error");
+                }
+            });
+        }
+
+        function selectImage() {
+            // Trigger the file input dialog
+            document.getElementById('input-file').click();
+
+            // Submit the form when the user selects an image file
+            document.getElementById('input-file').onchange = function () {
+                document.getElementById('upload-form').submit();
+            };
+        }
+    </script>
+}

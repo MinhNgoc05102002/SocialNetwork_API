@@ -1,0 +1,475 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon -->
+    <link href="/assets/images/favicon.png" rel="icon" type="image/png">
+
+    <!-- Basic Page Needs
+        ================================================== -->
+    <title>@ViewData["Title"]</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Instello - Sharing Photos platform HTML Template">
+
+    <!-- icons
+        ================================================== -->
+    <link rel="stylesheet" href="/assets/css/icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- CSS
+        ================================================== -->
+    <link rel="stylesheet" href="/assets/css/uikit.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/tailwind.css">
+    <link rel="stylesheet" href="/assets/css/chat.css">
+    <link rel="stylesheet" href="/assets/css/lxq_add.css">
+    @*Quynh lam*@
+    <style>
+        #upload-custom-btn {
+            margin: 10px 0;
+        }
+
+        .upload-wrapper:hover {
+            cursor: pointer;
+        }
+
+        @@media (min-width: 1024px) {
+            header .header_inner {
+                max-width: 980px;
+            }
+
+            .pro-container {
+                max-width: 860px;
+            }
+        }
+
+        .liked {
+            color: #c23564;
+        }
+
+        .word-wrap{
+            width: 200px;
+            word-wrap: break-word;
+        }
+        /* make scroll */
+        .scrollbar {
+            height: 160px;
+            overflow-y: scroll;
+        }
+        /* css cute scrollbar */
+        .scroll-style-1::-webkit-scrollbar {
+            width: 6px;
+            background-color: #F5F5F5;
+        }
+
+        .scroll-style-1::-webkit-scrollbar-thumb {
+            background-color: #ec4899;
+        }
+
+        .scroll-style-1::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px #f3f4f6;
+            background-color: #F5F5F5;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="notification-copy-successful">Copy link post successfully !</div>
+
+    <div id="wrapper">
+
+        @await Html.PartialAsync("_PartialSidebar")
+
+        <div class="main_content">
+
+            <header>
+                @await Html.PartialAsync("_PartialHeader")
+            </header>
+
+            @RenderBody()
+        </div>
+
+    </div>
+
+
+    <!-- Chi tiết 1 bài đăng (like, comment here) -->
+    <!-- Story modal -->
+    <!-- Upload modal -->
+    <form method="post" action="/Home/CreatePost" id="upload-modal" class="uk-modal-container" uk-modal enctype="multipart/form-data">
+        <button class="uk-modal-close-default btn-close-upload" type="button" uk-close></button>
+        <div class="uk-modal-dialog story-modal">
+            <div class="grid-cols-12 header-upload">
+                <div class="header-modal-share">
+                </div>
+
+                <div class="header-modal-title">
+                    <h1 class="header-modal-title-text">Create new post</h1>
+                </div>
+
+                <div class="header-modal-share">
+                    <button class="header-modal-btn" type="submit">Share</button>
+                </div>
+            </div>
+            <div class="story-modal-media upload-modal-media">
+                <div class="upload-wrapper" onclick="document.getElementById('upload-default-btn').click()">
+                    <img src="" class="upload-image inset-0 h-full w-full" alt="">
+                    <div class="upload-content">
+                        <div class="upload-icon">
+                            <div class="fas fa-cloud-upload-alt"></div>
+                        </div>
+                        <div class="upload-text">No file chosen, yet!</div>
+                    </div>
+                    <div id="upload-cancel-btn"><i class="fas fa-times"></i></div>
+                    <div class="upload-file-name">File name here</div>
+                </div>
+                <input placeholder="safdads" id="upload-default-btn" type="file" multiple hidden name="images" />
+                <button id="upload-custom-btn" onclick="defaultBtnActive()">Choose a file</button>
+            </div>
+            <div class="flex-1 bg-white dark:bg-gray-900 dark:text-gray-100 upload-note-item">
+                <div class="border-b flex items-center justify-between px-5 py-3 dark:border-gray-600">
+                    <div class="flex flex-1 items-center space-x-4">
+                        <a href="#">
+                            <div class="bg-gradient-to-tr from-yellow-600 to-pink-600 p-0.5 rounded-full">
+                                <img src="@CurrentAccount.account.Avatar"
+                                     class="bg-gray-200 border border-white rounded-full w-8 h-8">
+                            </div>
+                        </a>
+                        <span class="block text-lg font-semibold"> @CurrentAccount.account.DisplayName </span>
+                    </div>
+                    <a href="#">
+                        <i class="icon-feather-more-horizontal text-2xl rounded-full p-2 transition -mr-1"></i>
+                    </a>
+                </div>
+
+                <div class="story-content p-4" data-simplebar>
+                    <textarea name="Content" id="" cols="12" rows="20" placeholder="Write your comments..." class="txt-comments"></textarea>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+    <script>
+        const wrapper = document.querySelector('.upload-wrapper')
+        const fileName = document.querySelector('.upload-file-name')
+        const defaultBtn = document.querySelector('#upload-default-btn')
+        const shareBtn = document.querySelector('#post-share-btn')
+        const cancelBtn = document.querySelector('#upload-cancel-btn')
+        const customBtn = document.querySelector('#upload-custom-btn')
+        const img = document.querySelector('.upload-image')
+
+        function defaultBtnActive() {
+            defaultBtn.click()
+        }
+
+        defaultBtn.addEventListener('change', function () {
+            const file = this.files[0]
+            console.log(this.files)
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function () {
+                    const result = reader.result
+                    img.src = result
+                    wrapper.classList.add("active")
+                }
+                cancelBtn.addEventListener("click", function () {
+                    img.src = ""
+                })
+                reader.readAsDataURL(file)
+            }
+            if (this.value) {
+                let valueStore = this.value;
+                fileName.textContent = valueStore;
+            }
+        })
+
+            //Dark mode
+            (function (window, document, undefined) {
+                'use strict';
+                if (!('localStorage' in window)) return;
+                var nightMode = localStorage.getItem('gmtNightMode');
+                if (nightMode) {
+                    document.documentElement.className += ' dark';
+                }
+            })(window, document);
+
+
+        (function (window, document, undefined) {
+
+            'use strict';
+
+            // Feature test
+            if (!('localStorage' in window)) return;
+
+            // Get our newly insert toggle
+            var nightMode = document.querySelector('#night-mode');
+            if (!nightMode) return;
+
+            // When clicked, toggle night mode on or off
+            nightMode.addEventListener('click', function (event) {
+                event.preventDefault();
+                document.documentElement.classList.toggle('dark');
+                if (document.documentElement.classList.contains('dark')) {
+                    localStorage.setItem('gmtNightMode', true);
+                    return;
+                }
+                localStorage.removeItem('gmtNightMode');
+            }, false);
+
+        })(window, document);
+    </script>
+
+    <!-- Upload modal -->
+    <!-- Scripts
+       ================================================== -->
+    <script src="/assets/js/tippy.all.min.js"></script>
+    <script src="/assets/js/jquery-3.3.1.min.js"></script>
+    <script src="/assets/js/uikit.js"></script>
+    <script src="/assets/js/simplebar.js"></script>
+    <script src="/assets/js/custom.js"></script>
+
+    @*Quynh them*@
+    <!-- Jquery Modal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
+
+    <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+    <script src="https://kit.fontawesome.com/bda3bb47f4.js" crossorigin="anonymous"></script>
+
+
+    <script>
+        // Slide show (fix)
+        let indexValue = 0;
+        function slideShow(postId) {
+            indexValue = 0;
+            showImg(postId, indexValue);
+        }
+        // Slide show (fix)
+
+        function btm_slide(postId, e) { showImg(postId, indexValue = e); }
+        function side_slide(postId, e) { showImg(postId, indexValue += e); }
+        function showImg(postId, e) {
+            var i;
+            const img = document.querySelectorAll('#story-modal-' + postId + ' .story-img');
+            const sliders = document.querySelectorAll('#story-modal-' + postId + ' .btn-sliders span')
+            if (e == img.length) {
+                indexValue = 0;
+            }
+            if (e < 0) {
+                indexValue = img.length - 1;
+            }
+            for (i = 0; i < img.length; i++) {
+                img[i].style.display = "none";
+                if (img[i].tagName.toLowerCase() === 'video') {
+                    img[i].pause();
+                }
+            }
+
+            for (i = 0; i < sliders.length; i++) {
+                sliders[i].style.background = "rgba(225, 225, 225, 0.2)";
+            }
+
+            img[indexValue].style.display = "block";
+            sliders[indexValue].style.background = "#fff";
+        }
+
+        // Fix sidebar
+        function toggle() {
+            var sidebar = document.querySelector('.sidebar');
+            if (sidebar.style.display === "block") {
+                sidebar.style.display = "none";
+            }
+        }
+
+        // Xử lí thêm class active vào thẻ li phần sidebar
+        $(document).ready(function () {
+            var pageTitle = $('title').text();
+            switch (true) {
+                case pageTitle.includes("Home Page"):
+                    $(".sidebar ul li:eq(0)").addClass("active");
+                    break;
+                case pageTitle.includes("Search"):
+                    $(".sidebar ul li:eq(1)").addClass("active");
+                    break;
+                case pageTitle.includes("Messages Page"):
+                    $(".sidebar ul li:eq(2)").addClass("active");
+                    break;
+                case pageTitle.includes("Setting Page"):
+                    $(".sidebar ul li:eq(3)").addClass("active");
+                    break;
+                case pageTitle.includes("Profile Page"):
+                    $(".sidebar ul li:eq(4)").addClass("active");
+                    break;
+            }
+        });
+
+        function copyToClipboard(text) {
+            const input = document.createElement('input');
+            input.setAttribute('type', 'text');
+            input.setAttribute('value', text);
+
+            document.body.appendChild(input);
+
+            input.select();
+
+            document.execCommand('copy');
+
+            document.body.removeChild(input);
+
+            const notification = document.querySelector('.notification-copy-successful');
+            notification.style.display = 'block';
+
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 3000);
+        }
+
+    </script>
+
+
+    @*  Xử lí like và comment*@
+    <script>
+        function handleLikePost(postId) {
+            var str = '.handleLike_' + postId
+            var strCount = '.handleLikeCount_' + postId
+            var likeCount = +(document.querySelectorAll(strCount).item(0).innerHTML.split(" ")[0])
+            console.log(document.querySelectorAll(strCount).item(0))
+            console.log(likeCount)
+            console.log("call handle like function")
+            $.ajax({
+                url: 'https://localhost:7150/api/ActionAPI?postId=' + postId,
+                type: 'POST',
+                dataType: 'json',
+                success: function (data) {
+                    var likeElement = $(str)
+                    if (data == false) {
+                        likeElement.removeClass("liked")
+                        if (likeCount > 0) {
+                            likeCount -= 1;
+                            document.querySelectorAll(strCount).forEach(function (item) {
+                                item.innerHTML = likeCount + ' persons'
+                            })
+                            // $(strCount).html = likeCount + ' persons'
+                        }
+                    } else {
+                        if (!likeElement.hasClass("liked")) {
+                            likeElement.addClass("liked")
+                            likeCount += 1;
+                            document.querySelectorAll(strCount).forEach(function (item) {
+                                item.innerHTML = likeCount + ' persons'
+                            })
+                        }
+                    }
+                },
+                error: function (xhr) {
+                    alert(xhr.responseText);
+                }
+            });
+        }
+
+        function handleComment(event, postId) {
+            console.log(event.target)
+            event.preventDefault()
+
+            var commentArea = document.querySelector('.comment-area-' + postId)
+            var commentAreaModel = document.querySelector('.comment-area-model-' + postId)
+            console.log(commentAreaModel)
+            var content = event.target.querySelector('input').value;
+            var comment = {
+                "PostId": postId,
+                "Content": content
+            }
+            event.target.querySelector('input').value = "";
+            $.ajax({
+                url: 'https://localhost:7150/api/ActionAPI/addComment',
+                type: 'POST',
+                dataType: 'json',
+                contentType: 'application/json',
+                data: JSON.stringify(comment),
+                success: function (data) {
+                    console.log("thanhcong", data)
+                    // Them comment vao post model
+                    var commentModel = document.createElement('div')
+                    commentModel.classList.add("flex")
+                    commentModel.classList.add("flex-1")
+                    commentModel.classList.add("items-center")
+                    commentModel.classList.add("space-x-2")
+                    commentModel.innerHTML = `
+                                                                            <img src="${data.accountImg}" class="rounded-full w-8 h-8">
+                                                                            <span class="block capitalize font-semibold dark:text-gray-100">${data.accountName}</span>
+                                                                    <div class="flex-1 p-2">
+                                                                        ${data.content}
+                                                                    </div> `
+
+                    commentAreaModel.appendChild(commentModel)
+                    console.log(commentAreaModel)
+
+
+                    var comment = document.createElement('div')
+                    // Them comment vao post
+                    comment.classList.add("flex")
+                    comment.innerHTML = `
+                                                            <div class="w-10 h-10 rounded-full relative flex-shrink-0">
+                                                                        <img src="${data.accountImg}" alt="" class="absolute h-full rounded-full w-full">
+                                                            </div>
+                                                            <div class="text-gray-700 py-2 px-3 rounded-md bg-gray-100 h-full relative lg:ml-5 ml-2 lg:mr-20  dark:bg-gray-800 dark:text-gray-100">
+                                                                <span class="block capitalize font-semibold dark:text-gray-100">${data.accountName}</span>
+                                                                <p class="leading-6 word-wrap"> ${data.content} <urna class="i uil-heart"></urna> <i class="uil-grin-tongue-wink"> </i>
+                                                                </p>
+                                                                <div class="absolute w-3 h-3 top-3 -left-1 bg-gray-100 transform rotate-45 dark:bg-gray-800"></div>
+                                                            </div>`
+                    commentArea?.appendChild(comment)
+
+
+                },
+                error: function (xhr) {
+                    alert(xhr.responseText);
+                }
+            });
+
+
+        }
+    </script>
+
+    @*Chuyển trạng thái thông báo thành đã đọc*@
+    <script>
+        function readNoti(notiId) {
+            $.ajax({
+                url: `https://localhost:7150/api/actionapi/update_isRead?notiId=${notiId}`,
+                type: 'PUT',
+                contentType: 'application/json',
+                success: function (data) {
+                    // khong lam gi =))
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    alert("Error");
+                }
+            });
+        }
+    </script>
+
+    @RenderSection("ScriptProfile", required: false)
+    @RenderSection("ScriptChatSession", required: false)
+</body>
+
+
+</html>
+
+<style>
+    .nav-link {
+        color: black;
+    }
+
+    /* @@media (max-width: 470px) {
+                          .border-md-top {
+                            border-top: 1px solid #dee2e6;
+                            border-left: none;
+                          }
+                        } */
+</style>

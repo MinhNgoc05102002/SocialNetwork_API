@@ -1,0 +1,192 @@
+﻿@using SocialNetwork.Models
+<div class="header_inner">
+    <div class="left-side">
+        <!-- Logo -->
+        <div id="logo" class=" uk-hidden@s">
+            <a href="/">
+                <img src="/assets/images/logo-mobile.png" alt="">
+                <img src="/assets/images/logo-mobile-light.png" class="logo_inverse">
+            </a>
+        </div>
+
+        <div class="triger" uk-toggle="target: #wrapper ; cls: sidebar-active">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <div class="header_search">
+            <form action="/action/search">
+                <input name="searchText" type="text" placeholder="Search..">
+                <input style="display: none;" type="submit" value="Submit">
+            </form>
+            <div class="icon-search">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                     stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+            </div>
+        </div>
+
+    </div>
+    <div class="right-side lg:pr-4">
+        <!-- upload -->
+        <a href="#upload-modal"
+           class="bg-pink-500 flex font-bold hidden hover:bg-pink-600 hover:text-white inline-block items-center lg:block max-h-10 mr-4 px-4 py-2 rounded shado text-white" uk-toggle>
+            <ion-icon name="add-circle" class="-mb-1
+                             mr-1 opacity-90 text-xl uilus-circle"></ion-icon> Upload
+        </a>
+
+        <!-- Notification -->
+
+        <a href="#" class="header-links-item">
+            @{
+                var numberNoti = @CurrentAccount.Data.getListNotification().Where(x => x.IsRead == false).ToList().Count;
+                if(numberNoti > 0) {
+                    <span style="color: white; background-color: #c22566; border-radius:50%; width: 18px; height: 18px; display: inline-block; text-align: center; font-size: 12px; font-weight: bolder; position: absolute; margin: -10px 0px 20px 13px;" class="nav-tag"> @numberNoti</span>
+                }
+            }
+            
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                 stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                
+            </svg>
+            
+        </a>
+        <div uk-drop="mode: click;offset: 4" class="header_dropdown">
+            <h4 class="-mt-5 -mx-5 bg-gradient-to-t from-gray-100 to-gray-50 border-b font-bold px-6 py-3">
+                Notification
+            </h4>
+            <ul class="dropdown_scrollbar" data-simplebar>
+                @foreach (var item in CurrentAccount.Data.getListNotification())
+                {
+                    if (item.TypeNotification == 1)
+                    {
+                        // TypeNotification = 1 là thông báo về các tương tác liên quan đến bài đăng
+                        <li>
+                            <a href="/p/@item.PostId" onclick="readNoti(@item.NotiId)">
+                                <div class="drop_content">
+                                    <p>
+                                        @if (item.IsRead == false)
+                                        {
+                                            <span style="color: black; font-weight: bold;">@item.Content</span>
+                                        }
+                                        else
+                                        {
+                                            @item.Content
+                                        }
+                                    </p>
+                                    <span class="time-ago"> @item.CreateAt </span>
+                                </div>
+                            </a>
+                        </li>
+                    }
+                    else if (item.TypeNotification == 2)
+                    {
+                        // TypeNotification = 2 là thông báo liên quan đến các hoạt động follow, chấp nhận yêu cầu follow
+                        <li>
+                            <a href="/account/profile?accountId=@item.PostId" onclick="readNoti(@item.NotiId)">
+                                <div class="drop_content">
+                                    <p>
+                                        @if (item.IsRead == false)
+                                        {
+                                            <span style="color: black; font-weight: bold;">@item.Content</span>
+                                        }
+                                        else
+                                        {
+                                            @item.Content
+                                        }
+                                    </p>
+                                    <span class="time-ago"> @item.CreateAt </span>
+                                </div>
+                            </a>
+                        </li>
+                    }
+                    else if (item.TypeNotification == 3)
+                    {
+                        // TypeNotification = 3 là thông báo liên quan đến hoạt động gửi yêu cầu follow
+                        <li>
+                            <a href="/account/FollowRequest" onclick="readNoti(@item.NotiId)">
+                                <div class="drop_content">
+                                    <p>
+                                        @if (item.IsRead == false)
+                                        {
+                                            <span style="color: black; font-weight: bold;">@item.Content</span>
+                                        }
+                                        else
+                                        {
+                                            @item.Content
+                                        }
+                                    </p>
+                                    <span class="time-ago"> @item.CreateAt </span>
+                                </div>
+                            </a>
+                        </li>
+                    }
+                    
+                }
+            </ul>
+        </div>
+
+        <!-- Messages -->
+
+        <a href="#" class="header-links-item">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                 stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+            </svg>
+        </a>
+        <div uk-drop="mode: click;offset: 4" class="header_dropdown">
+            <h4 class="-mt-5 -mx-5 bg-gradient-to-t from-gray-100 to-gray-50 border-b font-bold px-6 py-3">
+                Messages
+            </h4>
+            <ul class="dropdown_scrollbar" data-simplebar>
+                @foreach (var item in CurrentAccount.Data.getListChatSession())
+                {  
+                    <li>
+                        @{
+                            Message newestMessage = CurrentAccount.Data.getNewestMessage(item);
+                        }
+                        
+                        <a href="/Messages/ChatSession/">
+                            <div class="drop_avatar">
+                                <img src="@CurrentAccount.account.Avatar" alt="">
+                            </div>
+                            <div class="drop_content">
+                                @if (newestMessage != null)
+                                {
+                                    <strong> @item.Name </strong> <time> @newestMessage.CreateAt </time>
+                                    <p> @newestMessage.MessageContent </p>
+                                }
+                                else
+                                {
+                                    <strong> @item.Name </strong> <time> -- </time>
+                                    <p> Chat with me bro! </p>
+                                }
+
+                            </div>
+                        </a>
+                    </li>
+                }
+            </ul>
+            <a href="#" class="see-all">See all</a>
+        </div>
+
+        <!-- profile -->
+
+        <a href="#">
+            <img src="@CurrentAccount.account.Avatar" class="header-avatar" alt="">
+        </a>
+        <div uk-drop="mode: click;offset:9" class="header_dropdown profile_dropdown border-t">
+            <ul>
+                <li><a href="#"> Account setting </a> </li>
+                <li><a href="#"> Payments </a> </li>
+                <li><a href="#"> Help </a> </li>
+                <li><a href="/account/logout"> Log Out</a></li>
+            </ul>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,8 @@
+﻿@using SocialNetwork.ViewModels
+@model List<PostDetailViewModel>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@foreach (var item in Model)
+{
+    @await Html.PartialAsync("_PartialPostDetail", item);
+}
