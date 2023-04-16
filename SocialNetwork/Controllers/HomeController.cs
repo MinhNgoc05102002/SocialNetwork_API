@@ -85,8 +85,9 @@ namespace SocialNetwork.Controllers
             if (post != null)// && CurrentAccount.account.AccountId == post.AccountId)
 			{
                 post.IsDeleted = true;
+				string hello = "";
                 context.Entry(post).State = EntityState.Modified;
-                context.SaveChanges();
+                context.SaveChanges(); 
             }
 
             return RedirectToAction("Index");
