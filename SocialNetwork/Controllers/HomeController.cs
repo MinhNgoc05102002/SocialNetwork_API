@@ -133,5 +133,10 @@ namespace SocialNetwork.Controllers
 			context.SaveChanges();
             return Json(new { singlePost });
         }
+
+		public IActionResult Weather()
+		{
+			return View();
+		}
     }
 }

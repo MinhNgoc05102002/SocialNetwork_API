@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="/assets/css/tailwind.css">
     <link rel="stylesheet" href="/assets/css/chat.css">
     <link rel="stylesheet" href="/assets/css/lxq_add.css">
+    <link rel="stylesheet" href="/assets/css/weather.css">
     @*Quynh lam*@
     <style>
         #upload-custom-btn {
@@ -527,7 +528,8 @@
 
     @RenderSection("ScriptProfile", required: false)
     @RenderSection("ScriptChatSession", required: false)
-
+    @RenderSection("ScriptWeather", required: false)
+    @RenderSection("ScriptWeatherIndex", required: false)
     <script>
         function updateComment(idComment,atribute){
             const blockContent = $(`[${atribute}=${idComment}]`);

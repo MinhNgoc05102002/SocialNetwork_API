@@ -21,7 +21,7 @@ namespace SocialNetwork.Controllers
             if (currentAccount.IsAdmin == true)
             {
                 int pageNumber = page == null || page < 1 ? 1 : page.Value;
-                int pageSise = 3;
+                int pageSise = 5;
                 var listAccount = context.Accounts.AsNoTracking().OrderBy(x => x.AccountId).ToList();
                 PagedList<Account> list = new PagedList<Account>(listAccount, pageNumber, pageSise);
                 return View(list);
@@ -30,15 +30,16 @@ namespace SocialNetwork.Controllers
         }
 
         [Authentication]
-        [HttpGet]
+        [HttpPut]
         public IActionResult BanAccount(int? accountId)
         {
 
             //if (CurrentAccount.account.IsAdmin == true)
-            int? currentAccountID = HttpContext.Session.GetInt32("accountId");
-            Account currentAccount = context.Accounts.Find(currentAccountID);
-
-            if (currentAccount.IsAdmin == true)
+            // int? currentAccountID = HttpContext.Session.GetInt32("accountId");
+            // Account currentAccount = context.Accounts.Find(currentAccountID);
+            string message = "";
+            bool? isBan = false, status;
+            if (CurrentAccount.account.IsAdmin == true)
             {
                 Account accountBan = context.Accounts.SingleOrDefault(x => x.AccountId == accountId);
                 if (accountBan != null && accountBan.IsAdmin == false)
@@ -46,11 +47,14 @@ namespace SocialNetwork.Controllers
                     accountBan.IsBanned = !accountBan.IsBanned;
                     context.Entry(accountBan).State = EntityState.Modified;
                     context.SaveChanges();
-                    TempData["Message"] = "Changes has been saved ";
-                    return RedirectToAction("Index");
+                    message = "Changes has been saved ";
+                    status = true;
+                    isBan = accountBan.IsBanned;
+                    return Json(new { status, message, isBan });
                 }
-                TempData["Message"] = "Changes hasn't been saved !!!";
-                return RedirectToAction("Index");
+                 message = "Changes hasn't been saved ";
+                status = false;
+                return Json(new { status, message, isBan });
             }
 
             return RedirectToAction("Index", "Home");
