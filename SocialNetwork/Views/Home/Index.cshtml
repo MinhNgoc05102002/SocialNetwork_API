@@ -4,7 +4,7 @@
 }
 
 <div class="container m-auto">
-     
+
     <h1 class="lg:text-2xl text-lg font-extrabold leading-none text-gray-900 tracking-tight mb-5"> Feed </h1>
     <div class="lg:flex justify-center lg:space-x-10 lg:space-y-0 space-y-5">
 
@@ -15,6 +15,50 @@
 
         <!-- right sidebar-->
         <div class="lg:w-5/12">
+            <a href="/Home/Weather" class="widget-container">
+                <div class="top">
+                    <div class="top-left">
+                        <h1 class="city" id="city">City Name</h1>
+                        <h2 id="day">Day</h2>
+                        <h3 id="date">Month, Day Year</h3>
+                        <h3 id="time">Time</h3>
+                        <!--       <a target="_blank" href="https://codepen.io/myleschuahiock/"><p id="codepen-link">codepen.io/myleschuahiock</p></a> -->
+                        <p class="geo"></p>
+                    </div>
+                    <div class="top-right">
+                        <h1 id="weather-status">Clouds / overcast clouds</h1>
+                        <i id="weather-icon" class="fas fa-sun"></i>
+                        <!-- <img class="weather-icon" src="https://myleschuahiock.files.wordpress.com/2016/02/sunny2.png"> -->
+                    </div>
+                </div>
+
+                <div class="horizontal-half-divider"></div>
+                <div class="bottom">
+                    <div class="bottom-left">
+                        <h1 id="temperature">0</h1>
+                        <h2 id="celsius">&degC</h2>
+                        <h2 id="temp-divider">/</h2>
+                        <h2 id="fahrenheit">&degF</h2>
+                    </div>
+                    <div class="vertical-half-divider"></div>
+                    <div class="bottom-right">
+                        <div class="other-details-key">
+                            <p>Wind Speed</p>
+                            <p>Humidity</p>
+                            <p>Pressure</p>
+                            <p>Sunrise Time</p>
+                            <p>Sunset Time</p>
+                        </div>
+                        <div class="other-details-values">
+                            <p class="windspeed">0 Km/h</p>
+                            <p class="humidity">0 %</p>
+                            <p class="pressure">0 hPa</p>
+                            <p class="sunrise-time">0:00 am</p>
+                            <p class="sunset-time">0:00 pm</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
 
             <div class="bg-white dark:bg-gray-900 shadow-md rounded-md overflow-hidden">
 
@@ -103,3 +147,113 @@
 
 
 </div>
+
+@section ScriptWeatherIndex {
+    <script>
+        $(document).ready(function () {
+            $(".wrapper").css("margin-top", ($(window).height()) / 5);
+            //DATE AND TIME//
+            //Converted into days, months, hours, day-name, AM/PM
+            var dt = new Date()
+
+            var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            $('#day').html(days[dt.getDay()]);
+
+            var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+            $('#date').html(months[dt.getMonth()] + " " + dt.getDate() + ", " + dt.getFullYear());
+
+            $('#time').html((dt.getHours() > 12 ? (dt.getHours() - 12) : dt.getHours()).toString() + ":" + ((dt.getMinutes() < 10 ? '0' : '').toString() + dt.getMinutes().toString()) + (dt.getHours() < 12 ? ' AM' : ' PM').toString());
+
+            // Khai báo nhiệt độ
+            var temp = 0;
+            //GEOLOCATION and WEATHER API//
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    // Lấy tọa độ hiện tại
+                    var myLatitude = parseFloat(Math.round(position.coords.latitude * 100) / 100).toFixed(2);
+                    var myLongitude = parseFloat(Math.round(position.coords.longitude * 100) / 100).toFixed(2);
+                    console.log(myLatitude, myLongitude);
+
+                    // $('.geo').html(position.coords.latitude + " " + position.coords.longitude);
+                    var url = "https://api.openweathermap.org/data/2.5/weather?lat=" + myLatitude + "&lon=" + myLongitude + "&appid=93bd5aaabae6bd21c552347c72721beb"
+
+                    $.ajax({
+                        url: url,
+                        dataType: "json",
+                        success: function (json) {
+                            $('#city').html(json.name + ", " + json.sys.country);
+                            $('#weather-status').html(json.weather[0].main + " / " + json.weather[0].description);
+
+                            //WEATHER CONDITIONS: http://openweathermap.org/weather-conditions
+                            switch (json.weather[0].main) {
+                                case "Mist":
+                                    $('#weather-icon').replaceWith('<i id="weather-icon" class="fas fa-water"></i>');
+                                    break;
+                                case "Clouds":
+                                    $('#weather-icon').replaceWith('<i id="weather-icon" class="fas fa-cloud"></i>');
+                                    break;
+                                case "Clear":
+                                    $('#weather-icon').replaceWith('<i id="weather-icon" class="fas fa-sun"></i>');
+                                    break;
+                                case "Thunderstorm":
+                                    $('#weather-icon').replaceWith('<i  id="weather-icon" class="fas fa-thunderstorm"></i>');
+                                    break;
+                                case "Drizzle":
+                                    $('#weather-icon').replaceWith('<i  id="weather-icon" class="fas fa-cloud-showers-heavy"></i>');
+                                    break;
+                                case "Rain":
+                                    $('#weather-icon').replaceWith('<i  id="weather-icon" class="fas fa-cloud-rain"></i>');
+                                    break;
+                                case "Snow":
+                                    $('#weather-icon').replaceWith('<i  id="weather-icon" class="fas fa-snowflake"></i>');
+                                    break;
+                                case "Extreme":
+                                    $('#weather-icon').replaceWith('<i  id="weather-icon" class="fas fa-exclamation-triangle"></i>');
+                                    break;
+                            }
+                            // chuyển từ độ K sang độ C
+                            temp = (json.main.temp - 273);
+                            $('#temperature').html(Math.round(temp));
+                            $('.windspeed').html(json.wind.speed + " Km/h")
+                            $('.humidity').html(json.main.humidity + " %");
+                            $('.pressure').html(json.main.pressure + " hPa");
+
+                            // thoi gian ở kiểu timestamp kể từ Unix Epoch (1/1/1970 00:00:00 UTC), chuyển sang kiểu giờ:
+                            var sunriseUTC = json.sys.sunrise * 1000;
+                            var sunsetUTC = json.sys.sunset * 1000;
+                            var sunriseDt = new Date(sunriseUTC);
+                            var sunsetDt = new Date(sunsetUTC);
+                            $('.sunrise-time').html((sunriseDt.getHours() > 12 ? (sunriseDt.getHours() - 12) : sunriseDt.getHours()).toString() + ":" + ((sunriseDt.getMinutes() < 10 ? '0' : '').toString() + sunriseDt.getMinutes().toString()) + (sunriseDt.getHours() < 12 ? ' AM' : ' PM').toString());
+                            $('.sunset-time').html((sunsetDt.getHours() > 12 ? (sunsetDt.getHours() - 12) : sunsetDt.getHours()).toString() + ":" + ((sunsetDt.getMinutes() < 10 ? '0' : '').toString() + sunsetDt.getMinutes().toString()) + (sunsetDt.getHours() < 12 ? ' AM' : ' PM').toString());
+                            // $('.sunrise-time').html(json.sys.sunrise);
+                            // $('.sunset-time').html(json.sys.sunset);
+                        }
+                    });
+
+                });
+            } else {
+                $("#city").html("Please turn on Geolocator on Browser.")
+            }
+
+            //CELSIUS TO FAHRENHEIT CONVERTER on Click
+            $('#fahrenheit').click(function () {
+                $(this).css("color", "#333");
+                $('#celsius').css("color", "#b0bec5");
+                $('#temperature').html(Math.round(temp * 1.8 + 32));
+            });
+
+            $('#celsius').click(function () {
+                $(this).css("color", "#333");
+                $('#fahrenheit').css("color", "#b0bec5");
+                $('#temperature').html(Math.round(temp));
+            });
+
+            // Cập nhật thời gian mỗi 30s
+            setInterval(function () {
+                dt = new Date();
+                $('#time').html((dt.getHours() > 12 ? (dt.getHours() - 12) : dt.getHours()).toString() + ":" + ((dt.getMinutes() < 10 ? '0' : '').toString() + dt.getMinutes().toString()) + (dt.getHours() < 12 ? ' AM' : ' PM').toString());
+            }, 30000)
+
+        });
+    </script>
+}
