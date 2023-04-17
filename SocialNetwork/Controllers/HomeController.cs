@@ -79,17 +79,19 @@ namespace SocialNetwork.Controllers
 			return RedirectToAction("Index");
 		}
 
+		[HttpDelete]
         public IActionResult DeletePost(string postId)
 		{
             Post post = context.Posts.SingleOrDefault(x => x.PostId.ToString() == postId);
-            if (post != null)// && CurrentAccount.account.AccountId == post.AccountId)
+			if (post != null)// && CurrentAccount.account.AccountId == post.AccountId)
 			{
-                post.IsDeleted = true;
-                context.Entry(post).State = EntityState.Modified;
-                context.SaveChanges();
-            }
-
-            return RedirectToAction("Index");
+				post.IsDeleted = true;
+				context.Entry(post).State = EntityState.Modified;
+				context.SaveChanges();
+				return Json(true);
+			}
+			
+            return Json(false);
         }
 
 		[Route("~/p/{postId}")]
@@ -102,6 +104,34 @@ namespace SocialNetwork.Controllers
 			}
 			var singlePostDetail = new ViewModels.PostDetailViewModel(singlePost);
 			return View(singlePostDetail);
+        }
+
+		[HttpGet]
+        public IActionResult GetPostById(int postId)
+        {
+            var singlePost = context.Posts.SingleOrDefault(x => x.PostId == postId && x.IsDeleted == false);
+            if (singlePost == null)
+            {
+				string message = "Error";
+                return Json(new { message });
+            }
+            var singlePostDetail = new ViewModels.PostDetailViewModel(singlePost);
+			var lstMedial = singlePostDetail.GetListMedia();
+            return Json( new { singlePostDetail, lstMedial });
+        }
+
+		[HttpPut]
+		public IActionResult UpdatePostById(int postId,string newcontent)
+		{
+            var singlePost = context.Posts.SingleOrDefault(x => x.PostId == postId && x.IsDeleted == false);
+            if (singlePost == null)
+            {
+                string message = "Post isn't exist";
+                return Json(new { message });
+            }
+			singlePost.Content = newcontent;
+			context.SaveChanges();
+            return Json(new { singlePost });
         }
     }
 }
