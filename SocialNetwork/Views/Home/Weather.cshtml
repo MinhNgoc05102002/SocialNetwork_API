@@ -1,0 +1,331 @@
+﻿@{
+    Layout = "_LayoutHome";
+}
+
+<div class="container m-auto">
+    <!--  -->
+    <div class="col-lg-9">
+        <div class="central-meta">
+            <div class="bg-white dark:bg-gray-900 shadow-md rounded-md overflow-hidden">
+                <div class="title-block">
+                    <div class="col-lg-6">
+                        <div class="align-left">
+                            <h3 id="city">Weather forecast</h3>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="row merged20">
+                            <div class="col-lg-11 col-md-11 col-sm-11">
+                                <form onsubmit='handleSearch(event)' class="displayFlex">
+                                    <input type="text" placeholder="Search Location">
+                                    <button type="submit"><i class="fa fa-search"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- title block -->
+
+        <div class="central-meta">
+            <div class="bg-white dark:bg-gray-900 shadow-md rounded-md overflow-hidden">
+                <span class="create-post title">Hourly Forecast</span>
+                <hr>
+                <ul class="hourly-forecast displayFlex">
+                    <li>
+                        <i class="fas fa-sun weather-icon"></i>
+                        <span class="weather-temp">22°</span>
+                        <em class="weather-hour">04:00 PM</em>
+                    </li>
+                    <li>
+                        <i class=" weather-icon fas fa-cloud"></i>
+                        <span class="weather-temp">20°</span>
+                        <em class="weather-hour">05:00 PM</em>
+                    </li>
+                    <li>
+                        <i class=" weather-icon fas fa-thunderstorm"></i>
+                        <span class="weather-temp">24°</span>
+                        <em class="weather-hour">06:00 PM</em>
+                    </li>
+                    <li>
+                        <i class=" weather-icon fas fa-cloud-showers-heavy"></i>
+                        <span class="weather-temp">26°</span>
+                        <em class="weather-hour">07:00 PM</em>
+                    </li>
+                    <li>
+                        <i class=" weather-icon fas fa-cloud-rain"></i>
+                        <span class="weather-temp">28°</span>
+                        <em class="weather-hour">08:00 PM</em>
+                    </li>
+                    <li>
+                        <i class=" weather-icon fas fa-snowflake"></i>
+                        <span class="weather-temp">26°</span>
+                        <em class="weather-hour">09:00 PM</em>
+                    </li>
+                    <li>
+                        <i class=" weather-icon fas fa-exclamation-triangle"></i>
+                        <span class="weather-temp">27°</span>
+                        <em class="weather-hour">10:00 PM</em>
+                    </li>
+                    <li>
+                        <i class=" weather-icon fas fa-water"></i>
+                        <span class="weather-temp">27°</span>
+                        <em class="weather-hour">11:00 PM</em>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="central-meta">
+            <div class="bg-white dark:bg-gray-900 shadow-md rounded-md overflow-hidden">
+                <span class="create-post title">8 Days Forecast</span>
+                <hr>
+                <table class="table-forecast table-responsive monthly-forecast">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Days</th>
+                            <th>Symbol</th>
+                            <th class="desc">Description</th>
+                            <th>Temp day</th>
+                            <th>Temp night</th>
+                            <th>Humidity</th>
+                            <th>Uvi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="day-forecast">05, Nov</span></td>
+                            <td class="day-in-week-forecast">Tue</td>
+                            <td><i class="day-weather-icon fas fa-cloud-showers-heavy"></i></td>
+                            <td class="des">Sunny and </td>
+                            <td class="day-temp">22°</td>
+                            <td class="night-temp">22°</td>
+                            <td class="day-humid">61%</td>
+                            <td class="day-percip">0%</td>
+                        </tr>
+                        <tr>
+                            <td><span class="day-forecast">06, Nov</span></td>
+                            <td class="day-in-week-forecast">Wed</td>
+                            <td><i class="day-weather-icon fas fa-cloud-showers-heavy"></i></td>
+                            <td class="des">Take your </td>
+                            <td class="day-temp">15°</td>
+                            <td class="night-temp">22°</td>
+                            <td class="day-humid">55%</td>
+                            <td class="day-percip">0%</td>
+                        </tr>
+                        <tr>
+                            <td><span class="day-forecast">07, Nov</span></td>
+                            <td class="day-in-week-forecast">Thu</td>
+                            <td><i class="day-weather-icon fas fa-thunderstorm"></i></td>
+                            <td class="des">Friendly weather  </td>
+                            <td class="day-temp">24°</td>
+                            <td class="night-temp">22°</td>
+                            <td class="day-humid">54%</td>
+                            <td class="day-percip">0%</td>
+                        </tr>
+                        <tr>
+                            <td><span class="day-forecast">08, Nov</span></td>
+                            <td class="day-in-week-forecast">Fri</td>
+                            <td><i class="day-weather-icon fas fa-sun"></i></td>
+                            <td class="des">Friendly weather</td>
+                            <td class="day-temp">20°</td>
+                            <td class="night-temp">22°</td>
+                            <td class="day-humid">60%</td>
+                            <td class="day-percip">0%</td>
+                        </tr>
+                        <tr>
+                            <td><span class="day-forecast">09, Nov</span></td>
+                            <td class="day-in-week-forecast">Sat</td>
+                            <td><i class="day-weather-icon fas fa-cloud"></i></td>
+                            <td class="des">Sunny weather </td>
+                            <td class="day-temp">26°</td>
+                            <td class="night-temp">22°</td>
+                            <td class="day-humid">60%</td>
+                            <td class="day-percip">0%</td>
+                        </tr>
+                        <tr>
+                            <td><span class="day-forecast">10, Nov</span></td>
+                            <td class="day-in-week-forecast">Sun</td>
+                            <td><i class="day-weather-icon fas fa-thunderstorm"></i></td>
+                            <td class="des">Take your </td>
+                            <td class="day-temp">20°</td>
+                            <td class="night-temp">22°</td>
+                            <td class="day-humid">60%</td>
+                            <td class="day-percip">0%</td>
+                        </tr>
+                        <tr>
+                            <td><span class="day-forecast">11, Nov</span></td>
+                            <td class="day-in-week-forecast">Mon</td>
+                            <td><i class="day-weather-icon fas fa-thunderstorm"></i></td>
+                            <td class="des">Friendly weather but </td>
+                            <td class="day-temp">20°</td>
+                            <td class="night-temp">22°</td>
+                            <td class="day-humid">50%</td>
+                            <td class="day-percip">0%</td>
+                        </tr>
+                        <tr>
+                            <td><span class="day-forecast">11, Nov</span></td>
+                            <td class="day-in-week-forecast">Mon</td>
+                            <td><i class="day-weather-icon fas fa-thunderstorm"></i></td>
+                            <td class="des">Friendly weather but </td>
+                            <td class="day-temp">20°</td>
+                            <td class="night-temp">22°</td>
+                            <td class="day-humid">50%</td>
+                            <td class="day-percip">0%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div><!-- centerl meta -->
+
+
+</div>
+
+@section ScriptWeather {
+    <script>
+        $(document).ready(function () {
+            //GEOLOCATION and WEATHER API//
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    // Lấy tọa độ hiện tại
+                    var myLatitude = parseFloat(Math.round(position.coords.latitude * 100) / 100).toFixed(2);
+                    var myLongitude = parseFloat(Math.round(position.coords.longitude * 100) / 100).toFixed(2);
+                    console.log(myLatitude, myLongitude);
+
+                    // $('.geo').html(position.coords.latitude + " " + position.coords.longitude);
+                    var url = "https://api.openweathermap.org/data/2.5/weather?lat=" + myLatitude + "&lon=" + myLongitude + "&appid=93bd5aaabae6bd21c552347c72721beb"
+                    var urlHours = "https://api.openweathermap.org/data/2.5/onecall?lat=" + myLatitude + "&lon=" + myLongitude + "&appid=ca8c2c7970a09dc296d9b3cfc4d06940"
+
+                    $.ajax({
+                        url: url,
+                        dataType: "json",
+                        success: function (json) {
+                            $('#city').html(json.name + ", " + json.sys.country);
+                        }
+                    })
+
+                    $.ajax({
+                        url: urlHours,
+                        dataType: "json",
+                        success: function (json) {
+                            //WEATHER CONDITIONS: http://openweathermap.org/weather-conditions
+
+                            // render box 8 hours
+                            for (let i = 0; i < 8; i++) {
+                                $('.weather-temp').eq(i).html((Math.round(json.hourly[i].temp - 273)) + '°');
+
+                                var time = new Date(json.hourly[i].dt * 1000);
+                                $('.weather-hour').eq(i).html((time.getHours() > 12 ? (time.getHours() - 12) : time.getHours()).toString() + ":" + ((time.getMinutes() < 10 ? '0' : '').toString() + time.getMinutes().toString()) + (time.getHours() < 12 ? ' AM' : ' PM').toString());
+
+                                switch (json.hourly[i].weather[0].main) {
+                                    case "Mist":
+                                        $('.weather-icon').eq(i).replaceWith('<i class="fas fa-water weather-icon"></i>');
+                                        break;
+                                    case "Clouds":
+                                        $('.weather-icon').eq(i).replaceWith('<i class="fas fa-cloud weather-icon"></i>');
+                                        break;
+                                    case "Clear":
+                                        $('.weather-icon').eq(i).replaceWith('<i class="fas fa-sun weather-icon"></i>');
+                                        break;
+                                    case "Thunderstorm":
+                                        $('.weather-icon').eq(i).replaceWith('<i  class="far fa-thunderstorm weather-icon"></i>');
+                                        break;
+                                    case "Drizzle":
+                                        $('.weather-icon').eq(i).replaceWith('<i  class="far fa-cloud-drizzle weather-icon"></i>');
+                                        break;
+                                    case "Rain":
+                                        $('.weather-icon').eq(i).replaceWith('<i  class="fas fa-cloud-rain weather-icon"></i>');
+                                        break;
+                                    case "Snow":
+                                        $('.weather-icon').eq(i).replaceWith('<i  class="far fa-snowflakes weather-icon"></i>');
+                                        break;
+                                    case "Extreme":
+                                        $('.weather-icon').eq(i).replaceWith('<i  class="far fa-exclamation-triangle weather-icon"></i>');
+                                        break;
+                                }
+
+                            }
+
+
+                            // render table 8 days
+                            var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+                            var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+                            var date;
+
+                            for (i = 0; i < 8; i++) {
+                                date = new Date(json.daily[i].dt * 1000);
+                                $('.day-forecast').eq(i).html(date.getDate() + ', ' + months[date.getMonth()])
+                                $('.day-in-week-forecast').eq(i).html(days[date.getDay()])
+
+                                $('.des').eq(i).html(json.daily[i].weather[0].main + ", " + json.daily[i].weather[0].description)
+                                $('.day-temp').eq(i).html((Math.round(json.daily[i].temp.day - 273)) + '°');
+                                $('.night-temp').eq(i).html((Math.round(json.daily[i].temp.night - 273)) + '°');
+
+                                $('.day-humid').eq(i).html(json.daily[i].humidity + '%');
+                                $('.day-percip').eq(i).html(json.daily[i].uvi);
+
+                                // render icon
+                                switch (json.daily[i].weather[0].main) {
+                                    case "Mist":
+                                        $('.day-weather-icon').eq(i).replaceWith('<i class="fas fa-water day-weather-icon"></i>');
+                                        break;
+                                    case "Clouds":
+                                        $('.day-weather-icon').eq(i).replaceWith('<i class="fas fa-cloud day-weather-icon"></i>');
+                                        break;
+                                    case "Clear":
+                                        $('.day-weather-icon').eq(i).replaceWith('<i class="fas fa-sun day-weather-icon"></i>');
+                                        break;
+                                    case "Thunderstorm":
+                                        $('.day-weather-icon').eq(i).replaceWith('<i  class="far fa-thunderstorm day-weather-icon"></i>');
+                                        break;
+                                    case "Drizzle":
+                                        $('.day-weather-icon').eq(i).replaceWith('<i  class="far fa-cloud-drizzle day-weather-icon"></i>');
+                                        break;
+                                    case "Rain":
+                                        $('.day-weather-icon').eq(i).replaceWith('<i  class="fas fa-cloud-rain day-weather-icon"></i>');
+                                        break;
+                                    case "Snow":
+                                        $('.day-weather-icon').eq(i).replaceWith('<i  class="far fa-snowflakes day-weather-icon"></i>');
+                                        break;
+                                    case "Extreme":
+                                        $('.day-weather-icon').eq(i).replaceWith('<i  class="far fa-exclamation-triangle day-weather-icon"></i>');
+                                        break;
+                                }
+                            }
+
+                        }
+                    });
+
+                });
+            } else {
+                $("#city").html("Please turn on Geolocator on Browser.")
+            }
+
+            //CELSIUS TO FAHRENHEIT CONVERTER on Click
+            $('#fahrenheit').click(function () {
+                $(this).css("color", "#333");
+                $('#celsius').css("color", "#b0bec5");
+                $('#temperature').html(Math.round(temp * 1.8 + 32));
+            });
+
+            $('#celsius').click(function () {
+                $(this).css("color", "#333");
+                $('#fahrenheit').css("color", "#b0bec5");
+                $('#temperature').html(Math.round(temp));
+            });
+
+            // Cập nhật thời gian mỗi 30s
+            setInterval(function () {
+                dt = new Date();
+                $('#time').html((dt.getHours() > 12 ? (dt.getHours() - 12) : dt.getHours()).toString() + ":" + ((dt.getMinutes() < 10 ? '0' : '').toString() + dt.getMinutes().toString()) + (dt.getHours() < 12 ? ' AM' : ' PM').toString());
+            }, 30000)
+
+        });
+
+        function handleSearch(event) {
+            event.preventDefault();
+        }
+    </script>
+}
