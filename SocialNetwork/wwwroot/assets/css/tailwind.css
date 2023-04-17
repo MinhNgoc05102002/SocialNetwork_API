@@ -796,6 +796,10 @@ video {
   background-color: rgba(219, 39, 119, var(--tw-bg-opacity));
 }
 
+.hover\:bg-blue-100:hover {
+    background-color: #E1F2FB;
+}
+
 .bg-gradient-to-t{
   background-image: linear-gradient(to top, var(--tw-gradient-stops));
 }

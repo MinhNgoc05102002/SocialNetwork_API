@@ -456,6 +456,28 @@
 
     @RenderSection("ScriptProfile", required: false)
     @RenderSection("ScriptChatSession", required: false)
+
+    <script>
+        function updateComment(idComment,atribute){
+            const blockContent = $(`[${atribute}=${idComment}]`);
+            let elemP;
+            let elemAreaText;
+            $(`[${atribute}=${idComment}]`).toggleClass("updated");
+
+            if (blockContent.hasClass("updated")) {
+                const valueInputChange = blockContent.find('textarea').val().trim();
+                // Ở đây phải cập nhật cả thằng ở bên ngoài và bên trong bằng ajax bằng cái hàm nào đó mà cm đã cập nhật
+                // được comment cả detail và modal ấy ??? handleComment()
+                // thông qua cách kiểm tra atribute neu attribute = idCommentDetail || idCommentModal
+                
+                elemP = `<p class="flex-1 p-2 word-wrap" style="width: 150px">${valueInputChange}</p>`
+                blockContent.html(elemP)
+            } else {
+                elemAreaText = `<textarea class="leading-6 word-wrap" style = "border:transparent;outline:none;box-shadow:none;resize: none;height:10px;width: 150px">${blockContent.find('p').text().trim()}</textarea>`
+                blockContent.html(elemAreaText);
+            }
+        }
+    </script>
 </body>
 
 
