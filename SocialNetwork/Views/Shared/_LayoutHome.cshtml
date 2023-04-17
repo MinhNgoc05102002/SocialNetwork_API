@@ -478,6 +478,25 @@
             }
         }
     </script>
+    <script>
+        function deletePost(idPost){
+            const elem = document.querySelector(`[idPost="${idPost}"]`)
+            $.ajax({
+                type: 'DELETE',
+                url: `https://localhost:7150/Home/DeletePost?postId=${idPost}`,
+                dataType: 'json',
+                contentType: "application/json;charset=utf-8",
+                success: function (data) {
+                    console.log(data)
+                    elem.remove();
+                },
+                error: function (err) {
+                    console.log(err)
+                },
+
+            })
+        }
+    </script>
 </body>
 
 
