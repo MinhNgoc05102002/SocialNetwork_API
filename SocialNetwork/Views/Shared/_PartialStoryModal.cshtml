@@ -77,7 +77,7 @@
             </div>
             <div class="story-content p-4" data-simplebar>
 
-                <p> @Model.Post.Content </p>
+                <p id="content-@Model.Post.PostId"> @Model.Post.Content </p>
 
                 <div class="py-4 ">
                     <div class="flex justify-around">
@@ -117,12 +117,24 @@
                     @foreach (var comment in Model.GetListComment())
                     {
                         var commentAccount = Model.GetCommentAccount(comment);
-                        <div class="flex flex-1 items-center space-x-2">
+                        <div class="flex flex-1 space-x-2 space-y-5">
 
-                            <img src="@commentAccount.Avatar" class="rounded-full w-8 h-8">
-                            <span class="block capitalize font-semibold dark:text-gray-100">@commentAccount.FullName</span>
-                            <div class="flex-1 p-2 word-wrap" style="width: 150px">
-                                @comment.Content
+                            <img src="@commentAccount.Avatar" class="rounded-full w-8 h-8 my-6">
+                            <div class="p-3" style="background-color:#f3f4f6; border-radius:10px">
+                                <span class="block capitalize font-semibold dark:text-gray-100">@commentAccount.FullName</span>
+                                <div class="updated" idCommentModal="@comment.CommentId">
+                                    <p class="flex-1 p-2 word-wrap" style="width: 150px">
+                                        @comment.Content
+                                    </p>
+                                </div>
+                            </div>
+                            <div>
+                                <a style="padding:15px;height:0;" class="flex items-center text-red-500 hover:bg-red-100 hover:text-red-500 dark:hover:bg-red-600 rounded-md" href="/Home/DeletePost?postId=5">
+                                    <i style="padding-right: 5px;" class="fa-solid fa-trash-can"></i>
+                                </a>
+                                <a onclick="updateComment(@comment.CommentId,'idCommentModal')" style="padding:15px;height:0;" class="flex items-center hover:bg-blue-100 hover:text-blue-500 rounded-md ">
+                                    <i style="padding-right: 5px;" class="fa-regular fa-pen-to-square"></i> 
+                                </a>
                             </div>
                         </div>
                     }

@@ -13,8 +13,7 @@
 }
 @await Html.PartialAsync("_PartialStoryModal", item)
 <!-- post 1-->
-<div class="bg-white shadow rounded-md dark:bg-gray-900 -mx-2 lg:mx-0 @item.Post.PostId">
-
+<div class="bg-white shadow rounded-md dark:bg-gray-900 -mx-2 lg:mx-0" idPost="@item.Post.PostId">
     <!-- post header-->
     <div class="flex justify-between items-center px-4 py-3">
         <div class="flex flex-1 items-center space-x-4">
@@ -36,7 +35,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md dark:hover:bg-gray-800">
+                        <a href="#update-modal" onclick="showEditModel(@item.Post.PostId)" uk-toggle class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md dark:hover:bg-gray-800">
                             <i style="padding-right: 5px;" class="fa-regular fa-pen-to-square"></i>  Edit Post
                         </a>
                     </li>
@@ -49,7 +48,7 @@
                         <hr class="-mx-2 my-2 dark:border-gray-800">
                     </li>
                     <li>
-                        <a asp-action="DeletePost" asp-route-postId="@item.Post.PostId" class="flex items-center px-3 py-2 text-red-500 hover:bg-red-100 hover:text-red-500 rounded-md dark:hover:bg-red-600">
+                        <a onclick="deletePost(@item.Post.PostId)" style="cursor:pointer" class="flex items-center px-3 py-2 text-red-500 hover:bg-red-100 hover:text-red-500 rounded-md dark:hover:bg-red-600">
                             <i style="padding-right: 5px;" class="fa-solid fa-trash-can"></i>  Delete
                         </a>
                     </li>
@@ -92,7 +91,6 @@
     else
     {
         <div>
-
 
             @* Nếu không có ảnh nào*@
             @if (lstMediaSize == 0)
@@ -201,12 +199,22 @@
                     <div class="w-10 h-10 rounded-full relative flex-shrink-0">
                         <img src="@commentAccount.Avatar" alt="" class="absolute h-full rounded-full w-full">
                     </div>
-                    <div class="text-gray-700 py-2 px-3 rounded-md bg-gray-100 h-full relative lg:ml-5 ml-2 lg:mr-20  dark:bg-gray-800 dark:text-gray-100">
+                    <div class="text-gray-700 py-2 px-3 rounded-md bg-gray-100 h-full relative lg:ml-5 ml-2 mr-2 dark:bg-gray-800 dark:text-gray-100">
                         <span class="block capitalize font-semibold dark:text-gray-100">@commentAccount.FullName</span>
-                        <p class="leading-6 word-wrap">
-                            @comment.Content <urna class="i uil-heart"></urna> <i class="uil-grin-tongue-wink"> </i>
-                        </p>
+                        <div class="wrap-content-comment updated" idCommentDetail="@comment.CommentId">
+                            <p class="flex-1 p-2 word-wrap" style="width: 150px">
+                                @comment.Content
+                            </p>
+                        </div>
                         <div class="absolute w-3 h-3 top-3 -left-1 bg-gray-100 transform rotate-45 dark:bg-gray-800"></div>
+                    </div>
+                    <div>
+                        <a style="padding:15px;height:0;" class="flex items-center text-red-500 hover:bg-red-100 hover:text-red-500 dark:hover:bg-red-600 rounded-md" href="/Home/DeletePost?postId=5">
+                            <i style="padding-right: 5px;" class="fa-solid fa-trash-can"></i>
+                        </a>
+                        <a onclick="updateComment(@comment.CommentId,'idCommentDetail')" style="padding:15px;height:0;" class="flex items-center hover:bg-blue-100 hover:text-blue-500 rounded-md ">
+                            <i style="padding-right: 5px;" class="fa-regular fa-pen-to-square"></i>
+                        </a>
                     </div>
                 </div>
             }

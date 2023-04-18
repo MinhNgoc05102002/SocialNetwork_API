@@ -79,18 +79,18 @@ namespace SocialNetwork.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpDelete]
+		[HttpDelete]
         public IActionResult DeletePost(string postId)
         {
             Post post = context.Posts.SingleOrDefault(x => x.PostId.ToString() == postId);
-            if (post != null)// && CurrentAccount.account.AccountId == post.AccountId)
-            {
-                post.IsDeleted = true;
-                context.Entry(post).State = EntityState.Modified;
-                context.SaveChanges();
-                return Json(true);
-            }
-
+			if (post != null)// && CurrentAccount.account.AccountId == post.AccountId)
+			{
+				post.IsDeleted = true;
+				context.Entry(post).State = EntityState.Modified;
+				context.SaveChanges();
+				return Json(true);
+			}
+			
             return Json(false);
         }
 
