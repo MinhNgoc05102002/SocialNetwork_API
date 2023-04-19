@@ -19,6 +19,10 @@ public partial class Post
 
     public int? AccountId { get; set; }
 
+    public double? Lat { get; set; }
+
+    public double? Long { get; set; }
+
     public virtual Account? Account { get; set; }
 
     public virtual ICollection<Comment> Comments { get; } = new List<Comment>();
