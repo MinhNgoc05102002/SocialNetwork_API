@@ -32,11 +32,11 @@
                         {
                             if (item.MediaType == "video")
                             {
-                                <video src="@item.MediaLink" muted controls allowfullscreen uk-responsive class="story-img w-full"></video>
+                                <video style="object-fit:contain" src="@item.MediaLink" muted controls allowfullscreen uk-responsive class="story-img w-full"></video>
                             }
                             else
                             {
-                                <img src="@item.MediaLink" alt="" class="story-img">
+                                <img style="object-fit:contain" src="@item.MediaLink" alt="" class="story-img">
                             }
                         }
                     </div>

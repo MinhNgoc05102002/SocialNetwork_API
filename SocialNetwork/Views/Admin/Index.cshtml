@@ -60,6 +60,7 @@
             padding: 10px 30px;
             margin: 20px;
         }
+
         table {
             font-weight: 100px;
         }
@@ -121,14 +122,14 @@
             display: none;
         }
 
-        .tab-pane.active {
-            display: block;
-        }
+            .tab-pane.active {
+                display: block;
+            }
 
-        .tab-pane h2 {
-            font-size: 24px;
-            margin-bottom: 8px;
-        }
+            .tab-pane h2 {
+                font-size: 24px;
+                margin-bottom: 8px;
+            }
 
         .header-table-radius-left {
             border-top-left-radius: 10px;
@@ -142,9 +143,11 @@
             background-color: #c23564;
             color: white;
         }
-        thead tr th{
-            border: 0px !important;
-        }
+
+            thead tr th {
+                border: 0px !important;
+            }
+
         .border-right {
             border-right: 1px solid #dee2e6;
         }
@@ -152,11 +155,13 @@
         .border-left {
             border-left: 1px solid #dee2e6;
         }
+
         .center {
             color: #c23564;
             font-size: 18px;
             text-align: center;
         }
+
         .page-item .page-link {
             color: #c23564;
         }
@@ -194,7 +199,7 @@
                             <i class="tab-icon fas fa-newspaper"></i>
                             Post
                         </div>
-                        
+
                         <div class="line"></div>
                     </div>
 
@@ -216,8 +221,8 @@
                                         @*<th class = "text-base"> @Html.DisplayNameFor(model => model[0].DayOfBirth)</th>*@
                                         <th class="text-base"> @Html.DisplayNameFor(model => model[0].Gender)</th>
                                         <th class="text-base"> Role</th>
-                                        <th class="text-base"> 
-                                            
+                                        <th class="text-base">
+
                                         </th>
                                         <th class="header-table-radius-right text-base">
                                         </th>
@@ -248,7 +253,8 @@
                                             @{
                                                 string role = "user";
                                                 string cls = "";
-                                                if (item.IsAdmin == true) {
+                                                if (item.IsAdmin == true)
+                                                {
                                                     role = "admin";
                                                     cls = "success";
                                                 }
@@ -269,7 +275,7 @@
                                             @{
                                                 string accStatus = "ban";
                                                 string clss = "dark";
-                                                
+
                                                 if (item.IsBanned == true)
                                                 {
                                                     accStatus = "banned";
@@ -290,12 +296,12 @@
 
                             <ul class="pagination justify-content-center">
                                 @Html.PagedListPager(Model,page => Url.Action("index", new {page=page}),new X.PagedList.Web.Common.PagedListRenderOptions(){
-                                    LiElementClasses = new List<String> {"page-item"},
-                                    PageClasses = new List<String> {"page-link"}
+                                LiElementClasses = new List<String> {"page-item"},
+                                PageClasses = new List<String> {"page-link"}
                                 })
                             </ul>
                         </div>
-                        
+
                     </div>
                 </div>
 
@@ -530,9 +536,9 @@
     }
 
     /* @@media (max-width: 470px) {
-      .border-md-top {
-        border-top: 1px solid #dee2e6;
-        border-left: none;
-      }
-    } */
+          .border-md-top {
+            border-top: 1px solid #dee2e6;
+            border-left: none;
+          }
+        } */
 </style>

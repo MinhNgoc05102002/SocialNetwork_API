@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using SocialNetwork.Models;
 using SocialNetwork.Models.Authentication;
+using SocialNetwork.ViewModels;
 using System.Diagnostics;
 using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
@@ -76,7 +77,18 @@ namespace SocialNetwork.Controllers
 				}
 			}
 			context.SaveChanges();
-			return RedirectToAction("Index");
+			PostDetailViewModel postDetail = new PostDetailViewModel(post);
+			// thôi chịu khó lấy ra từng cái 1 :,)
+			return new ObjectResult(new { 
+				id = post.PostId,
+				idUser = postDetail.GetPostOwnerAccount().AccountId,
+				nameAuthor = postDetail.GetPostOwnerAccount().FullName,
+				avatarAuthor = postDetail.GetPostOwnerAccount().Avatar,
+                createAt = post.CreateAt,
+				content = post.Content,
+				listLike = postDetail.GetListAccountLiked().Count(),
+				imagesPost = postDetail.GetListMedia()
+			});
 		}
 
 		[HttpDelete]
