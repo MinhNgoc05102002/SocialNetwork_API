@@ -35,13 +35,13 @@ public partial class SocialNetworkDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=DESKTOP-DCA8K2S\\MSSQLSERVER01;Initial Catalog=SocialNetworkDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
+        => optionsBuilder.UseSqlServer("Data Source=MSI\\SQLEXPRESS;Initial Catalog=SocialNetworkDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Account>(entity =>
         {
-            entity.HasKey(e => e.AccountId).HasName("PK__Account__349DA586855B3606");
+            entity.HasKey(e => e.AccountId).HasName("PK__Account__349DA586165A27D5");
 
             entity.ToTable("Account");
 
@@ -76,14 +76,14 @@ public partial class SocialNetworkDbContext : DbContext
                     r => r.HasOne<ChatSession>().WithMany()
                         .HasForeignKey("ChatId")
                         .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK__AccountHa__ChatI__47DBAE45"),
+                        .HasConstraintName("FK__AccountHa__ChatI__59FA5E80"),
                     l => l.HasOne<Account>().WithMany()
                         .HasForeignKey("AccountId")
                         .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK__AccountHa__Accou__46E78A0C"),
+                        .HasConstraintName("FK__AccountHa__Accou__59063A47"),
                     j =>
                     {
-                        j.HasKey("AccountId", "ChatId").HasName("PK__AccountH__4E021BE446CC6331");
+                        j.HasKey("AccountId", "ChatId").HasName("PK__AccountH__4E021BE49527E6E1");
                         j.ToTable("AccountHasChatSession");
                         j.IndexerProperty<int>("AccountId").HasColumnName("AccountID");
                         j.IndexerProperty<int>("ChatId").HasColumnName("ChatID");
@@ -95,14 +95,14 @@ public partial class SocialNetworkDbContext : DbContext
                     r => r.HasOne<Post>().WithMany()
                         .HasForeignKey("PostId")
                         .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK__Like__PostID__52593CB8"),
+                        .HasConstraintName("FK__Like__PostID__6477ECF3"),
                     l => l.HasOne<Account>().WithMany()
                         .HasForeignKey("AccountId")
                         .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK__Like__AccountID__5165187F"),
+                        .HasConstraintName("FK__Like__AccountID__6383C8BA"),
                     j =>
                     {
-                        j.HasKey("AccountId", "PostId").HasName("PK__Like__AE3C83854F326C9C");
+                        j.HasKey("AccountId", "PostId").HasName("PK__Like__AE3C8385E16F3CBF");
                         j.ToTable("Like");
                         j.IndexerProperty<int>("AccountId").HasColumnName("AccountID");
                         j.IndexerProperty<int>("PostId").HasColumnName("PostID");
@@ -111,7 +111,7 @@ public partial class SocialNetworkDbContext : DbContext
 
         modelBuilder.Entity<ChatSession>(entity =>
         {
-            entity.HasKey(e => e.ChatId).HasName("PK__ChatSess__A9FBE62694F9211E");
+            entity.HasKey(e => e.ChatId).HasName("PK__ChatSess__A9FBE6269BF3D0A9");
 
             entity.ToTable("ChatSession");
 
@@ -121,7 +121,7 @@ public partial class SocialNetworkDbContext : DbContext
 
         modelBuilder.Entity<Comment>(entity =>
         {
-            entity.HasKey(e => e.CommentId).HasName("PK__Comment__C3B4DFAAA536B26E");
+            entity.HasKey(e => e.CommentId).HasName("PK__Comment__C3B4DFAACF188631");
 
             entity.ToTable("Comment");
 
@@ -135,16 +135,16 @@ public partial class SocialNetworkDbContext : DbContext
 
             entity.HasOne(d => d.Account).WithMany(p => p.Comments)
                 .HasForeignKey(d => d.AccountId)
-                .HasConstraintName("FK__Comment__Account__398D8EEE");
+                .HasConstraintName("FK__Comment__Account__4BAC3F29");
 
             entity.HasOne(d => d.Post).WithMany(p => p.Comments)
                 .HasForeignKey(d => d.PostId)
-                .HasConstraintName("FK__Comment__PostID__3A81B327");
+                .HasConstraintName("FK__Comment__PostID__4CA06362");
         });
 
         modelBuilder.Entity<Medium>(entity =>
         {
-            entity.HasKey(e => e.MediaId).HasName("PK__Media__B2C2B5AFB1E1037F");
+            entity.HasKey(e => e.MediaId).HasName("PK__Media__B2C2B5AF794541BE");
 
             entity.Property(e => e.MediaId).HasColumnName("MediaID");
             entity.Property(e => e.MediaLink).HasMaxLength(100);
@@ -153,12 +153,12 @@ public partial class SocialNetworkDbContext : DbContext
 
             entity.HasOne(d => d.Post).WithMany(p => p.Media)
                 .HasForeignKey(d => d.PostId)
-                .HasConstraintName("FK__Media__PostID__3D5E1FD2");
+                .HasConstraintName("FK__Media__PostID__4F7CD00D");
         });
 
         modelBuilder.Entity<Message>(entity =>
         {
-            entity.HasKey(e => e.MessageId).HasName("PK__Message__C87C037C833866E1");
+            entity.HasKey(e => e.MessageId).HasName("PK__Message__C87C037CD3CD08E4");
 
             entity.ToTable("Message");
 
@@ -172,16 +172,16 @@ public partial class SocialNetworkDbContext : DbContext
 
             entity.HasOne(d => d.Account).WithMany(p => p.Messages)
                 .HasForeignKey(d => d.AccountId)
-                .HasConstraintName("FK__Message__Account__4316F928");
+                .HasConstraintName("FK__Message__Account__5535A963");
 
             entity.HasOne(d => d.Chat).WithMany(p => p.Messages)
                 .HasForeignKey(d => d.ChatId)
-                .HasConstraintName("FK__Message__ChatID__440B1D61");
+                .HasConstraintName("FK__Message__ChatID__5629CD9C");
         });
 
         modelBuilder.Entity<Notification>(entity =>
         {
-            entity.HasKey(e => e.NotiId).HasName("PK__Notifica__EDC08EF2B678B368");
+            entity.HasKey(e => e.NotiId).HasName("PK__Notifica__EDC08EF28EABE9F1");
 
             entity.ToTable("Notification");
 
@@ -198,16 +198,16 @@ public partial class SocialNetworkDbContext : DbContext
 
             entity.HasOne(d => d.Account).WithMany(p => p.Notifications)
                 .HasForeignKey(d => d.AccountId)
-                .HasConstraintName("FK__Notificat__Accou__34C8D9D1");
+                .HasConstraintName("FK__Notificat__Accou__46E78A0C");
 
             entity.HasOne(d => d.Post).WithMany(p => p.Notifications)
                 .HasForeignKey(d => d.PostId)
-                .HasConstraintName("FK__Notificat__PostI__35BCFE0A");
+                .HasConstraintName("FK__Notificat__PostI__47DBAE45");
         });
 
         modelBuilder.Entity<Post>(entity =>
         {
-            entity.HasKey(e => e.PostId).HasName("PK__Post__AA126038688203C0");
+            entity.HasKey(e => e.PostId).HasName("PK__Post__AA12603884CDC63D");
 
             entity.ToTable("Post");
 
@@ -225,7 +225,7 @@ public partial class SocialNetworkDbContext : DbContext
 
             entity.HasOne(d => d.Account).WithMany(p => p.PostsNavigation)
                 .HasForeignKey(d => d.AccountId)
-                .HasConstraintName("FK__Post__AccountID__300424B4");
+                .HasConstraintName("FK__Post__AccountID__4222D4EF");
         });
 
         modelBuilder.Entity<Relationship>(entity =>
@@ -243,20 +243,20 @@ public partial class SocialNetworkDbContext : DbContext
 
             entity.HasOne(d => d.SourceAccount).WithMany()
                 .HasForeignKey(d => d.SourceAccountId)
-                .HasConstraintName("FK__Relations__Sourc__4CA06362");
+                .HasConstraintName("FK__Relations__Sourc__5EBF139D");
 
             entity.HasOne(d => d.TargetAccount).WithMany()
                 .HasForeignKey(d => d.TargetAccountId)
-                .HasConstraintName("FK__Relations__Targe__4D94879B");
+                .HasConstraintName("FK__Relations__Targe__5FB337D6");
 
             entity.HasOne(d => d.Type).WithMany()
                 .HasForeignKey(d => d.TypeId)
-                .HasConstraintName("FK__Relations__TypeI__4E88ABD4");
+                .HasConstraintName("FK__Relations__TypeI__60A75C0F");
         });
 
         modelBuilder.Entity<TypeRelationship>(entity =>
         {
-            entity.HasKey(e => e.TypeId).HasName("PK__TypeRela__516F0395F491B36C");
+            entity.HasKey(e => e.TypeId).HasName("PK__TypeRela__516F0395B09554F9");
 
             entity.ToTable("TypeRelationship");
 
