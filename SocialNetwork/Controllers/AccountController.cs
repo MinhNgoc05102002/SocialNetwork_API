@@ -204,7 +204,7 @@ namespace SocialNetwork.Controllers
             CurrentAccount.account.Avatar = account.Avatar;
             db.SaveChanges();
 
-            return RedirectToAction("Profile", "Account");
+            return Json(new { success = true, message = "Image uploaded successfully" });
         }
 
         [HttpPost]

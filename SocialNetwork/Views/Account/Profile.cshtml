@@ -344,9 +344,26 @@
             document.getElementById('input-file').click();
 
             // Submit the form when the user selects an image file
-            document.getElementById('input-file').onchange = function () {
-                document.getElementById('upload-form').submit();
-            };
+
+            $('#input-file').on('change', function () {
+                var formData = new FormData($('#upload-form')[0]);
+                $.ajax({
+                    url: '@Url.Action("UploadAvatar")',
+                    type: 'POST',
+                    data: formData,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function (data) {
+                        console.log(data)
+                        window.location.href = '/Account/Profile';
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        console.log(errorThrown)
+                    }
+                });
+            });
         }
+
     </script>
 }
