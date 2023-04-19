@@ -446,6 +446,7 @@
                 },
                 success: function (result) {
                     console.log(result);
+                    window.location.href = '@Url.Action("setting")';
                 },
                 error: function(xhr, textStatus, errorThrown) {
                     console.log(textStatus);
