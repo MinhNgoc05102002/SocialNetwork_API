@@ -288,8 +288,8 @@
                                             <input asp-for="FullName" type="text" placeholder="Your full name ..." class="shadow-none bg-gray-100">
                                         </div>
                                         <div class="col-span-2">
-                                            <label for="about">About me</label>
-                                            <input asp-for="AboutMe" id="about" placeholder="About you ..." class="p-3 shadow-none bg-gray-100"></input>
+                                            <label for="">About me</label>
+                                            <input asp-for="AboutMe" type="text" placeholder="About you ..." class="p-3 shadow-none bg-gray-100">
                                         </div>
                                         <div class="col-span-2">
                                             <label for=""> Location</label>
@@ -301,7 +301,7 @@
                                         </div>
                                         <div>
                                             <label asp-for="DayOfBirth" for="datepicker" class="text-lg fw-normal">Date of Birth</label>
-                                            <input asp-for="DayOfBirth" type="date" id="datepicker" class="bg-gray-200 mb-2 shadow-none" required style="border: 1px solid #d3d5d8 !important; padding: 1.2rem; color: #a5abb6;">
+                                            <input asp-for="DayOfBirth" name="DayOfBirth" type="date" id="datepicker" class="bg-gray-200 mb-2 shadow-none" required style="border: 1px solid #d3d5d8 !important; padding: 1.2rem; color: #a5abb6;">
                                         </div>
                                         <div>
                                             <label for="">Gender</label>
@@ -442,10 +442,11 @@
                     aboutMe: $('#AboutMe').val(),
                     location: $('#Location').val(),
                     phone: $('#Phone').val(),
-                    accountType: $('input[name=accountType]:checked').val()
+                    DayOfBirth: $('#datepicker').val(),
+                    gender: $('#gender').val(),
+                    accountType: $('input[name=accountType]:checked').val(),
                 },
                 success: function (result) {
-                    console.log(result);
                     window.location.href = '@Url.Action("setting")';
                 },
                 error: function(xhr, textStatus, errorThrown) {

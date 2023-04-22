@@ -164,6 +164,8 @@ namespace SocialNetwork.Controllers
             account.AboutMe = model.AboutMe;
             account.Location = model.Location;
             account.Phone = model.Phone;
+            account.Gender = model.Gender;
+            account.DayOfBirth = model.DayOfBirth;
             if (accountType == "public")
             {
                 account.AccountType = "Public";
