@@ -19,17 +19,15 @@ public partial class Post
 
     public int? AccountId { get; set; }
 
-    public string? Long { get; set; }
-
     public string? Lat { get; set; }
+
+    public string? Long { get; set; }
 
     public virtual Account? Account { get; set; }
 
     public virtual ICollection<Comment> Comments { get; } = new List<Comment>();
 
     public virtual ICollection<Medium> Media { get; } = new List<Medium>();
-
-    public virtual ICollection<Notification> Notifications { get; } = new List<Notification>();
 
     public virtual ICollection<Account> Accounts { get; } = new List<Account>();
 }

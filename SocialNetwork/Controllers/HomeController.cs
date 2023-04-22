@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 using SocialNetwork.Models;
 using SocialNetwork.Models.Authentication;
 using SocialNetwork.ViewModels;
@@ -99,7 +100,7 @@ namespace SocialNetwork.Controllers
         public IActionResult DeletePost(string postId)
         {
             Post post = context.Posts.SingleOrDefault(x => x.PostId.ToString() == postId);
-			if (post != null)// && CurrentAccount.account.AccountId == post.AccountId)
+			if (post != null && CurrentAccount.account.AccountId == post.AccountId)
 			{
 				post.IsDeleted = true;
 				context.Entry(post).State = EntityState.Modified;
@@ -140,9 +141,9 @@ namespace SocialNetwork.Controllers
         public IActionResult UpdatePostById(int postId, string newcontent)
         {
             var singlePost = context.Posts.SingleOrDefault(x => x.PostId == postId && x.IsDeleted == false);
-            if (singlePost == null)
+            if (singlePost == null || CurrentAccount.account.AccountId != singlePost.AccountId)
             {
-                string message = "Post isn't exist";
+                string message = "Post isn't exist or you dont have role";
                 return Json(new { message });
             }
             singlePost.Content = newcontent;

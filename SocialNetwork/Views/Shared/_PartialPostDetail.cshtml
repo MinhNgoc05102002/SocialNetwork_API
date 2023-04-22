@@ -34,12 +34,15 @@
                             <i style="padding-right: 5px;" class="fa-solid fa-share-nodes"></i> Share
                         </a>
                     </li>
-                    <li>
-                        <a href="#update-modal" onclick="showEditModel(@item.Post.PostId)" uk-toggle class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md dark:hover:bg-gray-800">
-                            <i style="padding-right: 5px;" class="fa-regular fa-pen-to-square"></i>  Edit Post
-                        </a>
-                    </li>
-                   @* <li>
+                    @if (@postOwnerAccount.AccountId == CurrentAccount.account.AccountId)
+                    {
+                        <li>
+                            <a href="#update-modal" onclick="showEditModel(@item.Post.PostId)" uk-toggle class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md dark:hover:bg-gray-800">
+                                <i style="padding-right: 5px;" class="fa-regular fa-pen-to-square"></i>  Edit Post
+                            </a>
+                        </li>
+                    }
+                    @* <li>
                         <a href="#" class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md dark:hover:bg-gray-800">
                             <i style="padding-right: 5px;" class="fa-solid fa-comment-slash"></i>   Disable comments
                         </a>
@@ -52,11 +55,14 @@
                     <li>
                         <hr class="-mx-2 my-2 dark:border-gray-800">
                     </li>
-                    <li>
-                        <a onclick="deletePost(@item.Post.PostId)" style="cursor:pointer" class="flex items-center px-3 py-2 text-red-500 hover:bg-red-100 hover:text-red-500 rounded-md dark:hover:bg-red-600">
-                            <i style="padding-right: 5px;" class="fa-solid fa-trash-can"></i>  Delete
-                        </a>
-                    </li>
+                    @if (@postOwnerAccount.AccountId == CurrentAccount.account.AccountId)
+                    {
+                        <li>
+                            <a onclick="deletePost(@item.Post.PostId)" style="cursor:pointer" class="flex items-center px-3 py-2 text-red-500 hover:bg-red-100 hover:text-red-500 rounded-md dark:hover:bg-red-600">
+                                <i style="padding-right: 5px;" class="fa-solid fa-trash-can"></i>  Delete
+                            </a>
+                        </li>
+                    }
                 </ul>
 
             </div>

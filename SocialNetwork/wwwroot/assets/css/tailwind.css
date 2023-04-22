@@ -2478,3 +2478,7 @@ body{  font-family: inter, sans-serif !important
 
 @media (min-width: 1536px){
 }
+
+.d-none {
+    display: none;
+}

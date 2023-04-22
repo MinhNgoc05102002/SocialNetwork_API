@@ -512,6 +512,7 @@
                     commentModel.classList.add("items-center")
                     commentModel.classList.add("space-x-2")
                     commentModel.classList.add("space-y-5")
+                    commentModel.setAttribute("commentModalBlock", data.commentId);
 
                     commentModel.innerHTML = `
                                     <img src="${data.accountImg}" class="rounded-full w-8 h-8">
@@ -524,7 +525,7 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <a style="padding:15px;height:0;" class="flex items-center text-red-500 hover:bg-red-100 hover:text-red-500 dark:hover:bg-red-600 rounded-md" href="/Home/DeleteComment?commentId=${data.commentId}">
+                                                        <a onclick="deleteComment(${data.commentId})"  style="padding:15px;height:0;" class="flex items-center text-red-500 hover:bg-red-100 hover:text-red-500 dark:hover:bg-red-600 rounded-md" href="#">
                                             <i style="padding-right: 5px;" class="fa-solid fa-trash-can"></i>
                                         </a>
                                         <a onclick="updateComment(${data.commentId},'idCommentModal')" style="padding:15px;height:0;" class="flex items-center hover:bg-blue-100 hover:text-blue-500 rounded-md ">
@@ -539,6 +540,7 @@
                     var comment = document.createElement('div')
                     // Them comment vao post
                     comment.classList.add("flex")
+                    comment.setAttribute("commentDetailBlock", data.commentId);
                     comment.innerHTML = `
                                         <div class="w-10 h-10 rounded-full relative flex-shrink-0">
                                               <img src="${data.accountImg}" alt="" class="absolute h-full rounded-full w-full">
@@ -553,10 +555,10 @@
                                             <div class="absolute w-3 h-3 top-3 -left-1 bg-gray-100 transform rotate-45 dark:bg-gray-800"></div>
                                         </div>
                                         <div>
-                                            <a style="padding:15px;height:0;" class="flex items-center text-red-500 hover:bg-red-100 hover:text-red-500 dark:hover:bg-red-600 rounded-md" href="/Home/DeleteComment?commentId=${data.commentId}">
+                                            <a onclick="deleteComment(${data.commentId})" style="padding:15px;height:0;" class="flex items-center text-red-500 hover:bg-red-100 hover:text-red-500 dark:hover:bg-red-600 rounded-md" href="#">
                                                 <i style="padding-right: 5px;" class="fa-solid fa-trash-can"></i>
                                             </a>
-                                            <a onclick="updateComment(${data.commentId},'idCommentDetail')" style="padding:15px;height:0;" class="flex items-center hover:bg-blue-100 hover:text-blue-500 rounded-md ">
+                                            <a  onclick="updateComment(${data.commentId},'idCommentDetail')" style="padding:15px;height:0;" class="flex items-center hover:bg-blue-100 hover:text-blue-500 rounded-md ">
                                                 <i style="padding-right: 5px;" class="fa-regular fa-pen-to-square"></i>
                                             </a>
                                         </div>`
@@ -639,8 +641,7 @@
         }
     
         function deleteComment(idComment) {
-            const commentDetailBlock = $(`[commentDetailBlock=${idComment}]`);
-            const commentModalBlock = $(`[commentModalBlock=${idComment}]`);
+            
 
             $.ajax({
                 type: 'DELETE',
@@ -648,15 +649,18 @@
                 dataType: 'json',
                 contentType: "application/json;charset=utf-8",
                 success: function (data) {
+                    const commentDetailBlock = $(`[commentDetailBlock=${idComment}]`);
+                    const commentModalBlock = $(`[commentModalBlock=${idComment}]`);
                     console.log(data)
+                    commentDetailBlock.remove();
+                    commentModalBlock.remove();
                 },
                 error: function (err) {
                     console.log(err)
                 },
 
             })
-            commentDetailBlock.remove();
-            commentModalBlock.remove();
+            
 
         }
     </script>
@@ -708,12 +712,7 @@
 			    map.addControl(nav, "top-right");
 			    map.addControl(geolocate, "top-right");
 
-                const myMaker = new mapboxgl.Marker({
-                    color: "red",
-                    draggable: true,
-                    anchor: "top",
-                    bounds: true,
-                })
+                
             // lấy ra vị trí hiện tại đang đứng
                 geolocate.once("geolocate", geolocateCreate);
 
@@ -768,7 +767,9 @@
                 contentType: "application/json;charset=utf-8",
                 success: function (data) {
                     console.log(data)
-                    elem.remove();
+                    if (data == true) {
+                        elem.remove();
+                    }
                 },
                 error: function (err) {
                     console.log(err)
@@ -883,7 +884,7 @@
 
             $.ajax({
                 type: 'POST',
-                url: `/Home/CreatePost`,
+                url: `https://localhost:7150/Home/CreatePost`,
                 data: formData,
                 processData: false,
                 contentType: false,
@@ -932,9 +933,10 @@
                         
                         if (data.imagesPost.length == 1) {
                              for (let i = 0; i < 1; i++) {
-                                strCon += `<a href="#story-modal-${data.id}" onclick="slideShow(${data.id})" uk-toggle="">
-                                                            <img src="${data.imagesPost[i].mediaLink}" alt="" class="rounded-md w-full lg:h-76 object-cover">
-                                                         </a>`
+                                strCon += `<a href="#story-modal-${data.id}" uk-toggle>
+                                                <img src="${data.imagesPost[i].mediaLink}" alt="">
+                                            </a>`
+                                
                                }
                    
                         }
@@ -942,8 +944,9 @@
                         if(data.imagesPost.length == 0){
                             strCon += `<div class="p-3 border-b dark:border-gray-700">${data.content}</div>`
                          }
+                        let test = data.imagesPost.length == 1 ? "" : "grid grid-cols-2 gap-2 p-2"
 
-                        strImage += `<div class="grid grid-cols-2 gap-2 p-2">
+                        strImage += `<div class="${test}">
                                                     ${strCon}
                                         </div>`
                     
@@ -959,11 +962,11 @@
                         strSlider += `<div class="story-modal-media">`
                         
                         if (data.imagesPost[0].mediaType == "video") {
-                           strSlider =`<video src="${data.imagesPost[0].mediaLink}" muted controls allowfullscreen uk-responsive class="post-image inset-0 h-full w-full"></video>`
+                           strSlider +=`<video src="${data.imagesPost[0].mediaLink}" muted controls allowfullscreen uk-responsive class="post-image inset-0 h-full w-full"></video>`
                         }
                         else
                         {
-                            strSlider = `<img src="${data.imagesPost[0].MediaLink}" alt="" class="post-image inset-0 h-full w-full">`
+                            strSlider += `<img src="${data.imagesPost[0].mediaLink}" alt="" class="post-image inset-0 h-full w-full">`
                         }
                       strSlider += `</div>`
                     }else {
@@ -1240,6 +1243,13 @@
                 function onGeolocate(position) {
                     const latitude = position.coords.latitude;
                     const longitude = position.coords.longitude;
+
+                    const myMaker = new mapboxgl.Marker({
+                        color: "red",
+                        draggable: true,
+                        anchor: "top",
+                        bounds: true,
+                    })
 
                     myMaker.setLngLat([longitude, latitude]);
                     myMaker.addTo(mapShare);
