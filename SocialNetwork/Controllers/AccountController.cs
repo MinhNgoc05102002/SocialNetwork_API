@@ -332,8 +332,7 @@ namespace SocialNetwork.Controllers
         public async Task<IActionResult> CallbackLoginGoogle()
         {
             var result = await HttpContext.AuthenticateAsync(GoogleDefaults.AuthenticationScheme);
-
-            // cách vừa sửa 
+            // chưa có check đăng nhập lỗi 
             var accessToken = result.Properties.GetTokenValue("access_token");
             var UserId = result.Principal.FindFirstValue(ClaimTypes.NameIdentifier);
             var UserName = result.Principal.FindFirstValue(ClaimTypes.Name);
