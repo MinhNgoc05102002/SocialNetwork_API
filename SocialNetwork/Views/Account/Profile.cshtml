@@ -31,7 +31,7 @@
                     <input name="image" id="input-file" accept="image/jpeg,image/png" class="item" type="file">
                 </form>
                 <form method="post" asp-action="RemoveAvatar">
-                    <button class="item" onclick="location.href=window.location.href;">Gỡ ảnh hiện tại</button>
+                    <button class="item" onclick="removeImage()">Gỡ ảnh hiện tại</button>
                 </form>
                 <button class="item" onclick="$.modal.close();">Hủy</button>
             </div>
@@ -344,9 +344,41 @@
             document.getElementById('input-file').click();
 
             // Submit the form when the user selects an image file
-            document.getElementById('input-file').onchange = function () {
-                document.getElementById('upload-form').submit();
-            };
+
+            $('#input-file').on('change', function () {
+                var formData = new FormData($('#upload-form')[0]);
+                $.ajax({
+                    url: '@Url.Action("UploadAvatar")',
+                    type: 'POST',
+                    data: formData,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function (data) {
+                        console.log(data)
+                        window.location.href = '/Account/Profile';
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        console.log(errorThrown)
+                    }
+                });
+            });
         }
+
+        function removeImage() {
+            $('#remove-avatar-button').on('click', function () {
+                $.ajax({
+                    url: '@Url.Action("RemoveAvatar", "Account")',
+                    type: 'POST',
+                    success: function () {
+                        window.location.href = '@Url.Action("Profile", "Account")';
+                    },
+                    error: function (xhr, status, error) {
+                        console.log(error);
+                    }
+                });
+            });
+        }
+
     </script>
 }
