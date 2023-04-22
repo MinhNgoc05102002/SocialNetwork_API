@@ -100,31 +100,14 @@
                     </div>
                 </form>
 
-                <div class="text-center">
-                    <h1 class="display-4">External Login Code Mega</h1>
-                    <p>Learn about <a href="https://code-mega.com">building Web apps with ASP.NET Core</a>.</p>
-
-                    <form asp-controller="Account" asp-action="FacebookLogin" method="POST" class="form-horizontal" style="text-align: center">
-                       
-                                <button type="submit"
-                                        class="btn btn-lg btn-facebook btn-block text-uppercase"
-                                        name="provider" 
-                                        title="sử dụng tài khoản của bạn để đăng nhập hoặc đăng ký">
-                                    <i class="fab fa-facebook-f mr-2"></i> Login Facebook
-                                </button>
-                            
-                        
+                <div class="text-center" style="display: flex; justify-content: space-between;">
+                    <form asp-controller="Account" asp-action="FacebookLogin" method="POST" class="form-horizontal" style="text-align: center; display: inline-block;">
+                        <button type="submit" class="bg-gradient-to-br py-3 rounded-md text-white text-xl to-blue-400" style="padding: 0 20px; width: 230px; background-color: dodgerblue">Login with <i class="fab fa-facebook-f"></i></button>
+                           
                     </form>
 
-                    <form asp-controller="Account" asp-action="GoogleLogin" method="POST" class="form-horizontal" style="text-align: center">
-
-                        <button type="submit"
-                                class="btn btn-lg btn-facebook btn-block text-uppercase"
-                                name="provider"
-                                title="sử dụng tài khoản của bạn để đăng nhập hoặc đăng ký">
-                            <i class="fab fa-facebook-f mr-2"></i> Login Google
-                        </button>
-
+                    <form asp-controller="Account" asp-action="GoogleLogin" method="POST" class="form-horizontal" style="text-align: center; display: inline-block;">
+                        <button type="submit" class="bg-gradient-to-br py-3 rounded-md text-xl to-red-400 w-full" style="padding: 0 30px; width: 230px; background-color: white">Login with <i class="fab fa-google"></i></button>
 
                     </form>
 
