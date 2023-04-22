@@ -2,10 +2,8 @@
 using Microsoft.AspNetCore.Authentication.Facebook;
 using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using SocialNetwork.Models;
 using SocialNetwork.Models.Authentication;
 using SocialNetwork.ViewModels;
@@ -274,17 +272,15 @@ namespace SocialNetwork.Controllers
             var fbUserId = result.Principal.FindFirstValue(ClaimTypes.NameIdentifier);
             var fbUserName = result.Principal.FindFirstValue(ClaimTypes.Name);
             var fbUserEmail = result.Principal.FindFirstValue(ClaimTypes.Email);
+            //var fbUserAvatar = result.Principal.FindFirstValue("Picture");
 
             var client = new HttpClient();
-            var response = await client.GetAsync($"https://graph.facebook.com/v11.0/{fbUserId}?fields=id,name,email&access_token={accessToken}");
-            var content = await response.Content.ReadAsStringAsync();
-            var user = JsonConvert.DeserializeObject<fbAccount>(content);
 
             var responseImg = await client.GetAsync($"https://graph.facebook.com/v11.0/{fbUserId}/picture?type=large&redirect=false&access_token={accessToken}");
             var img = await responseImg.Content.ReadAsStringAsync();
             var pictureData = JsonConvert.DeserializeObject<FacebookPicture>(img);
 
-            var userExists = db.Accounts.SingleOrDefault(x => x.Email == user.Email);
+            var userExists = db.Accounts.SingleOrDefault(x => x.Email == fbUserEmail);
 
             if (userExists != null)
             {
@@ -295,15 +291,13 @@ namespace SocialNetwork.Controllers
             }
             else
             {
-                const string defaultPassword = "default123";
-
                 // tạo user mới và add vào db 
+                const string defaultPassword = "default123";
                 var newUser = new Account
                 {
-                    // Avatar = GetAvatarLink(external),
-                    Email = user.Email,
-                    DisplayName = user.Email.Split("@")[0],
-                    FullName = user.Name,
+                    Email = fbUserEmail,
+                    DisplayName = fbUserEmail.Split("@")[0],
+                    FullName = fbUserName,
                     Password = defaultPassword,
                     Avatar = pictureData.Data.Url
                 };
@@ -321,15 +315,6 @@ namespace SocialNetwork.Controllers
         [HttpPost]
         public IActionResult GoogleLogin()
         {
-            //string redirectUri = Url.Action(nameof(GoogleResponse), "Account", null, Request.Scheme);
-            //string clientId = _configuration["Google:AppId"];
-            //string clientSecret = _configuration["Google:AppSecret"];
-
-            //// Step 1: Redirect the user to Google's OAuth 2.0 server to request access to the user's Google account.
-            //string authUrl = $"https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id={clientId}&redirect_uri={redirectUri}&scope=email%20profile";
-            //return Redirect(authUrl);
-
-
             var properties = new AuthenticationProperties
             {
                 RedirectUri = Url.Action("CallbackLoginGoogle"),
@@ -342,79 +327,22 @@ namespace SocialNetwork.Controllers
             return Challenge(properties, "Google");
         }
 
-        public async Task<IActionResult> GoogleResponse(string code)
-        {
-            string redirectUri = Url.Action(nameof(GoogleResponse), "Account", null, Request.Scheme);
-            string clientId = _configuration["Google:AppId"];
-            string clientSecret = _configuration["Google:AppSecret"];
-
-            // Step 2: Exchange authorization code for access token.
-            using (HttpClient httpClient = new HttpClient())
-            {
-                httpClient.BaseAddress = new Uri("https://oauth2.googleapis.com/token");
-
-                var content = new FormUrlEncodedContent(new[]
-                {
-                    new KeyValuePair<string, string>("code", code),
-                    new KeyValuePair<string, string>("client_id", clientId),
-                    new KeyValuePair<string, string>("client_secret", clientSecret),
-                    new KeyValuePair<string, string>("redirect_uri", redirectUri),
-                    new KeyValuePair<string, string>("grant_type", "authorization_code")
-                });
-
-                HttpResponseMessage response = await httpClient.PostAsync("", content);
-                string responseString = await response.Content.ReadAsStringAsync();
-
-                if (response.IsSuccessStatusCode)
-                {
-                    JObject tokenResponse = JObject.Parse(responseString);
-
-                    // Step 3: Get user information using the access token.
-                    httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", (string)tokenResponse["access_token"]);
-                    HttpResponseMessage userInfoResponse = await httpClient.GetAsync("https://www.googleapis.com/oauth2/v3/userinfo");
-                    string userInfoResponseString = await userInfoResponse.Content.ReadAsStringAsync();
-
-                    if (userInfoResponse.IsSuccessStatusCode)
-                    {
-                        JObject userInfo = JObject.Parse(userInfoResponseString);
-
-                        // Save user information to session.
-                        HttpContext.Session.SetString("UserId", (string)userInfo["sub"]);
-                        HttpContext.Session.SetString("UserName", (string)userInfo["name"]);
-                        HttpContext.Session.SetString("UserEmail", (string)userInfo["email"]);
-
-                        return RedirectToAction("Index", "Home");
-                    }
-                }
-            }
-
-            // If the code above fails, return to the login page.
-            return RedirectToAction("Login");
-        }
-
+        
         [HttpGet]
         public async Task<IActionResult> CallbackLoginGoogle()
         {
             var result = await HttpContext.AuthenticateAsync(GoogleDefaults.AuthenticationScheme);
 
-            var a = result.Properties.Items.Keys;
+            // cách vừa sửa 
+            var accessToken = result.Properties.GetTokenValue("access_token");
+            var UserId = result.Principal.FindFirstValue(ClaimTypes.NameIdentifier);
+            var UserName = result.Principal.FindFirstValue(ClaimTypes.Name);
+            var UserEmail = result.Principal.FindFirstValue(ClaimTypes.Email);
 
-            // var googleTokenResponse = JsonConvert.DeserializeObject<GoogleTokenResponse>(result.Properties.Items["token_response"]);
-            var googleAccessToken = result.Properties.Items[".Token.access_token"];
+            // mặc định ko có cái picture nhưng mình đã config thêm nó vào trong program.cs
+            var Picture = result.Principal.FindFirstValue("Picture");
 
-            // Use the Google access token to retrieve the user's information
-            var httpClient = new HttpClient();
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", googleAccessToken);
-            var httpResponse = await httpClient.GetAsync("https://www.googleapis.com/oauth2/v3/userinfo");
-            if (!httpResponse.IsSuccessStatusCode)
-            {
-                // Handle failure
-                return RedirectToAction(nameof(Login));
-            }
-            var googleUserInfoResponse = JsonConvert.DeserializeObject<GoogleUserInfoResponse>(await httpResponse.Content.ReadAsStringAsync());
-
-
-            var userExists = db.Accounts.SingleOrDefault(x => x.Email == googleUserInfoResponse.Email);
+            var userExists = db.Accounts.SingleOrDefault(x => x.Email == UserEmail);
 
             if (userExists != null)
             {
@@ -430,12 +358,11 @@ namespace SocialNetwork.Controllers
                 // tạo user mới và add vào db 
                 var newUser = new Account
                 {
-                    // Avatar = GetAvatarLink(external),
-                    Email = googleUserInfoResponse.Email,
-                    DisplayName = googleUserInfoResponse.Email.Split("@")[0],
-                    FullName = googleUserInfoResponse.Name,
+                    Email = UserEmail,
+                    DisplayName = UserEmail.Split("@")[0],
+                    FullName = UserName,
                     Password = defaultPassword,
-                    Avatar = googleUserInfoResponse.Picture
+                    Avatar = Picture
                 };
                 db.Accounts.Add(newUser);
                 db.SaveChanges();
@@ -449,12 +376,6 @@ namespace SocialNetwork.Controllers
         }
 
     }
-    public class fbAccount
-    {
-        public string Id { get; set; }
-        public string Name { get; set; }
-        public string Email { get; set; }
-    }
 
     public class FacebookPicture
     {
@@ -466,48 +387,4 @@ namespace SocialNetwork.Controllers
         public string Url { get; set; }
     }
 
-    public class GoogleTokenResponse
-    {
-        [JsonPropertyName("access_token")]
-        public string AccessToken { get; set; }
-
-        [JsonPropertyName("expires_in")]
-        public int ExpiresIn { get; set; }
-
-        [JsonPropertyName("token_type")]
-        public string TokenType { get; set; }
-
-        [JsonPropertyName("refresh_token")]
-        public string RefreshToken { get; set; }
-
-        [JsonPropertyName("id_token")]
-        public string IdToken { get; set; }
-    }
-
-    public class GoogleUserInfoResponse
-    {
-        [JsonPropertyName("id")]
-        public string Id { get; set; }
-
-        [JsonPropertyName("email")]
-        public string Email { get; set; }
-
-        [JsonPropertyName("verified_email")]
-        public bool VerifiedEmail { get; set; }
-
-        [JsonPropertyName("name")]
-        public string Name { get; set; }
-
-        [JsonPropertyName("given_name")]
-        public string GivenName { get; set; }
-
-        [JsonPropertyName("family_name")]
-        public string FamilyName { get; set; }
-
-        [JsonPropertyName("picture")]
-        public string Picture { get; set; }
-
-        [JsonPropertyName("locale")]
-        public string Locale { get; set; }
-    }
 }

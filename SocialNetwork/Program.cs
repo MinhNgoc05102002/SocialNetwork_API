@@ -1,10 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication.Facebook;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SocialNetwork.Models;
-using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,26 +28,16 @@ builder.Services.AddAuthentication(options =>
     options.AppSecret = builder.Configuration["Facebook:AppSecret"];
     options.CallbackPath = builder.Configuration["Facebook:CallbackPath"];
     options.SaveTokens = true;
-    options.Scope.Add("email");
-    options.Fields.Add("name");
-    options.Fields.Add("email");
+    options.ClaimActions.MapJsonKey("Picture", "picture.data.url");
 })
 .AddGoogle(options =>
 {
     options.ClientId = builder.Configuration["Google:AppId"];
     options.ClientSecret = builder.Configuration["Google:AppSecret"];
-    options.ClaimActions.MapJsonKey("Picture", "picture", "url");
-    options.SaveTokens = true;
     options.CallbackPath = builder.Configuration["Google:CallbackPath"];
+    options.SaveTokens = true;
+    options.ClaimActions.MapJsonKey("Picture", "picture", "url"); // để có thể gọi Claim.Picture
 });
-//builder.Services.AddAuthentication()
-//    .AddFacebook(options =>
-//    {
-//        options.AppId = builder.Configuration["Facebook:AppId"];
-//        options.AppSecret = builder.Configuration["Facebook:AppSecret"];
-//        options.SaveTokens = true;
-//        options.CallbackPath = builder.Configuration["Facebook:CallbackPath"];
-//    });
 
 var app = builder.Build();
 
