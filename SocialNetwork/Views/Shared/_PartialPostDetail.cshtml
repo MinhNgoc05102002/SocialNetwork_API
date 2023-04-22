@@ -39,9 +39,14 @@
                             <i style="padding-right: 5px;" class="fa-regular fa-pen-to-square"></i>  Edit Post
                         </a>
                     </li>
-                    <li>
+                   @* <li>
                         <a href="#" class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md dark:hover:bg-gray-800">
                             <i style="padding-right: 5px;" class="fa-solid fa-comment-slash"></i>   Disable comments
+                        </a>
+                    </li>*@
+                    <li>
+                        <a href="#map-modal" onclick="sharePosition(@item.Post.Lat,@item.Post.Long)" uk-toggle class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md dark:hover:bg-gray-800">
+                            <i style="cursor:pointer;padding-right: 5px;" class="share-position-icon fa-solid fa-location-dot"></i>   Share Position
                         </a>
                     </li>
                     <li>

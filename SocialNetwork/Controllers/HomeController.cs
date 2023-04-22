@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using SocialNetwork.Models;
 using SocialNetwork.Models.Authentication;
+using SocialNetwork.ViewModels;
 using System.Diagnostics;
 using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
@@ -38,13 +39,15 @@ namespace SocialNetwork.Controllers
 
         //POST OPTION
         [HttpPost]
-        public IActionResult CreatePost(string Content, List<IFormFile> images)
+        public IActionResult CreatePost(string Content, List<IFormFile> images,string lng,string lat)
         {
             Post post = new Post();
             post.AccountId = CurrentAccount.account.AccountId;
             post.Content = Content;
             post.CreateAt = DateTime.Now;
             post.LikeCount = 0;
+            post.Lat = lat;
+            post.Long = lng;
             post.CommentCount = 0;
             post.IsDeleted = false;
             context.Posts.Add(post);
@@ -68,16 +71,29 @@ namespace SocialNetwork.Controllers
                     {
                         medium.MediaType = "image";
                     }
-                    else if (image.ContentType.Contains("video"))
-                    {
-                        medium.MediaType = "video";
-                    }
-                    context.Media.Add(medium);
-                }
-            }
-            context.SaveChanges();
-            return RedirectToAction("Index");
-        }
+					else if (image.ContentType.Contains("video"))
+					{
+						medium.MediaType = "video";
+					}
+					context.Media.Add(medium);
+				}
+			}
+			context.SaveChanges();
+			PostDetailViewModel postDetail = new PostDetailViewModel(post);
+			// thôi chịu khó lấy ra từng cái 1 :,)
+			return new ObjectResult(new { 
+				id = post.PostId,
+				idUser = postDetail.GetPostOwnerAccount().AccountId,
+				nameAuthor = postDetail.GetPostOwnerAccount().FullName,
+				avatarAuthor = postDetail.GetPostOwnerAccount().Avatar,
+                createAt = post.CreateAt,
+				content = post.Content,
+				listLike = postDetail.GetListAccountLiked().Count(),
+				imagesPost = postDetail.GetListMedia(),
+                lat = post.Lat,
+                lng = post.Long
+			});
+		}
 
 		[HttpDelete]
         public IActionResult DeletePost(string postId)
