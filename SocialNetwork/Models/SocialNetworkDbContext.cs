@@ -221,7 +221,9 @@ public partial class SocialNetworkDbContext : DbContext
             entity.Property(e => e.IsDeleted)
                 .HasDefaultValueSql("((0))")
                 .HasColumnName("isDeleted");
+            entity.Property(e => e.Lat).HasColumnType("ntext");
             entity.Property(e => e.LikeCount).HasDefaultValueSql("((0))");
+            entity.Property(e => e.Long).HasColumnType("ntext");
 
             entity.HasOne(d => d.Account).WithMany(p => p.PostsNavigation)
                 .HasForeignKey(d => d.AccountId)
