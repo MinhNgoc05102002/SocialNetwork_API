@@ -447,7 +447,7 @@
                     accountType: $('input[name=accountType]:checked').val(),
                 },
                 success: function (result) {
-                    window.location.href = '@Url.Action("setting")';
+                    console.log(result);
                 },
                 error: function(xhr, textStatus, errorThrown) {
                     console.log(textStatus);
