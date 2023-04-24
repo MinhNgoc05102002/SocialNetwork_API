@@ -214,10 +214,13 @@
 
                             // render box 8 hours
                             for (let i = 0; i < 8; i++) {
+                                // hiển thị nhiệt độ 
                                 $('.weather-temp').eq(i).html((Math.round(json.hourly[i].temp - 273)) + '°');
 
+                                // Hiển thị thời gian 
                                 var time = new Date(json.hourly[i].dt * 1000);
                                 $('.weather-hour').eq(i).html((time.getHours() > 12 ? (time.getHours() - 12) : time.getHours()).toString() + ":" + ((time.getMinutes() < 10 ? '0' : '').toString() + time.getMinutes().toString()) + (time.getHours() < 12 ? ' AM' : ' PM').toString());
+
 
                                 switch (json.hourly[i].weather[0].main) {
                                     case "Mist":
@@ -255,15 +258,22 @@
                             var date;
 
                             for (i = 0; i < 8; i++) {
+                                // Hiển thị ngày 
                                 date = new Date(json.daily[i].dt * 1000);
                                 $('.day-forecast').eq(i).html(date.getDate() + ', ' + months[date.getMonth()])
+                                // hiển thị thứ trong tuần 
                                 $('.day-in-week-forecast').eq(i).html(days[date.getDay()])
-
+                                
+                                // hiển thị mô tả thời tiết 
                                 $('.des').eq(i).html(json.daily[i].weather[0].main + ", " + json.daily[i].weather[0].description)
+                                // hiển thị nhiệt độ ban ngày 
                                 $('.day-temp').eq(i).html((Math.round(json.daily[i].temp.day - 273)) + '°');
+                                // hiển thị nhiệt độ ban đêm 
                                 $('.night-temp').eq(i).html((Math.round(json.daily[i].temp.night - 273)) + '°');
 
+                                // hiển thị độ ẩm 
                                 $('.day-humid').eq(i).html(json.daily[i].humidity + '%');
+                                // hiển thị chỉ số uv 
                                 $('.day-percip').eq(i).html(json.daily[i].uvi);
 
                                 // render icon

@@ -363,7 +363,8 @@ namespace SocialNetwork.Controllers
                     DisplayName = UserEmail.Split("@")[0],
                     FullName = UserName,
                     Password = defaultPassword,
-                    Avatar = Picture
+                    Avatar = Picture,
+                    DayOfBirth = DateTime.Now
                 };
                 db.Accounts.Add(newUser);
                 db.SaveChanges();

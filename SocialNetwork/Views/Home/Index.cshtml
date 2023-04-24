@@ -156,12 +156,13 @@
             //Converted into days, months, hours, day-name, AM/PM
             var dt = new Date()
 
+            // Hiển thị ngày trong tuần 
             var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
             $('#day').html(days[dt.getDay()]);
-
+            // Hiển thị tháng 
             var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
             $('#date').html(months[dt.getMonth()] + " " + dt.getDate() + ", " + dt.getFullYear());
-
+            // Hiển thị giờ 
             $('#time').html((dt.getHours() > 12 ? (dt.getHours() - 12) : dt.getHours()).toString() + ":" + ((dt.getMinutes() < 10 ? '0' : '').toString() + dt.getMinutes().toString()) + (dt.getHours() < 12 ? ' AM' : ' PM').toString());
 
             // Khai báo nhiệt độ
@@ -181,10 +182,13 @@
                         url: url,
                         dataType: "json",
                         success: function (json) {
+                            // Hiện tên thành phố 
                             $('#city').html(json.name + ", " + json.sys.country);
+                            //Hiển thị trangj thái thời tiết 
                             $('#weather-status').html(json.weather[0].main + " / " + json.weather[0].description);
 
                             //WEATHER CONDITIONS: http://openweathermap.org/weather-conditions
+                            // Hiển thị sticker thời tiết 
                             switch (json.weather[0].main) {
                                 case "Mist":
                                     $('#weather-icon').replaceWith('<i id="weather-icon" class="fas fa-water"></i>');
@@ -211,11 +215,16 @@
                                     $('#weather-icon').replaceWith('<i  id="weather-icon" class="fas fa-exclamation-triangle"></i>');
                                     break;
                             }
+                            
                             // chuyển từ độ K sang độ C
                             temp = (json.main.temp - 273);
+                            // hiển thị nhiệt độ 
                             $('#temperature').html(Math.round(temp));
+                            // gió 
                             $('.windspeed').html(json.wind.speed + " Km/h")
+                            // độ ẩm
                             $('.humidity').html(json.main.humidity + " %");
+                            // áp suất 
                             $('.pressure').html(json.main.pressure + " hPa");
 
                             // thoi gian ở kiểu timestamp kể từ Unix Epoch (1/1/1970 00:00:00 UTC), chuyển sang kiểu giờ:
@@ -236,17 +245,17 @@
             }
 
             //CELSIUS TO FAHRENHEIT CONVERTER on Click
-            $('#fahrenheit').click(function () {
-                $(this).css("color", "#333");
-                $('#celsius').css("color", "#b0bec5");
-                $('#temperature').html(Math.round(temp * 1.8 + 32));
-            });
+            //$('#fahrenheit').click(function () {
+            //    $(this).css("color", "#333");
+            //    $('#celsius').css("color", "#b0bec5");
+            //    $('#temperature').html(Math.round(temp * 1.8 + 32));
+            //});
 
-            $('#celsius').click(function () {
-                $(this).css("color", "#333");
-                $('#fahrenheit').css("color", "#b0bec5");
-                $('#temperature').html(Math.round(temp));
-            });
+            //$('#celsius').click(function () {
+            //    $(this).css("color", "#333");
+            //    $('#fahrenheit').css("color", "#b0bec5");
+            //    $('#temperature').html(Math.round(temp));
+            //});
 
             // Cập nhật thời gian mỗi 30s
             setInterval(function () {
