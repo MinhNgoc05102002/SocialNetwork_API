@@ -377,6 +377,10 @@ namespace SocialNetwork.Controllers
             }
         }
 
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
     }
 
     public class FacebookPicture
