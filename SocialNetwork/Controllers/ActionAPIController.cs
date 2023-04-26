@@ -24,7 +24,6 @@ namespace SocialNetwork.Controllers
             return posts;
         }
 
-        // :) vailoz loi o cho nay 
         // nếu sử dụng cái {postid} trên này thì đường dẫn phải là https://localhost:7150/api/ActionAPI/1, tức là /postId ấy loz má
         //[HttpPost("{postId}")]
 

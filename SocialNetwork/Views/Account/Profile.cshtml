@@ -59,7 +59,7 @@
                     @Model.Location
                 </div>
 
-                <div class="capitalize flex font-semibold space-x-3 text-center text-sm my-2">
+                <div id="container-unfollow" class="capitalize flex font-semibold space-x-3 text-center text-sm my-2">
                     @if (targetAccountId == currentAccountId)
                     {
                         <a href="/account/setting" class="bg-gray-300 shadow-sm p-2 px-6 rounded-md dark:bg-gray-700">Edit profile</a>
@@ -91,7 +91,7 @@
                         {
                             if (Model.AccountType == "Public")
                             {
-                                <a class="bg-gray-300 shadow-sm p-2 px-6 rounded-md dark:bg-gray-700"
+                                <a id="follow-state" class="bg-gray-300 shadow-sm p-2 px-6 rounded-md dark:bg-gray-700"
                        onclick="follow(@currentAccountId, @targetAccountId);">
                                     Follow
                                 </a>
@@ -289,7 +289,7 @@
                 type: 'POST',
                 contentType: 'application/json',
                 success: function (data) {
-                    location.reload();
+                     location.reload();
                 },
                 error: function (xhr, textStatus, errorThrown) {
                     alert("Error");
