@@ -24,7 +24,6 @@ namespace SocialNetwork.Controllers
             return posts;
         }
 
-        // :) vailoz loi o cho nay 
         // nếu sử dụng cái {postid} trên này thì đường dẫn phải là https://localhost:7150/api/ActionAPI/1, tức là /postId ấy loz má
         //[HttpPost("{postId}")]
 
@@ -67,7 +66,7 @@ namespace SocialNetwork.Controllers
             return false;
         }
 
-        [Authentication]
+        //[Authentication]
         [HttpPost("addComment")]
         public IActionResult commentPost(Comment comment)
         {
@@ -97,7 +96,8 @@ namespace SocialNetwork.Controllers
                 {
                     content = comment.Content,
                     accountImg = account.Avatar,
-                    accountName = account.FullName
+                    accountName = account.FullName,
+                    commentId = comment.CommentId
                 };
 
                 return new JsonResult(data);
@@ -105,7 +105,37 @@ namespace SocialNetwork.Controllers
             return new JsonResult(null);
         }
 
-        [Authentication]
+        [HttpPut("editComment")]
+        public IActionResult editcommentPost(int commentId, string newcontent)
+        {
+            var singleComment = db.Comments.SingleOrDefault(x => x.CommentId == commentId);
+            if (singleComment == null || singleComment.AccountId != CurrentAccount.account.AccountId)
+            {
+                string message = "Comment isn't exist or you dont have role";
+                return new JsonResult(new { message });
+            }
+            singleComment.Content = newcontent;
+            db.SaveChanges();
+            return new JsonResult(new { singleComment });
+        }
+
+        [HttpDelete("deleteComment")]
+        public IActionResult deletecommentPost(int commentId)
+        {
+            var singleComment = db.Comments.SingleOrDefault(x => x.CommentId == commentId);
+            string message = "";
+            if (singleComment == null || singleComment.AccountId != CurrentAccount.account.AccountId)
+            {
+                message = "Comment isn't exist or you dont have role";
+                return new JsonResult(new { message });
+            }
+            db.Comments.Remove(singleComment);
+            db.SaveChanges();
+            message = "Comment is deleted";
+            return new JsonResult(new { message });
+        }
+
+        // [Authentication]
         [HttpGet("Comment")]
         public IEnumerable<Comment> GetComment(string postID)
         {

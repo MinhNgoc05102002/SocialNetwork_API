@@ -50,34 +50,35 @@
 </style>
 
 @model List<Account>
-<form onsubmit="submitform()" id="createGroup" action="/Messages/CreateGroup?member=" method="post">
-<div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-200">
-    <h1 class="font-bold text-2xl text-gray-800 py-4 px-6 bg-gray-100">Follow Request</h1>
-    <button type="submit">Create</button>
-    <input id="nameGroup" type="text" placeholder="enter name group"/>
-    @foreach (var item in Model)
-    {
-        <div class="item flex items-center p-4">
-            <div class="mr-4">
-                <img class="w-12 h-12 rounded-full object-cover border-2 border-white" src="@item.Avatar" alt="Avatar">
-            </div>
-            <div>
-                <h3 class="text-gray-800 font-bold text-md">@item.FullName</h3>
-                <p class="text-gray-500">@@@item.DisplayName</p>
-            </div>
-            <div class="flex-1"></div>
-            <div class="flex items-center space-x-4">
-                <div class="accept px-4 py-2 text-sm text-black bg-blue-500 rounded-full transition duration-200 shadow-md"
-                        onclick="addPeople(event, @item.AccountId)">
-                    Add to group
+<div class="container m-auto pt-5">
+    <form onsubmit="submitform()" id="createGroup" action="/Messages/CreateGroup?member=" method="post">
+        <h1 style="display: inline-block" class="font-bold text-2xl text-gray-800 py-4 px-6 bg-gray-100">Follow Request</h1>
+        <button style="background-color: #ec4899; display: inline-block; margin: 10px; padding: 10px; color: white; border-radius: 5px" type="submit">Create</button>
+        <div class="bg-white overflow-hidden shadow-md hover:shadow-lg transition duration-200">
+                <input id="nameGroup" type="text" placeholder="enter name group"/>
+            @foreach (var item in Model)
+            {
+                <div class="item flex items-center p-4">
+                    <div class="mr-4">
+                        <img class="w-12 h-12 rounded-full object-cover border-2 border-white" src="@item.Avatar" alt="Avatar">
+                    </div>
+                    <div>
+                        <h3 class="text-gray-800 font-bold text-md">@item.FullName</h3>
+                        <p class="text-gray-500">@@@item.DisplayName</p>
+                    </div>
+                    <div class="flex-1"></div>
+                    <div class="flex items-center space-x-4">
+                        <div class="accept px-4 py-2 text-sm text-black bg-blue-500 rounded-full transition duration-200 shadow-md"
+                                onclick="addPeople(event, @item.AccountId)">
+                            Add to group
+                        </div>
+                    </div>
                 </div>
-            </div>
+            }
+
         </div>
-    }
-
+    </form>
 </div>
-</form>
-
 <script>
     var str = ''
     function addPeople(event, idAccount) {

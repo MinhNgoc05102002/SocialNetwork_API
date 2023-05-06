@@ -34,24 +34,35 @@
                             <i style="padding-right: 5px;" class="fa-solid fa-share-nodes"></i> Share
                         </a>
                     </li>
-                    <li>
-                        <a href="#update-modal" onclick="showEditModel(@item.Post.PostId)" uk-toggle class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md dark:hover:bg-gray-800">
-                            <i style="padding-right: 5px;" class="fa-regular fa-pen-to-square"></i>  Edit Post
-                        </a>
-                    </li>
-                    <li>
+                    @if (@postOwnerAccount.AccountId == CurrentAccount.account.AccountId)
+                    {
+                        <li>
+                            <a href="#update-modal" onclick="showEditModel(@item.Post.PostId)" uk-toggle class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md dark:hover:bg-gray-800">
+                                <i style="padding-right: 5px;" class="fa-regular fa-pen-to-square"></i>  Edit Post
+                            </a>
+                        </li>
+                    }
+                    @* <li>
                         <a href="#" class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md dark:hover:bg-gray-800">
                             <i style="padding-right: 5px;" class="fa-solid fa-comment-slash"></i>   Disable comments
+                        </a>
+                    </li>*@
+                    <li>
+                        <a href="#map-modal" onclick="sharePosition(@item.Post.Lat,@item.Post.Long)" uk-toggle class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md dark:hover:bg-gray-800">
+                            <i style="cursor:pointer;padding-right: 5px;" class="share-position-icon fa-solid fa-location-dot"></i>   Share Position
                         </a>
                     </li>
                     <li>
                         <hr class="-mx-2 my-2 dark:border-gray-800">
                     </li>
-                    <li>
-                        <a onclick="deletePost(@item.Post.PostId)" style="cursor:pointer" class="flex items-center px-3 py-2 text-red-500 hover:bg-red-100 hover:text-red-500 rounded-md dark:hover:bg-red-600">
-                            <i style="padding-right: 5px;" class="fa-solid fa-trash-can"></i>  Delete
-                        </a>
-                    </li>
+                    @if (@postOwnerAccount.AccountId == CurrentAccount.account.AccountId)
+                    {
+                        <li>
+                            <a onclick="deletePost(@item.Post.PostId)" style="cursor:pointer" class="flex items-center px-3 py-2 text-red-500 hover:bg-red-100 hover:text-red-500 rounded-md dark:hover:bg-red-600">
+                                <i style="padding-right: 5px;" class="fa-solid fa-trash-can"></i>  Delete
+                            </a>
+                        </li>
+                    }
                 </ul>
 
             </div>
@@ -170,12 +181,26 @@
                 </div>
                 <div> Comment</div>
             </a>
-            <a class="flex items-center space-x-2 flex-1 justify-end" onclick="copyToClipboard('https://' + window.location.host + '/p/@item.Post.PostId')">
+            <!-- Your like button code -->
+            <div style="position: relative" class="flex items-center space-x-2 flex-1 justify-end">
+            <a class="flex items-center space-x-2 flex-1 justify-end" onclick="handleShareFacebook()">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="22" height="22" class="dark:text-gray-100">
                     <path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z" />
                 </svg>
                 <div> Share</div>
             </a>
+
+                <div class="fb-share-button" style="margin: auto; margin-right: 0px; position: absolute; opacity: 0" data-href="https://c3ae-2001-ee0-1a38-5f6-1402-2f7b-8134-b1fb.ngrok-free.app/fb/@item.Post.PostId" data-layout="" data-size="">
+                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flocalhost%3A7150%2Fp%2F13&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="22" height="22" class="dark:text-gray-100">
+                        <path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z" />
+                    </svg>
+                    Share
+                </a>
+            </div>
+            </div>
+            <!-- Your share button code -->
+            
         </div>
         <div class="flex items-center space-x-3">
             <div class="flex items-center">
@@ -188,14 +213,21 @@
             </div>
         </div>
         @{
-            var tmp = item.GetListComment().Count * 30 + 50;
+            var cnt = item.GetListComment().Count;
+            var tmp = cnt> 3 ? 200:cnt * 50+50;
             var height = tmp.ToString() + "px";
         }
         <div class="border-t pt-4 space-y-4 dark:border-gray-600 comment-area-@item.Post.PostId scrollbar scroll-style-1" style="height: @height !important">
+            @if (cnt == 0)
+            {
+                <p class="leading-6 word-wrap">
+                    Be the first to comment!
+                </p>
+            }
             @foreach (var comment in item.GetListComment())
             {
                 var commentAccount = Model.GetCommentAccount(comment);
-                <div class="flex">
+                <div class="flex" commentDetailBlock="@comment.CommentId">
                     <div class="w-10 h-10 rounded-full relative flex-shrink-0">
                         <img src="@commentAccount.Avatar" alt="" class="absolute h-full rounded-full w-full">
                     </div>
@@ -208,14 +240,17 @@
                         </div>
                         <div class="absolute w-3 h-3 top-3 -left-1 bg-gray-100 transform rotate-45 dark:bg-gray-800"></div>
                     </div>
-                    <div>
-                        <a style="padding:15px;height:0;" class="flex items-center text-red-500 hover:bg-red-100 hover:text-red-500 dark:hover:bg-red-600 rounded-md" href="/Home/DeletePost?postId=5">
-                            <i style="padding-right: 5px;" class="fa-solid fa-trash-can"></i>
-                        </a>
-                        <a onclick="updateComment(@comment.CommentId,'idCommentDetail')" style="padding:15px;height:0;" class="flex items-center hover:bg-blue-100 hover:text-blue-500 rounded-md ">
-                            <i style="padding-right: 5px;" class="fa-regular fa-pen-to-square"></i>
-                        </a>
-                    </div>
+                    @if (commentAccount.AccountId == CurrentAccount.account.AccountId)
+                    {
+                        <div>
+                            <a onclick="deleteComment(@comment.CommentId)" style="padding:15px;height:0;" class="flex items-center text-red-500 hover:bg-red-100 hover:text-red-500 dark:hover:bg-red-600 rounded-md">
+                                <i style="padding-right: 5px;" class="fa-solid fa-trash-can"></i>
+                            </a>
+                            <a onclick="updateComment(@comment.CommentId,'idCommentDetail')" style="padding:15px;height:0;" class="flex items-center hover:bg-blue-100 hover:text-blue-500 rounded-md ">
+                                <i style="padding-right: 5px;" class="fa-regular fa-pen-to-square"></i>
+                            </a>
+                        </div>
+                    }
                 </div>
             }
         </div>

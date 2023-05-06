@@ -31,7 +31,7 @@
                     <input name="image" id="input-file" accept="image/jpeg,image/png" class="item" type="file">
                 </form>
                 <form method="post" asp-action="RemoveAvatar">
-                    <button class="item" onclick="location.href=window.location.href;">Gỡ ảnh hiện tại</button>
+                    <button class="item" onclick="removeImage()">Gỡ ảnh hiện tại</button>
                 </form>
                 <button class="item" onclick="$.modal.close();">Hủy</button>
             </div>
@@ -59,7 +59,7 @@
                     @Model.Location
                 </div>
 
-                <div class="capitalize flex font-semibold space-x-3 text-center text-sm my-2">
+                <div id="container-unfollow" class="capitalize flex font-semibold space-x-3 text-center text-sm my-2">
                     @if (targetAccountId == currentAccountId)
                     {
                         <a href="/account/setting" class="bg-gray-300 shadow-sm p-2 px-6 rounded-md dark:bg-gray-700">Edit profile</a>
@@ -91,7 +91,7 @@
                         {
                             if (Model.AccountType == "Public")
                             {
-                                <a class="bg-gray-300 shadow-sm p-2 px-6 rounded-md dark:bg-gray-700"
+                                <a id="follow-state" class="bg-gray-300 shadow-sm p-2 px-6 rounded-md dark:bg-gray-700"
                        onclick="follow(@currentAccountId, @targetAccountId);">
                                     Follow
                                 </a>
@@ -289,7 +289,7 @@
                 type: 'POST',
                 contentType: 'application/json',
                 success: function (data) {
-                    location.reload();
+                     location.reload();
                 },
                 error: function (xhr, textStatus, errorThrown) {
                     alert("Error");
@@ -344,9 +344,41 @@
             document.getElementById('input-file').click();
 
             // Submit the form when the user selects an image file
-            document.getElementById('input-file').onchange = function () {
-                document.getElementById('upload-form').submit();
-            };
+
+            $('#input-file').on('change', function () {
+                var formData = new FormData($('#upload-form')[0]);
+                $.ajax({
+                    url: '@Url.Action("UploadAvatar")',
+                    type: 'POST',
+                    data: formData,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function (data) {
+                        console.log(data)
+                        window.location.href = '/Account/Profile';
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        console.log(errorThrown)
+                    }
+                });
+            });
         }
+
+        function removeImage() {
+            $('#remove-avatar-button').on('click', function () {
+                $.ajax({
+                    url: '@Url.Action("RemoveAvatar", "Account")',
+                    type: 'POST',
+                    success: function () {
+                        window.location.href = '@Url.Action("Profile", "Account")';
+                    },
+                    error: function (xhr, status, error) {
+                        console.log(error);
+                    }
+                });
+            });
+        }
+
     </script>
 }

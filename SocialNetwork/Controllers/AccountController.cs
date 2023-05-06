@@ -1,7 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Facebook;
+using Microsoft.AspNetCore.Authentication.Google;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using SocialNetwork.Models;
 using SocialNetwork.Models.Authentication;
 using SocialNetwork.ViewModels;
+using System.Net.Http.Headers;
+using System.Security.Claims;
+using System.Text.Json.Serialization;
 using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
 namespace SocialNetwork.Controllers
@@ -10,9 +18,10 @@ namespace SocialNetwork.Controllers
     {
         private IHostingEnvironment _env;
         SocialNetworkDbContext db = new SocialNetworkDbContext();
-
-        public AccountController(IHostingEnvironment _enviroment)
+        private readonly IConfiguration _configuration;
+        public AccountController(IHostingEnvironment _enviroment, IConfiguration configuration)
         {
+            _configuration = configuration;
             _env = _enviroment;
         }
 
@@ -164,6 +173,8 @@ namespace SocialNetwork.Controllers
             account.AboutMe = model.AboutMe;
             account.Location = model.Location;
             account.Phone = model.Phone;
+            account.Gender = model.Gender;
+            account.DayOfBirth = model.DayOfBirth;
             if (accountType == "public")
             {
                 account.AccountType = "Public";
@@ -204,7 +215,7 @@ namespace SocialNetwork.Controllers
             CurrentAccount.account.Avatar = account.Avatar;
             db.SaveChanges();
 
-            return RedirectToAction("Profile", "Account");
+            return Json(new { success = true, message = "Image uploaded successfully" });
         }
 
         [HttpPost]
@@ -238,5 +249,148 @@ namespace SocialNetwork.Controllers
             var lstBlocked = db.Accounts.Where(x => lstIdBlocked.Contains(x.AccountId)).ToList();
             return View(lstBlocked);
         }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public IActionResult FacebookLogin()
+        {
+            var properties = new AuthenticationProperties
+            {
+                RedirectUri = Url.Action("CallbackLoginFb"),
+                Items =
+                {
+                    { "scheme",  FacebookDefaults.AuthenticationScheme }
+                }
+            };
+
+            return Challenge(properties, "Facebook");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> CallbackLoginFb()
+        {
+            var result = await HttpContext.AuthenticateAsync(FacebookDefaults.AuthenticationScheme);
+            var accessToken = result.Properties.GetTokenValue("access_token");
+            var fbUserId = result.Principal.FindFirstValue(ClaimTypes.NameIdentifier);
+            var fbUserName = result.Principal.FindFirstValue(ClaimTypes.Name);
+            var fbUserEmail = result.Principal.FindFirstValue(ClaimTypes.Email);
+            //var fbUserAvatar = result.Principal.FindFirstValue("Picture");
+
+            var client = new HttpClient();
+
+            var responseImg = await client.GetAsync($"https://graph.facebook.com/v11.0/{fbUserId}/picture?type=large&redirect=false&access_token={accessToken}");
+            var img = await responseImg.Content.ReadAsStringAsync();
+            var pictureData = JsonConvert.DeserializeObject<FacebookPicture>(img);
+
+            var userExists = db.Accounts.SingleOrDefault(x => x.Email == fbUserEmail);
+
+            if (userExists != null)
+            {
+                // email này đã dki tài khoản rồi thì cho đăng nhập luôn 
+                HttpContext.Session.SetInt32("accountId", userExists.AccountId);
+                CurrentAccount.initSession(userExists.AccountId);
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                // tạo user mới và add vào db 
+                const string defaultPassword = "default123";
+                var newUser = new Account
+                {
+                    Email = fbUserEmail,
+                    DisplayName = fbUserEmail.Split("@")[0],
+                    FullName = fbUserName,
+                    Password = defaultPassword,
+                    Avatar = pictureData.Data.Url
+                };
+                db.Accounts.Add(newUser);
+                db.SaveChanges();
+
+                // đăng nhập luôn 
+                HttpContext.Session.SetInt32("accountId", newUser.AccountId);
+                CurrentAccount.initSession(newUser.AccountId);
+                return RedirectToAction("Index", "Home");
+
+            }
+        }
+
+        [HttpPost]
+        public IActionResult GoogleLogin()
+        {
+            var properties = new AuthenticationProperties
+            {
+                RedirectUri = Url.Action("CallbackLoginGoogle"),
+                Items =
+                {
+                    { "scheme", GoogleDefaults.AuthenticationScheme  }
+                }
+            };
+
+            return Challenge(properties, "Google");
+        }
+
+        
+        [HttpGet]
+        public async Task<IActionResult> CallbackLoginGoogle()
+        {
+            var result = await HttpContext.AuthenticateAsync(GoogleDefaults.AuthenticationScheme);
+            // chưa có check đăng nhập lỗi 
+            var accessToken = result.Properties.GetTokenValue("access_token");
+            var UserId = result.Principal.FindFirstValue(ClaimTypes.NameIdentifier);
+            var UserName = result.Principal.FindFirstValue(ClaimTypes.Name);
+            var UserEmail = result.Principal.FindFirstValue(ClaimTypes.Email);
+
+            // mặc định ko có cái picture nhưng mình đã config thêm nó vào trong program.cs
+            var Picture = result.Principal.FindFirstValue("Picture");
+
+            var userExists = db.Accounts.SingleOrDefault(x => x.Email == UserEmail);
+
+            if (userExists != null)
+            {
+                // email này đã dki tài khoản rồi thì cho đăng nhập luôn 
+                HttpContext.Session.SetInt32("accountId", userExists.AccountId);
+                CurrentAccount.initSession(userExists.AccountId);
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                const string defaultPassword = "default123";
+
+                // tạo user mới và add vào db 
+                var newUser = new Account
+                {
+                    Email = UserEmail,
+                    DisplayName = UserEmail.Split("@")[0],
+                    FullName = UserName,
+                    Password = defaultPassword,
+                    Avatar = Picture,
+                    DayOfBirth = DateTime.Now
+                };
+                db.Accounts.Add(newUser);
+                db.SaveChanges();
+
+                // đăng nhập luôn 
+                HttpContext.Session.SetInt32("accountId", newUser.AccountId);
+                CurrentAccount.initSession(newUser.AccountId);
+                return RedirectToAction("Index", "Home");
+
+            }
+        }
+
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
     }
+
+    public class FacebookPicture
+    {
+        public FacebookPictureData Data { get; set; }
+    }
+
+    public class FacebookPictureData
+    {
+        public string Url { get; set; }
+    }
+
 }

@@ -18,9 +18,15 @@
                         <div class="row merged20">
                             <div class="col-lg-11 col-md-11 col-sm-11">
                                 <form onsubmit='handleSearch(event)' class="displayFlex">
-                                    <input type="text" placeholder="Search Location">
+                                    <input onInput='handleSearchCity()' id="search-location" type="text" placeholder="Search Location">
                                     <button type="submit"><i class="fa fa-search"></i></button>
                                 </form>
+                                <div style="width: 450px" uk-drop="mode:click; offset: 4" class="header_dropdown">
+                                    <h1></h1>
+                                    <ul class="dropdown_scrollbar" id="dropdown-weather-item" data-simplebar>
+                                        
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -185,137 +191,184 @@
 </div>
 
 @section ScriptWeather {
-<script>
-    $(document).ready(function () {
-        //GEOLOCATION and WEATHER API//
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function (position) {
-                // Lấy tọa độ hiện tại
-                var myLatitude = parseFloat(Math.round(position.coords.latitude * 100) / 100).toFixed(2);
-                var myLongitude = parseFloat(Math.round(position.coords.longitude * 100) / 100).toFixed(2);
-                console.log(myLatitude, myLongitude);
+    <script>
 
-                // $('.geo').html(position.coords.latitude + " " + position.coords.longitude);
-                var url = "https://api.openweathermap.org/data/2.5/weather?lat=" + myLatitude + "&lon=" + myLongitude + "&appid=93bd5aaabae6bd21c552347c72721beb"
-                var urlHours = "https://api.openweathermap.org/data/2.5/onecall?lat=" + myLatitude + "&lon=" + myLongitude + "&appid=ca8c2c7970a09dc296d9b3cfc4d06940"
+        $(document).ready(function () {
+            //GEOLOCATION and WEATHER API//
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    // Lấy tọa độ hiện tại
+                    var Latitude = parseFloat(Math.round(position.coords.latitude * 100) / 100).toFixed(2);
+                    var Longitude = parseFloat(Math.round(position.coords.longitude * 100) / 100).toFixed(2);
+                    console.log(Latitude, Longitude);
 
-                $.ajax({
-                    url: url,
-                    dataType: "json",
-                    success: function (json) {
-                        $('#city').html(json.name + ", " + json.sys.country);
-                    }
-                })
+                    var cityName = "";
+                    $.ajax({
+                        url: "https://api.openweathermap.org/data/2.5/weather?lat=" + Latitude + "&lon=" + Longitude + "&appid=93bd5aaabae6bd21c552347c72721beb",
+                        dataType: "json",
+                        success: function (json) {
+                            cityName = json.name + ", " + json.sys.country;
 
-                $.ajax({
-                    url: urlHours,
-                    dataType: "json",
-                    success: function (json) {
-                        //WEATHER CONDITIONS: http://openweathermap.org/weather-conditions
-
-                        // render box 8 hours
-                        for (let i = 0; i < 8; i++) {
-                            $('.weather-temp').eq(i).html((Math.round(json.hourly[i].temp - 273)) + '°');
-
-                            var time = new Date(json.hourly[i].dt * 1000);
-                            $('.weather-hour').eq(i).html((time.getHours() > 12 ? (time.getHours() - 12) : time.getHours()).toString() + ":" + ((time.getMinutes() < 10 ? '0' : '').toString() + time.getMinutes().toString()) + (time.getHours() < 12 ? ' AM' : ' PM').toString());
-
-                            switch (json.hourly[i].weather[0].main) {
-                                case "Mist":
-                                    $('.weather-icon').eq(i).replaceWith('<i class="fas fa-water weather-icon"></i>');
-                                    break;
-                                case "Clouds":
-                                    $('.weather-icon').eq(i).replaceWith('<i class="fas fa-cloud weather-icon"></i>');
-                                    break;
-                                case "Clear":
-                                    $('.weather-icon').eq(i).replaceWith('<i class="fas fa-sun weather-icon"></i>');
-                                    break;
-                                case "Thunderstorm":
-                                    $('.weather-icon').eq(i).replaceWith('<i  class="far fa-thunderstorm weather-icon"></i>');
-                                    break;
-                                case "Drizzle":
-                                    $('.weather-icon').eq(i).replaceWith('<i  class="far fa-cloud-drizzle weather-icon"></i>');
-                                    break;
-                                case "Rain":
-                                    $('.weather-icon').eq(i).replaceWith('<i  class="fas fa-cloud-rain weather-icon"></i>');
-                                    break;
-                                case "Snow":
-                                    $('.weather-icon').eq(i).replaceWith('<i  class="far fa-snowflakes weather-icon"></i>');
-                                    break;
-                                case "Extreme":
-                                    $('.weather-icon').eq(i).replaceWith('<i  class="far fa-exclamation-triangle weather-icon"></i>');
-                                    break;
-                            }
-
+                            showWeather(Latitude, Longitude, cityName)
+                        },
+                        error: function(err) {
+                            alert(err)
                         }
+                    })
 
+                    
 
-                        // render table 8 days
-                        var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-                        var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-                        var date;
-
-                        for (i = 0; i < 8; i++) {
-                            date = new Date(json.daily[i].dt * 1000);
-                            $('.day-forecast').eq(i).html(date.getDate() + ', ' + months[date.getMonth()])
-                            $('.day-in-week-forecast').eq(i).html(days[date.getDay()])
-
-                            $('.des').eq(i).html(json.daily[i].weather[0].main + ", " + json.daily[i].weather[0].description)
-                            $('.day-temp').eq(i).html((Math.round(json.daily[i].temp.day - 273)) + '°');
-                            $('.night-temp').eq(i).html((Math.round(json.daily[i].temp.night - 273)) + '°');
-
-                            $('.day-humid').eq(i).html(json.daily[i].humidity + '%');
-                            $('.day-percip').eq(i).html(json.daily[i].uvi);
-
-                            // render icon
-                            switch (json.daily[i].weather[0].main) {
-                                case "Mist":
-                                    $('.day-weather-icon').eq(i).replaceWith('<i class="fas fa-water day-weather-icon"></i>');
-                                    break;
-                                case "Clouds":
-                                    $('.day-weather-icon').eq(i).replaceWith('<i class="fas fa-cloud day-weather-icon"></i>');
-                                    break;
-                                case "Clear":
-                                    $('.day-weather-icon').eq(i).replaceWith('<i class="fas fa-sun day-weather-icon"></i>');
-                                    break;
-                                case "Thunderstorm":
-                                    $('.day-weather-icon').eq(i).replaceWith('<i  class="far fa-thunderstorm day-weather-icon"></i>');
-                                    break;
-                                case "Drizzle":
-                                    $('.day-weather-icon').eq(i).replaceWith('<i  class="far fa-cloud-drizzle day-weather-icon"></i>');
-                                    break;
-                                case "Rain":
-                                    $('.day-weather-icon').eq(i).replaceWith('<i  class="fas fa-cloud-rain day-weather-icon"></i>');
-                                    break;
-                                case "Snow":
-                                    $('.day-weather-icon').eq(i).replaceWith('<i  class="far fa-snowflakes day-weather-icon"></i>');
-                                    break;
-                                case "Extreme":
-                                    $('.day-weather-icon').eq(i).replaceWith('<i  class="far fa-exclamation-triangle day-weather-icon"></i>');
-                                    break;
-                            }
-                        }
-
-                    }
                 });
+            } else {
+                $("#city").html("Please turn on Geolocator on Browser.")
+            }
+
+        });ê
+
+
+        function showWeather(myLatitude, myLongitude, cityName) {
+
+            $('#city').html(cityName);
+
+            // $('.geo').html(position.coords.latitude + " " + position.coords.longitude);
+            var urlHours = "https://api.openweathermap.org/data/2.5/onecall?lat=" + myLatitude + "&lon=" + myLongitude + "&appid=ca8c2c7970a09dc296d9b3cfc4d06940"
+
+            $.ajax({
+                url: urlHours,
+                dataType: "json",
+                success: function (json) {
+                    //WEATHER CONDITIONS: http://openweathermap.org/weather-conditions
+
+                    // render box 8 hours
+                    for (let i = 0; i < 8; i++) {
+                        // hiển thị nhiệt độ
+                        $('.weather-temp').eq(i).html((Math.round(json.hourly[i].temp - 273)) + '°');
+
+                        // Hiển thị thời gian
+                        var time = new Date(json.hourly[i].dt * 1000);
+                        $('.weather-hour').eq(i).html((time.getHours() > 12 ? (time.getHours() - 12) : time.getHours()).toString() + ":" + ((time.getMinutes() < 10 ? '0' : '').toString() + time.getMinutes().toString()) + (time.getHours() < 12 ? ' AM' : ' PM').toString());
+
+
+                        switch (json.hourly[i].weather[0].main) {
+                            case "Mist":
+                                $('.weather-icon').eq(i).replaceWith('<i class="fas fa-water weather-icon"></i>');
+                                break;
+                            case "Clouds":
+                                $('.weather-icon').eq(i).replaceWith('<i class="fas fa-cloud weather-icon"></i>');
+                                break;
+                            case "Clear":
+                                $('.weather-icon').eq(i).replaceWith('<i class="fas fa-sun weather-icon"></i>');
+                                break;
+                            case "Thunderstorm":
+                                $('.weather-icon').eq(i).replaceWith('<i  class="far fa-thunderstorm weather-icon"></i>');
+                                break;
+                            case "Drizzle":
+                                $('.weather-icon').eq(i).replaceWith('<i  class="far fa-cloud-drizzle weather-icon"></i>');
+                                break;
+                            case "Rain":
+                                $('.weather-icon').eq(i).replaceWith('<i  class="fas fa-cloud-rain weather-icon"></i>');
+                                break;
+                            case "Snow":
+                                $('.weather-icon').eq(i).replaceWith('<i  class="far fa-snowflakes weather-icon"></i>');
+                                break;
+                            case "Extreme":
+                                $('.weather-icon').eq(i).replaceWith('<i  class="far fa-exclamation-triangle weather-icon"></i>');
+                                break;
+                        }
+
+                    }
+
+
+                    // render table 8 days
+                    var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+                    var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+                    var date;
+
+                    for (i = 0; i < 8; i++) {
+                        // Hiển thị ngày
+                        date = new Date(json.daily[i].dt * 1000);
+                        $('.day-forecast').eq(i).html(date.getDate() + ', ' + months[date.getMonth()])
+                        // hiển thị thứ trong tuần
+                        $('.day-in-week-forecast').eq(i).html(days[date.getDay()])
+
+                        // hiển thị mô tả thời tiết
+                        $('.des').eq(i).html(json.daily[i].weather[0].main + ", " + json.daily[i].weather[0].description)
+                        // hiển thị nhiệt độ ban ngày
+                        $('.day-temp').eq(i).html((Math.round(json.daily[i].temp.day - 273)) + '°');
+                        // hiển thị nhiệt độ ban đêm
+                        $('.night-temp').eq(i).html((Math.round(json.daily[i].temp.night - 273)) + '°');
+
+                        // hiển thị độ ẩm
+                        $('.day-humid').eq(i).html(json.daily[i].humidity + '%');
+                        // hiển thị chỉ số uv
+                        $('.day-percip').eq(i).html(json.daily[i].uvi);
+
+                        // render icon
+                        switch (json.daily[i].weather[0].main) {
+                            case "Mist":
+                                $('.day-weather-icon').eq(i).replaceWith('<i class="fas fa-water day-weather-icon"></i>');
+                                break;
+                            case "Clouds":
+                                $('.day-weather-icon').eq(i).replaceWith('<i class="fas fa-cloud day-weather-icon"></i>');
+                                break;
+                            case "Clear":
+                                $('.day-weather-icon').eq(i).replaceWith('<i class="fas fa-sun day-weather-icon"></i>');
+                                break;
+                            case "Thunderstorm":
+                                $('.day-weather-icon').eq(i).replaceWith('<i  class="far fa-thunderstorm day-weather-icon"></i>');
+                                break;
+                            case "Drizzle":
+                                $('.day-weather-icon').eq(i).replaceWith('<i  class="far fa-cloud-drizzle day-weather-icon"></i>');
+                                break;
+                            case "Rain":
+                                $('.day-weather-icon').eq(i).replaceWith('<i  class="fas fa-cloud-rain day-weather-icon"></i>');
+                                break;
+                            case "Snow":
+                                $('.day-weather-icon').eq(i).replaceWith('<i  class="far fa-snowflakes day-weather-icon"></i>');
+                                break;
+                            case "Extreme":
+                                $('.day-weather-icon').eq(i).replaceWith('<i  class="far fa-exclamation-triangle day-weather-icon"></i>');
+                                break;
+                        }
+                    }
+
+                }
+            });
 
             });
         } else {
             $("#city").html("Please turn on Geolocator on Browser.")
         }
 
-        //CELSIUS TO FAHRENHEIT CONVERTER on Click
-        $('#fahrenheit').click(function () {
-            $(this).css("color", "#333");
-            $('#celsius').css("color", "#b0bec5");
-            $('#temperature').html(Math.round(temp * 1.8 + 32));
-        });
+        function handleSearchCity() {
 
-        $('#celsius').click(function () {
-            $(this).css("color", "#333");
-            $('#fahrenheit').css("color", "#b0bec5");
-            $('#temperature').html(Math.round(temp));
-        });
+            var textSearch = document.getElementById("search-location").value;
+            console.log(textSearch)
+            var url = "https://api.openweathermap.org/geo/1.0/direct?q=" + textSearch + "&limit=100&appid=93bd5aaabae6bd21c552347c72721beb"
+            if (textSearch != "") {
+                $.ajax({
+                    url: url,
+                    dataType: "json",
+                    success: function (json) {
+                        console.log(json)
+                        console.log(typeof json)
+                        var resultItem = document.getElementById('dropdown-weather-item')
+                        resultItem.innerHTML = "";
+                        json.forEach(function (element) {
+                            console.log(element);
+                            var item = document.createElement
+                            var cityName = element.name + ", " + element.country;
+                            resultItem.innerHTML += `<li onclick='showWeather(${element.lat}, ${element.lon}, "${cityName}")'>
+                                                         <a>${element.name}, ${element.country}  ${(element.local_names?.vi != undefined) ? (" - " + element.local_names?.vi) : " "}
+                                                    </li>`
+                        })
+                    },
+                    error: function(err) {
+                        alert(err)
+                    }
+                });
+            }
+        }
 
         // Cập nhật thời gian mỗi 30s
         setInterval(function () {
@@ -325,8 +378,8 @@
 
     });
 
-    function handleSearch(event) {
-        event.preventDefault();
-    }
-</script>
+        function handleSearch(event) {
+            event.preventDefault();
+        }
+    </script>
 }

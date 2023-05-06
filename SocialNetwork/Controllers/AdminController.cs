@@ -15,7 +15,7 @@ namespace SocialNetwork.Controllers
         {
             // CurrentAccount.initSession(1);
             int currentAccountID = (int)HttpContext.Session.GetInt32("accountId");
-            
+
             Account currentAccount = context.Accounts.Find(currentAccountID);
 
             if (currentAccount.IsAdmin == true)
@@ -52,7 +52,7 @@ namespace SocialNetwork.Controllers
                     isBan = accountBan.IsBanned;
                     return Json(new { status, message, isBan });
                 }
-                 message = "Changes hasn't been saved ";
+                message = "Changes hasn't been saved ";
                 status = false;
                 return Json(new { status, message, isBan });
             }

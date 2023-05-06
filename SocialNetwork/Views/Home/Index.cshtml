@@ -4,12 +4,12 @@
 }
 
 <div class="container m-auto">
-     
+
     <h1 class="lg:text-2xl text-lg font-extrabold leading-none text-gray-900 tracking-tight mb-5"> Feed </h1>
     <div class="lg:flex justify-center lg:space-x-10 lg:space-y-0 space-y-5">
 
         <!-- left sidebar-->
-        <div class="space-y-5 flex-shrink-0 lg:w-7/12">
+        <div class="post-list space-y-5 flex-shrink-0 lg:w-7/12">
             @await Component.InvokeAsync("PostDetail")
         </div>
 
@@ -149,111 +149,120 @@
 </div>
 
 @section ScriptWeatherIndex {
-<script>
-    $(document).ready(function () {
-        $(".wrapper").css("margin-top", ($(window).height()) / 5);
-        //DATE AND TIME//
-        //Converted into days, months, hours, day-name, AM/PM
-        var dt = new Date()
+    <script>
+        $(document).ready(function () {
+            $(".wrapper").css("margin-top", ($(window).height()) / 5);
+            //DATE AND TIME//
+            //Converted into days, months, hours, day-name, AM/PM
+            var dt = new Date()
 
-        var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-        $('#day').html(days[dt.getDay()]);
-
-        var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-        $('#date').html(months[dt.getMonth()] + " " + dt.getDate() + ", " + dt.getFullYear());
-
-        $('#time').html((dt.getHours() > 12 ? (dt.getHours() - 12) : dt.getHours()).toString() + ":" + ((dt.getMinutes() < 10 ? '0' : '').toString() + dt.getMinutes().toString()) + (dt.getHours() < 12 ? ' AM' : ' PM').toString());
-
-        // Khai báo nhiệt độ
-        var temp = 0;
-        //GEOLOCATION and WEATHER API//
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function (position) {
-                // Lấy tọa độ hiện tại
-                var myLatitude = parseFloat(Math.round(position.coords.latitude * 100) / 100).toFixed(2);
-                var myLongitude = parseFloat(Math.round(position.coords.longitude * 100) / 100).toFixed(2);
-                console.log(myLatitude, myLongitude);
-
-                // $('.geo').html(position.coords.latitude + " " + position.coords.longitude);
-                var url = "https://api.openweathermap.org/data/2.5/weather?lat=" + myLatitude + "&lon=" + myLongitude + "&appid=93bd5aaabae6bd21c552347c72721beb"
-
-                $.ajax({
-                    url: url,
-                    dataType: "json",
-                    success: function (json) {
-                        $('#city').html(json.name + ", " + json.sys.country);
-                        $('#weather-status').html(json.weather[0].main + " / " + json.weather[0].description);
-
-                        //WEATHER CONDITIONS: http://openweathermap.org/weather-conditions
-                        switch (json.weather[0].main) {
-                            case "Mist":
-                                $('#weather-icon').replaceWith('<i id="weather-icon" class="fas fa-water"></i>');
-                                break;
-                            case "Clouds":
-                                $('#weather-icon').replaceWith('<i id="weather-icon" class="fas fa-cloud"></i>');
-                                break;
-                            case "Clear":
-                                $('#weather-icon').replaceWith('<i id="weather-icon" class="fas fa-sun"></i>');
-                                break;
-                            case "Thunderstorm":
-                                $('#weather-icon').replaceWith('<i  id="weather-icon" class="fas fa-thunderstorm"></i>');
-                                break;
-                            case "Drizzle":
-                                $('#weather-icon').replaceWith('<i  id="weather-icon" class="fas fa-cloud-showers-heavy"></i>');
-                                break;
-                            case "Rain":
-                                $('#weather-icon').replaceWith('<i  id="weather-icon" class="fas fa-cloud-rain"></i>');
-                                break;
-                            case "Snow":
-                                $('#weather-icon').replaceWith('<i  id="weather-icon" class="fas fa-snowflake"></i>');
-                                break;
-                            case "Extreme":
-                                $('#weather-icon').replaceWith('<i  id="weather-icon" class="fas fa-exclamation-triangle"></i>');
-                                break;
-                        }
-                        // chuyển từ độ K sang độ C
-                        temp = (json.main.temp - 273);
-                        $('#temperature').html(Math.round(temp));
-                        $('.windspeed').html(json.wind.speed + " Km/h")
-                        $('.humidity').html(json.main.humidity + " %");
-                        $('.pressure').html(json.main.pressure + " hPa");
-
-                        // thoi gian ở kiểu timestamp kể từ Unix Epoch (1/1/1970 00:00:00 UTC), chuyển sang kiểu giờ:
-                        var sunriseUTC = json.sys.sunrise * 1000;
-                        var sunsetUTC = json.sys.sunset * 1000;
-                        var sunriseDt = new Date(sunriseUTC);
-                        var sunsetDt = new Date(sunsetUTC);
-                        $('.sunrise-time').html((sunriseDt.getHours() > 12 ? (sunriseDt.getHours() - 12) : sunriseDt.getHours()).toString() + ":" + ((sunriseDt.getMinutes() < 10 ? '0' : '').toString() + sunriseDt.getMinutes().toString()) + (sunriseDt.getHours() < 12 ? ' AM' : ' PM').toString());
-                        $('.sunset-time').html((sunsetDt.getHours() > 12 ? (sunsetDt.getHours() - 12) : sunsetDt.getHours()).toString() + ":" + ((sunsetDt.getMinutes() < 10 ? '0' : '').toString() + sunsetDt.getMinutes().toString()) + (sunsetDt.getHours() < 12 ? ' AM' : ' PM').toString());
-                        // $('.sunrise-time').html(json.sys.sunrise);
-                        // $('.sunset-time').html(json.sys.sunset);
-                    }
-                });
-
-            });
-        } else {
-            $("#city").html("Please turn on Geolocator on Browser.")
-        }
-
-        //CELSIUS TO FAHRENHEIT CONVERTER on Click
-        $('#fahrenheit').click(function () {
-            $(this).css("color", "#333");
-            $('#celsius').css("color", "#b0bec5");
-            $('#temperature').html(Math.round(temp * 1.8 + 32));
-        });
-
-        $('#celsius').click(function () {
-            $(this).css("color", "#333");
-            $('#fahrenheit').css("color", "#b0bec5");
-            $('#temperature').html(Math.round(temp));
-        });
-
-        // Cập nhật thời gian mỗi 30s
-        setInterval(function () {
-            dt = new Date();
+            // Hiển thị ngày trong tuần 
+            var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            $('#day').html(days[dt.getDay()]);
+            // Hiển thị tháng 
+            var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+            $('#date').html(months[dt.getMonth()] + " " + dt.getDate() + ", " + dt.getFullYear());
+            // Hiển thị giờ 
             $('#time').html((dt.getHours() > 12 ? (dt.getHours() - 12) : dt.getHours()).toString() + ":" + ((dt.getMinutes() < 10 ? '0' : '').toString() + dt.getMinutes().toString()) + (dt.getHours() < 12 ? ' AM' : ' PM').toString());
-        }, 30000)
 
-    });
-</script>
+            // Khai báo nhiệt độ
+            var temp = 0;
+            //GEOLOCATION and WEATHER API//
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    // Lấy tọa độ hiện tại
+                    var myLatitude = parseFloat(Math.round(position.coords.latitude * 100) / 100).toFixed(2);
+                    var myLongitude = parseFloat(Math.round(position.coords.longitude * 100) / 100).toFixed(2);
+                    console.log(myLatitude, myLongitude);
+
+                    // $('.geo').html(position.coords.latitude + " " + position.coords.longitude);
+                    var url = "https://api.openweathermap.org/data/2.5/weather?lat=" + myLatitude + "&lon=" + myLongitude + "&appid=93bd5aaabae6bd21c552347c72721beb"
+
+                    $.ajax({
+                        url: url,
+                        dataType: "json",
+                        success: function (json) {
+                            // Hiện tên thành phố 
+                            $('#city').html(json.name + ", " + json.sys.country);
+                            //Hiển thị trangj thái thời tiết 
+                            $('#weather-status').html(json.weather[0].main + " / " + json.weather[0].description);
+
+                            //WEATHER CONDITIONS: http://openweathermap.org/weather-conditions
+                            // Hiển thị sticker thời tiết 
+                            switch (json.weather[0].main) {
+                                case "Mist":
+                                    $('#weather-icon').replaceWith('<i id="weather-icon" class="fas fa-water"></i>');
+                                    break;
+                                case "Clouds":
+                                    $('#weather-icon').replaceWith('<i id="weather-icon" class="fas fa-cloud"></i>');
+                                    break;
+                                case "Clear":
+                                    $('#weather-icon').replaceWith('<i id="weather-icon" class="fas fa-sun"></i>');
+                                    break;
+                                case "Thunderstorm":
+                                    $('#weather-icon').replaceWith('<i  id="weather-icon" class="fas fa-thunderstorm"></i>');
+                                    break;
+                                case "Drizzle":
+                                    $('#weather-icon').replaceWith('<i  id="weather-icon" class="fas fa-cloud-showers-heavy"></i>');
+                                    break;
+                                case "Rain":
+                                    $('#weather-icon').replaceWith('<i  id="weather-icon" class="fas fa-cloud-rain"></i>');
+                                    break;
+                                case "Snow":
+                                    $('#weather-icon').replaceWith('<i  id="weather-icon" class="fas fa-snowflake"></i>');
+                                    break;
+                                case "Extreme":
+                                    $('#weather-icon').replaceWith('<i  id="weather-icon" class="fas fa-exclamation-triangle"></i>');
+                                    break;
+                            }
+                            
+                            // chuyển từ độ K sang độ C
+                            temp = (json.main.temp - 273);
+                            // hiển thị nhiệt độ 
+                            $('#temperature').html(Math.round(temp));
+                            // gió 
+                            $('.windspeed').html(json.wind.speed + " Km/h")
+                            // độ ẩm
+                            $('.humidity').html(json.main.humidity + " %");
+                            // áp suất 
+                            $('.pressure').html(json.main.pressure + " hPa");
+
+                            // thoi gian ở kiểu timestamp kể từ Unix Epoch (1/1/1970 00:00:00 UTC), chuyển sang kiểu giờ:
+                            var sunriseUTC = json.sys.sunrise * 1000;
+                            var sunsetUTC = json.sys.sunset * 1000;
+                            var sunriseDt = new Date(sunriseUTC);
+                            var sunsetDt = new Date(sunsetUTC);
+                            $('.sunrise-time').html((sunriseDt.getHours() > 12 ? (sunriseDt.getHours() - 12) : sunriseDt.getHours()).toString() + ":" + ((sunriseDt.getMinutes() < 10 ? '0' : '').toString() + sunriseDt.getMinutes().toString()) + (sunriseDt.getHours() < 12 ? ' AM' : ' PM').toString());
+                            $('.sunset-time').html((sunsetDt.getHours() > 12 ? (sunsetDt.getHours() - 12) : sunsetDt.getHours()).toString() + ":" + ((sunsetDt.getMinutes() < 10 ? '0' : '').toString() + sunsetDt.getMinutes().toString()) + (sunsetDt.getHours() < 12 ? ' AM' : ' PM').toString());
+                            // $('.sunrise-time').html(json.sys.sunrise);
+                            // $('.sunset-time').html(json.sys.sunset);
+                        }
+                    });
+
+                });
+            } else {
+                $("#city").html("Please turn on Geolocator on Browser.")
+            }
+
+            //CELSIUS TO FAHRENHEIT CONVERTER on Click
+            //$('#fahrenheit').click(function () {
+            //    $(this).css("color", "#333");
+            //    $('#celsius').css("color", "#b0bec5");
+            //    $('#temperature').html(Math.round(temp * 1.8 + 32));
+            //});
+
+            //$('#celsius').click(function () {
+            //    $(this).css("color", "#333");
+            //    $('#fahrenheit').css("color", "#b0bec5");
+            //    $('#temperature').html(Math.round(temp));
+            //});
+
+            // Cập nhật thời gian mỗi 30s
+            setInterval(function () {
+                dt = new Date();
+                $('#time').html((dt.getHours() > 12 ? (dt.getHours() - 12) : dt.getHours()).toString() + ":" + ((dt.getMinutes() < 10 ? '0' : '').toString() + dt.getMinutes().toString()) + (dt.getHours() < 12 ? ' AM' : ' PM').toString());
+            }, 30000)
+
+        });
+    </script>
 }
