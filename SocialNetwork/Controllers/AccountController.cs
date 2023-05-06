@@ -43,7 +43,7 @@ namespace SocialNetwork.Controllers
                 var account = db.Accounts.SingleOrDefault(x => x.Email == email && x.Password == password);
                 if (account != null)
                 {
-                    if(account.IsBanned == true)
+                    if (account.IsBanned == true)
                     {
                         ModelState.AddModelError("Email", "Your account is banned!");
                         return View();
@@ -97,7 +97,7 @@ namespace SocialNetwork.Controllers
         [Authentication]
         public IActionResult Profile(int? accountId)
         {
-            
+
             int maxAccountId = db.Accounts.Max(x => x.AccountId);
             // Xử lí trường hợp accountId bị null hoặc < 1 hoặc > maxAccountId
             int currentAccountId = CurrentAccount.account.AccountId;
@@ -110,14 +110,14 @@ namespace SocialNetwork.Controllers
 
             // Kiểm tra xem tài khoản này có bị block không ?
             bool blocked = db.Relationships
-                           .SingleOrDefault(x => x.SourceAccountId == currentAccountId 
+                           .SingleOrDefault(x => x.SourceAccountId == currentAccountId
                                               && x.TargetAccountId == accountId
                                               && x.TypeId == 3) != null;
             if (blocked)
             {
                 return RedirectToAction("Index", "Home");
             }
-            
+
             // Đếm số lượng post của account này
             int postCount = db.Posts.Count(x => x.AccountId == accountId && x.IsDeleted == false);
             ViewBag.PostCount = postCount;
@@ -175,7 +175,7 @@ namespace SocialNetwork.Controllers
             db.SaveChanges();
             CurrentAccount.account.FullName = account.FullName;
             CurrentAccount.update();
-            return View(account);
+            return Json(new { success = true });
         }
 
         // =================== Avatar ===================
