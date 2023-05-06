@@ -15,7 +15,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Instello - Sharing Photos platform HTML Template">
-
+    <meta property="og:url" content="https://03bb-42-114-126-138.ngrok-free.app" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="social network group one" />
+    <meta property="og:description" content="what are you thinking? share with us!" />
+    <meta property="og:image" content="https://03bb-42-114-126-138.ngrok-free.app/assets/images/logo.png" />
     <!-- icons
         ================================================== -->
     <link rel="stylesheet" href="/assets/css/icons.css">
@@ -89,6 +93,8 @@
 </head>
 
 <body>
+    @*<div id="fb-root"></div>*@
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v16.0&appId=5947775291976426&autoLogAppEvents=1" nonce="tvbR6W0i"></script>
     <div class="notification-copy-successful">Copy link post successfully !</div>
 
     <div id="wrapper">
@@ -273,6 +279,10 @@
         const cancelBtn = document.querySelector('#upload-cancel-btn')
         const customBtn = document.querySelector('#upload-custom-btn')
         const img = document.querySelector('.upload-image')
+
+        function handleShareFacebook() {
+            document.querySelector('[target=_blank]').click()
+        }
 
         function defaultBtnActive() {
             defaultBtn.click()

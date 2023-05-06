@@ -123,6 +123,18 @@ namespace SocialNetwork.Controllers
             return View(singlePostDetail);
         }
 
+        [Route("~/fb/{postId}")]
+        public IActionResult SinglePostDetailFb(int postId)
+        {
+            var singlePost = context.Posts.SingleOrDefault(x => x.PostId == postId && x.IsDeleted == false);
+            if (singlePost == null)
+            {
+                return RedirectToAction("Index");
+            }
+            var singlePostDetail = new ViewModels.PostDetailViewModel(singlePost);
+            return View(singlePostDetail);
+        }
+
         [HttpGet]
         public IActionResult GetPostById(int postId)
         {
