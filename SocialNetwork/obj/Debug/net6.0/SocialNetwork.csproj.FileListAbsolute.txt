@@ -2355,3 +2355,4 @@ C:\Users\MyPc\Desktop\Ki2Nam3\LTsdAPI\BTL\SocialNetwork_API_Nhom1\SocialNetwork\
 C:\Users\MyPc\Desktop\Ki2Nam3\LTsdAPI\BTL\SocialNetwork_API_Nhom1\SocialNetwork\bin\Debug\net6.0\Google.Apis.Auth.PlatformServices.dll
 C:\Users\MyPc\Desktop\Ki2Nam3\LTsdAPI\BTL\SocialNetwork_API_Nhom1\SocialNetwork\bin\Debug\net6.0\Google.Apis.Auth.dll
 C:\Users\MyPc\Desktop\Ki2Nam3\LTsdAPI\BTL\SocialNetwork_API_Nhom1\SocialNetwork\bin\Debug\net6.0\Google.Apis.Core.dll
+C:\Users\MyPc\Desktop\Ki2Nam3\LTsdAPI\BTL\SocialNetwork_API_Nhom1\SocialNetwork\bin\Debug\net6.0\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
