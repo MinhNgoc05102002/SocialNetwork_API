@@ -1,571 +1,511 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\SocialNetwork.bundle.scp.css",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\SocialNetwork.bundle.scp.css",
       "PackagePath": "staticwebassets\\SocialNetwork.bundle.scp.css"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\assets\\css\\chat.css",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\assets\\css\\chat.css",
       "PackagePath": "staticwebassets\\assets\\css\\chat.css"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\assets\\css\\icon.css",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\assets\\css\\icon.css",
       "PackagePath": "staticwebassets\\assets\\css\\icon.css"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\assets\\css\\lxq_add.css",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\assets\\css\\lxq_add.css",
       "PackagePath": "staticwebassets\\assets\\css\\lxq_add.css"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\assets\\css\\style.css",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\assets\\css\\style.css",
       "PackagePath": "staticwebassets\\assets\\css\\style.css"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\assets\\css\\tailwind.css",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\assets\\css\\tailwind.css",
       "PackagePath": "staticwebassets\\assets\\css\\tailwind.css"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\assets\\css\\uikit.css",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\assets\\css\\uikit.css",
       "PackagePath": "staticwebassets\\assets\\css\\uikit.css"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\assets\\fonts\\Feather-Icons.ttf",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\assets\\css\\weather.css",
+      "PackagePath": "staticwebassets\\assets\\css\\weather.css"
+    },
+    {
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\assets\\fonts\\Feather-Icons.ttf",
       "PackagePath": "staticwebassets\\assets\\fonts\\Feather-Icons.ttf"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\assets\\fonts\\Material-Icons.ttf",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\assets\\fonts\\Material-Icons.ttf",
       "PackagePath": "staticwebassets\\assets\\fonts\\Material-Icons.ttf"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\assets\\fonts\\unicons.woff",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\assets\\fonts\\unicons.woff",
       "PackagePath": "staticwebassets\\assets\\fonts\\unicons.woff"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\avatars\\avatar-1.jpg",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\avatars\\avatar-1.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\avatars\\avatar-1.jpg"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\avatars\\avatar-2.jpg",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\avatars\\avatar-2.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\avatars\\avatar-2.jpg"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\avatars\\avatar-3.jpg",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\avatars\\avatar-3.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\avatars\\avatar-3.jpg"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\avatars\\avatar-4.jpg",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\avatars\\avatar-4.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\avatars\\avatar-4.jpg"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\avatars\\avatar-5.jpg",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\avatars\\avatar-5.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\avatars\\avatar-5.jpg"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\avatars\\avatar-6.jpg",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\avatars\\avatar-6.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\avatars\\avatar-6.jpg"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\avatars\\avatar-7.jpg",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\avatars\\avatar-7.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\avatars\\avatar-7.jpg"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\avatars\\avatar-lg-1.jpg",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\avatars\\avatar-lg-1.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\avatars\\avatar-lg-1.jpg"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\icon-play.svg",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\icon-play.svg",
       "PackagePath": "staticwebassets\\assets\\images\\icon-play.svg"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\logo-light.png",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\logo-light.png",
       "PackagePath": "staticwebassets\\assets\\images\\logo-light.png"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\logo-mobile-light.png",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\logo-mobile-light.png",
       "PackagePath": "staticwebassets\\assets\\images\\logo-mobile-light.png"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\logo-mobile.png",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\logo-mobile.png",
       "PackagePath": "staticwebassets\\assets\\images\\logo-mobile.png"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\logo.png",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\logo.png",
       "PackagePath": "staticwebassets\\assets\\images\\logo.png"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\post\\VSCodeUserSetup-x64-1.74.3.exe",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\post\\VSCodeUserSetup-x64-1.74.3.exe",
       "PackagePath": "staticwebassets\\assets\\images\\post\\VSCodeUserSetup-x64-1.74.3.exe"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\post\\img1.jpg",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\post\\img1.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\post\\img1.jpg"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\post\\img10.jpg",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\post\\img10.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\post\\img10.jpg"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\post\\img11.jpg",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\post\\img11.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\post\\img11.jpg"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\post\\img2.jpg",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\post\\img2.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\post\\img2.jpg"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\post\\img3.jpg",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\post\\img3.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\post\\img3.jpg"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\post\\img4.jpg",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\post\\img4.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\post\\img4.jpg"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\post\\img5.jpg",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\post\\img5.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\post\\img5.jpg"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\post\\img6.jpg",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\post\\img6.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\post\\img6.jpg"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\post\\img7.jpg",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\post\\img7.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\post\\img7.jpg"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\post\\img8.jpg",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\post\\img8.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\post\\img8.jpg"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\post\\img9.jpg",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\assets\\images\\post\\img9.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\post\\img9.jpg"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\assets\\js\\custom.js",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\assets\\js\\custom.js",
       "PackagePath": "staticwebassets\\assets\\js\\custom.js"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\assets\\js\\jquery-3.3.1.min.js",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\assets\\js\\jquery-3.3.1.min.js",
       "PackagePath": "staticwebassets\\assets\\js\\jquery-3.3.1.min.js"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\assets\\js\\simplebar.js",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\assets\\js\\simplebar.js",
       "PackagePath": "staticwebassets\\assets\\js\\simplebar.js"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\assets\\js\\tippy.all.min.js",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\assets\\js\\tippy.all.min.js",
       "PackagePath": "staticwebassets\\assets\\js\\tippy.all.min.js"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\assets\\js\\uikit.js",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\assets\\js\\uikit.js",
       "PackagePath": "staticwebassets\\assets\\js\\uikit.js"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\css\\site.css",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\favicon.ico",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\images\\avatars\\1\\84580651.jpg",
-      "PackagePath": "staticwebassets\\images\\avatars\\1\\84580651.jpg"
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\images\\avatars\\1\\z4259973699463_e0108e25ff0750e3bc7f88cce2cd7e69.jpg",
+      "PackagePath": "staticwebassets\\images\\avatars\\1\\z4259973699463_e0108e25ff0750e3bc7f88cce2cd7e69.jpg"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\images\\avatars\\1\\z4259973705073_1a4e8fa698930ae7740df1cc37288928.jpg",
-      "PackagePath": "staticwebassets\\images\\avatars\\1\\z4259973705073_1a4e8fa698930ae7740df1cc37288928.jpg"
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\images\\avatars\\28\\z4259973705073_1a4e8fa698930ae7740df1cc37288928.jpg",
+      "PackagePath": "staticwebassets\\images\\avatars\\28\\z4259973705073_1a4e8fa698930ae7740df1cc37288928.jpg"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\images\\avatars\\2\\ace3efc08ed57e8b27c4.jpg",
-      "PackagePath": "staticwebassets\\images\\avatars\\2\\ace3efc08ed57e8b27c4.jpg"
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\images\\avatars\\2\\LanaDelRey.jpg",
+      "PackagePath": "staticwebassets\\images\\avatars\\2\\LanaDelRey.jpg"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\images\\avatars\\3\\z4259973722601_1f79bba0c89e4931dab5635d140acdfe.jpg",
-      "PackagePath": "staticwebassets\\images\\avatars\\3\\z4259973722601_1f79bba0c89e4931dab5635d140acdfe.jpg"
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\images\\avatars\\3\\30ab15407f558f0bd644.jpg",
+      "PackagePath": "staticwebassets\\images\\avatars\\3\\30ab15407f558f0bd644.jpg"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\images\\avatars\\4\\z4259973724267_ce0822407e3f4489b83bc5d850c8e1c9.jpg",
-      "PackagePath": "staticwebassets\\images\\avatars\\4\\z4259973724267_ce0822407e3f4489b83bc5d850c8e1c9.jpg"
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\images\\avatars\\4\\67870f2ee83b1865412a.jpg",
+      "PackagePath": "staticwebassets\\images\\avatars\\4\\67870f2ee83b1865412a.jpg"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\images\\avatars\\5\\186532450_233743738554618_2918803661253817840_n.jpg",
-      "PackagePath": "staticwebassets\\images\\avatars\\5\\186532450_233743738554618_2918803661253817840_n.jpg"
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\images\\avatars\\5\\3ed4c3a2a5b755e90ca6.jpg",
+      "PackagePath": "staticwebassets\\images\\avatars\\5\\3ed4c3a2a5b755e90ca6.jpg"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\images\\avatars\\6\\z4259973705073_1a4e8fa698930ae7740df1cc37288928.jpg",
-      "PackagePath": "staticwebassets\\images\\avatars\\6\\z4259973705073_1a4e8fa698930ae7740df1cc37288928.jpg"
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\images\\avatars\\6\\5282ea1d4ede83b5f8f2f842073b476a.jpg",
+      "PackagePath": "staticwebassets\\images\\avatars\\6\\5282ea1d4ede83b5f8f2f842073b476a.jpg"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\images\\avatars\\7\\z4259964677080_aa2706375560e4aa065eac83ccd41486.jpg",
-      "PackagePath": "staticwebassets\\images\\avatars\\7\\z4259964677080_aa2706375560e4aa065eac83ccd41486.jpg"
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\1\\12\\336508485_1414050386074076_7637876545164358124_n.jpg",
+      "PackagePath": "staticwebassets\\images\\post\\1\\12\\336508485_1414050386074076_7637876545164358124_n.jpg"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\images\\avatars\\8\\z4259973705073_1a4e8fa698930ae7740df1cc37288928.jpg",
-      "PackagePath": "staticwebassets\\images\\avatars\\8\\z4259973705073_1a4e8fa698930ae7740df1cc37288928.jpg"
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\1\\13\\z4259964677080_aa2706375560e4aa065eac83ccd41486.jpg",
+      "PackagePath": "staticwebassets\\images\\post\\1\\13\\z4259964677080_aa2706375560e4aa065eac83ccd41486.jpg"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\images\\avatars\\9\\z4259964683170_982dfe41974150a19bf2ec4c272de3ec.jpg",
-      "PackagePath": "staticwebassets\\images\\avatars\\9\\z4259964683170_982dfe41974150a19bf2ec4c272de3ec.jpg"
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\1\\23\\2023-03-05 13-26-24_Trim.mp4",
+      "PackagePath": "staticwebassets\\images\\post\\1\\23\\2023-03-05 13-26-24_Trim.mp4"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\1\\25\\Vungdatlinhhon2.jpg",
-      "PackagePath": "staticwebassets\\images\\post\\1\\25\\Vungdatlinhhon2.jpg"
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\1\\24\\2023-03-05 13-26-24_Trim.mp4",
+      "PackagePath": "staticwebassets\\images\\post\\1\\24\\2023-03-05 13-26-24_Trim.mp4"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\1\\25\\Winds+of+Change+post.jpg",
-      "PackagePath": "staticwebassets\\images\\post\\1\\25\\Winds+of+Change+post.jpg"
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\1\\8\\341253361_967215007622815_7865704654142947289_n.jpg",
+      "PackagePath": "staticwebassets\\images\\post\\1\\8\\341253361_967215007622815_7865704654142947289_n.jpg"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\1\\25\\yuumei.jpg",
-      "PackagePath": "staticwebassets\\images\\post\\1\\25\\yuumei.jpg"
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\1\\9\\341304216_748200143620419_5856994167575081016_n.jpg",
+      "PackagePath": "staticwebassets\\images\\post\\1\\9\\341304216_748200143620419_5856994167575081016_n.jpg"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\1\\25\\yuumei2.jpg",
-      "PackagePath": "staticwebassets\\images\\post\\1\\25\\yuumei2.jpg"
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\27\\10\\z4259964677080_aa2706375560e4aa065eac83ccd41486.jpg",
+      "PackagePath": "staticwebassets\\images\\post\\27\\10\\z4259964677080_aa2706375560e4aa065eac83ccd41486.jpg"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\1\\25\\yuumei3.jpg",
-      "PackagePath": "staticwebassets\\images\\post\\1\\25\\yuumei3.jpg"
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\27\\11\\z4259964674886_46ac5c5bb568170985cf6be22fa22739.jpg",
+      "PackagePath": "staticwebassets\\images\\post\\27\\11\\z4259964674886_46ac5c5bb568170985cf6be22fa22739.jpg"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\1\\26\\1da66002871777492e06.jpg",
-      "PackagePath": "staticwebassets\\images\\post\\1\\26\\1da66002871777492e06.jpg"
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\27\\11\\z4259964677080_aa2706375560e4aa065eac83ccd41486.jpg",
+      "PackagePath": "staticwebassets\\images\\post\\27\\11\\z4259964677080_aa2706375560e4aa065eac83ccd41486.jpg"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\1\\26\\3ed4c3a2a5b755e90ca6.jpg",
-      "PackagePath": "staticwebassets\\images\\post\\1\\26\\3ed4c3a2a5b755e90ca6.jpg"
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\27\\11\\z4259964678609_b6b5e76ff375dd5a680946b4db33c665.jpg",
+      "PackagePath": "staticwebassets\\images\\post\\27\\11\\z4259964678609_b6b5e76ff375dd5a680946b4db33c665.jpg"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\1\\26\\9a2674701265e23bbb74.jpg",
-      "PackagePath": "staticwebassets\\images\\post\\1\\26\\9a2674701265e23bbb74.jpg"
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\27\\11\\z4259964683170_982dfe41974150a19bf2ec4c272de3ec.jpg",
+      "PackagePath": "staticwebassets\\images\\post\\27\\11\\z4259964683170_982dfe41974150a19bf2ec4c272de3ec.jpg"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\1\\27\\9ec24b5d2148d1168859.jpg",
-      "PackagePath": "staticwebassets\\images\\post\\1\\27\\9ec24b5d2148d1168859.jpg"
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\27\\12\\z4259964669029_d8868849944917f0096f772fa5e89f72.jpg",
+      "PackagePath": "staticwebassets\\images\\post\\27\\12\\z4259964669029_d8868849944917f0096f772fa5e89f72.jpg"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\1\\30\\4259973734295.mp4",
-      "PackagePath": "staticwebassets\\images\\post\\1\\30\\4259973734295.mp4"
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\27\\8\\z4259964677080_aa2706375560e4aa065eac83ccd41486.jpg",
+      "PackagePath": "staticwebassets\\images\\post\\27\\8\\z4259964677080_aa2706375560e4aa065eac83ccd41486.jpg"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\1\\31\\z4259973717956_a1e6ce727499ded5230cace2734f95a2.jpg",
-      "PackagePath": "staticwebassets\\images\\post\\1\\31\\z4259973717956_a1e6ce727499ded5230cace2734f95a2.jpg"
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\27\\9\\z4259973722601_1f79bba0c89e4931dab5635d140acdfe.jpg",
+      "PackagePath": "staticwebassets\\images\\post\\27\\9\\z4259973722601_1f79bba0c89e4931dab5635d140acdfe.jpg"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\2\\28\\anhnen5.jpg",
-      "PackagePath": "staticwebassets\\images\\post\\2\\28\\anhnen5.jpg"
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\28\\26\\z4259973728315_0ca7a2d7404a9ce834e6660c64dd4766.jpg",
+      "PackagePath": "staticwebassets\\images\\post\\28\\26\\z4259973728315_0ca7a2d7404a9ce834e6660c64dd4766.jpg"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\3\\29\\74f475103505c55b9c14.jpg",
-      "PackagePath": "staticwebassets\\images\\post\\3\\29\\74f475103505c55b9c14.jpg"
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\28\\27\\9ec24b5d2148d1168859.jpg",
+      "PackagePath": "staticwebassets\\images\\post\\28\\27\\9ec24b5d2148d1168859.jpg"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\3\\36\\4259973734295.mp4",
-      "PackagePath": "staticwebassets\\images\\post\\3\\36\\4259973734295.mp4"
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\28\\28\\9ec24b5d2148d1168859.jpg",
+      "PackagePath": "staticwebassets\\images\\post\\28\\28\\9ec24b5d2148d1168859.jpg"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\8\\32\\z4259973710893_6be104b9596308e5fb2a0b2d0c31a04a.jpg",
-      "PackagePath": "staticwebassets\\images\\post\\8\\32\\z4259973710893_6be104b9596308e5fb2a0b2d0c31a04a.jpg"
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\28\\29\\z4259964678609_b6b5e76ff375dd5a680946b4db33c665.jpg",
+      "PackagePath": "staticwebassets\\images\\post\\28\\29\\z4259964678609_b6b5e76ff375dd5a680946b4db33c665.jpg"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\8\\32\\z4259973716717_89b8213ff7b1f41a4092079b4751c867.jpg",
-      "PackagePath": "staticwebassets\\images\\post\\8\\32\\z4259973716717_89b8213ff7b1f41a4092079b4751c867.jpg"
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\28\\30\\2023-03-05 13-26-24_Trim.mp4",
+      "PackagePath": "staticwebassets\\images\\post\\28\\30\\2023-03-05 13-26-24_Trim.mp4"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\8\\32\\z4259973716718_ca5012c4170159c103a25c1a7b69314a.jpg",
-      "PackagePath": "staticwebassets\\images\\post\\8\\32\\z4259973716718_ca5012c4170159c103a25c1a7b69314a.jpg"
-    },
-    {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\8\\32\\z4259973717956_a1e6ce727499ded5230cace2734f95a2.jpg",
-      "PackagePath": "staticwebassets\\images\\post\\8\\32\\z4259973717956_a1e6ce727499ded5230cace2734f95a2.jpg"
-    },
-    {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\8\\33\\30ab15407f558f0bd644.jpg",
-      "PackagePath": "staticwebassets\\images\\post\\8\\33\\30ab15407f558f0bd644.jpg"
-    },
-    {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\8\\33\\33b8dd0d3a18ca469309.jpg",
-      "PackagePath": "staticwebassets\\images\\post\\8\\33\\33b8dd0d3a18ca469309.jpg"
-    },
-    {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\8\\33\\74f475103505c55b9c14.jpg",
-      "PackagePath": "staticwebassets\\images\\post\\8\\33\\74f475103505c55b9c14.jpg"
-    },
-    {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\8\\33\\9ec24b5d2148d1168859.jpg",
-      "PackagePath": "staticwebassets\\images\\post\\8\\33\\9ec24b5d2148d1168859.jpg"
-    },
-    {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\8\\34\\338227254_865872157806459_2605259051707135787_n.mp4",
-      "PackagePath": "staticwebassets\\images\\post\\8\\34\\338227254_865872157806459_2605259051707135787_n.mp4"
-    },
-    {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\8\\34\\340163801_562363889330102_2249440056760951535_n.mp4",
-      "PackagePath": "staticwebassets\\images\\post\\8\\34\\340163801_562363889330102_2249440056760951535_n.mp4"
-    },
-    {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\8\\34\\4259973734295.mp4",
-      "PackagePath": "staticwebassets\\images\\post\\8\\34\\4259973734295.mp4"
-    },
-    {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\8\\35\\338037995_1542704712805931_4724205851980010884_n.mp4",
-      "PackagePath": "staticwebassets\\images\\post\\8\\35\\338037995_1542704712805931_4724205851980010884_n.mp4"
-    },
-    {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\9\\35\\z4259964677080_aa2706375560e4aa065eac83ccd41486.jpg",
-      "PackagePath": "staticwebassets\\images\\post\\9\\35\\z4259964677080_aa2706375560e4aa065eac83ccd41486.jpg"
-    },
-    {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\9\\35\\z4259964678609_b6b5e76ff375dd5a680946b4db33c665.jpg",
-      "PackagePath": "staticwebassets\\images\\post\\9\\35\\z4259964678609_b6b5e76ff375dd5a680946b4db33c665.jpg"
-    },
-    {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\9\\35\\z4259964683170_982dfe41974150a19bf2ec4c272de3ec.jpg",
-      "PackagePath": "staticwebassets\\images\\post\\9\\35\\z4259964683170_982dfe41974150a19bf2ec4c272de3ec.jpg"
-    },
-    {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\9\\35\\z4259973699463_e0108e25ff0750e3bc7f88cce2cd7e69.jpg",
-      "PackagePath": "staticwebassets\\images\\post\\9\\35\\z4259973699463_e0108e25ff0750e3bc7f88cce2cd7e69.jpg"
-    },
-    {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\9\\38\\2023-03-05 13-26-24_Trim.mp4",
-      "PackagePath": "staticwebassets\\images\\post\\9\\38\\2023-03-05 13-26-24_Trim.mp4"
-    },
-    {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\images\\post\\9\\38\\4259973734295.mp4",
-      "PackagePath": "staticwebassets\\images\\post\\9\\38\\4259973734295.mp4"
-    },
-    {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\js\\site.js",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTWeb\\BTL\\FINISH\\SocialNetwork_ASPnet_Nhom1\\SocialNetwork\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Id": "C:\\Users\\MyPc\\Desktop\\Ki2Nam3\\LTsdAPI\\BTL\\SocialNetwork_API_Nhom1\\SocialNetwork\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
