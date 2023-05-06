@@ -35,7 +35,7 @@ public partial class SocialNetworkDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=DESKTOP-DCA8K2S\\MSSQLSERVER01;Initial Catalog=SocialNetworkDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
+        => optionsBuilder.UseSqlServer("workstation id=SocialNetworkDB.mssql.somee.com;packet size=4096;user id=NgocNguyen_SQLLogin_1;pwd=ge66eqsxma;data source=SocialNetworkDB.mssql.somee.com;persist security info=False;initial catalog=SocialNetworkDB;Encrypt=False;Trust Server Certificate=True;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
