@@ -464,7 +464,7 @@
             console.log(likeCount)
             console.log("call handle like function")
             $.ajax({
-                url: 'https://localhost:7150/api/ActionAPI?postId=' + postId,
+                url: 'https://mysocialnetwork.herokuapp.com/api/ActionAPI?postId=' + postId,
                 type: 'POST',
                 dataType: 'json',
                 success: function (data) {
@@ -508,7 +508,7 @@
             }
             event.target.querySelector('input').value = "";
             $.ajax({
-                url: 'https://localhost:7150/api/ActionAPI/addComment',
+                url: 'https://mysocialnetwork.herokuapp.com/api/ActionAPI/addComment',
                 type: 'POST',
                 dataType: 'json',
                 contentType: 'application/json',
@@ -589,7 +589,7 @@
     <script>
         function readNoti(notiId) {
             $.ajax({
-                url: `https://localhost:7150/api/actionapi/update_isRead?notiId=${notiId}`,
+                url: `https://mysocialnetwork.herokuapp.com/api/actionapi/update_isRead?notiId=${notiId}`,
                 type: 'PUT',
                 contentType: 'application/json',
                 success: function (data) {
@@ -621,7 +621,7 @@
                 // thông qua cách kiểm tra atribute neu attribute = idCommentDetail || idCommentModal
                 $.ajax({
                     type: 'PUT',
-                    url: `https://localhost:7150/api/actionapi/editComment?commentId=${idComment}&newcontent=${valueInputChange}`,
+                    url: `https://mysocialnetwork.herokuapp.com/api/actionapi/editComment?commentId=${idComment}&newcontent=${valueInputChange}`,
                     dataType: 'json',
                     contentType: "application/json;charset=utf-8",
                     success: function (data) {
@@ -655,7 +655,7 @@
 
             $.ajax({
                 type: 'DELETE',
-                url: `https://localhost:7150/api/ActionAPI/deleteComment?commentId=${idComment}`,
+                url: `https://mysocialnetwork.herokuapp.com/api/ActionAPI/deleteComment?commentId=${idComment}`,
                 dataType: 'json',
                 contentType: "application/json;charset=utf-8",
                 success: function (data) {
@@ -772,7 +772,7 @@
             const elem = document.querySelector(`[idPost="${idPost}"]`)
             $.ajax({
                 type: 'DELETE',
-                url: `https://localhost:7150/Home/DeletePost?postId=${idPost}`,
+                url: `https://mysocialnetwork.herokuapp.com/Home/DeletePost?postId=${idPost}`,
                 dataType: 'json',
                 contentType: "application/json;charset=utf-8",
                 success: function (data) {
@@ -791,7 +791,7 @@
         function showEditModel(id) {
             $.ajax({
                 type: 'GET',
-                url: `https://localhost:7150/Home/GetPostById?postId=${id}`,
+                url: `https://mysocialnetwork.herokuapp.com/Home/GetPostById?postId=${id}`,
                 dataType: 'json',
                 contentType: "application/json;charset=utf-8",
                 success: function (data) {
@@ -852,7 +852,7 @@
                         const contentText = $('#content-update').val();
                         $.ajax({
                         type: 'PUT',
-                        url: `https://localhost:7150/Home/UpdatePostById?postId=${id}&newcontent=${contentText}`,
+                            url: `https://mysocialnetwork.herokuapp.com/Home/UpdatePostById?postId=${id}&newcontent=${contentText}`,
                         dataType: 'json',
                         contentType: "application/json;charset=utf-8",
                         success: function (newPost) {
@@ -894,7 +894,7 @@
 
             $.ajax({
                 type: 'POST',
-                url: `https://localhost:7150/Home/CreatePost`,
+                url: `https://mysocialnetwork.herokuapp.com/Home/CreatePost`,
                 data: formData,
                 processData: false,
                 contentType: false,

@@ -271,7 +271,7 @@
     <script>
         function unfollow(sourceId, targetId) {
             $.ajax({
-                url: `https://localhost:7150/api/actionapi/unfollow?source=${sourceId}&target=${targetId}`,
+                url: `https://mysocialnetwork.herokuapp.com/api/actionapi/unfollow?source=${sourceId}&target=${targetId}`,
                 type: 'DELETE',
                 success: function (data) {
                     location.reload();
@@ -285,7 +285,7 @@
 
         function follow(sourceId, targetId) {
             $.ajax({
-                url: `https://localhost:7150/api/actionapi/follow?source=${sourceId}&target=${targetId}`,
+                url: `https://mysocialnetwork.herokuapp.com/api/actionapi/follow?source=${sourceId}&target=${targetId}`,
                 type: 'POST',
                 contentType: 'application/json',
                 success: function (data) {
@@ -299,7 +299,7 @@
 
         function block(sourceId, targetId) {
             $.ajax({
-                url: `https://localhost:7150/api/actionapi/block?source=${sourceId}&target=${targetId}`,
+                url: `https://mysocialnetwork.herokuapp.com/api/actionapi/block?source=${sourceId}&target=${targetId}`,
                 type: 'PUT',
                 contentType: 'application/json',
                 success: function (data) {
@@ -313,7 +313,7 @@
 
         function requestFollow(sourceId, targetId) {
             $.ajax({
-                url: `https://localhost:7150/api/actionapi/request_follow?source=${sourceId}&target=${targetId}`,
+                url: `https://mysocialnetwork.herokuapp.com/api/actionapi/request_follow?source=${sourceId}&target=${targetId}`,
                 type: 'POST',
                 contentType: 'application/json',
                 success: function (data) {
@@ -327,7 +327,7 @@
 
         function cancelRequestFollow(sourceId, targetId) {
             $.ajax({
-                url: `https://localhost:7150/api/actionapi/cancel_request_follow?source=${sourceId}&target=${targetId}`,
+                url: `https://mysocialnetwork.herokuapp.com/api/actionapi/cancel_request_follow?source=${sourceId}&target=${targetId}`,
                 type: 'DELETE',
                 contentType: 'application/json',
                 success: function (data) {
