@@ -49,6 +49,7 @@ var app = builder.Build();
 //    app.UseHsts();
 //}
 app.UseDeveloperExceptionPage();
+app.UseHsts();
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
